@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<style> 
+<style>
 div #sidebar
 {
   border:2px solid #a1a1a1;
-  padding:10px 20px; 
+  padding:10px 20px;
   border-radius:15px;
 }
 </style>
@@ -13,18 +13,19 @@ div #sidebar
 <div id="sidebar">
   <span>Select plot type</span>
   <br/>
-  <input type="radio" name="plot_type" value="line" checked>Line</input>
+  <input type="radio" name="bound_types" value="linear_and_log" checked >linear and log</input>
   <br/>
-  <input type="radio" name="plot_type" value="bar" >Bar</input>
+  <input type="radio" name="bound_types" value="linear_and_log-linear" >Linear and Log-linear</input>
   <br/>
-  <input type="radio" name="plot_type" value="pie" >Pie</input>
+  <input type="radio" name="bound_types" value="log-linear_and_quadratic" >Log-linear and Quadratic</input>
   <br/>
-  <input type="radio" name="plot_type" value="scatter" >Scatter</input>
+    <input type="radio" name="bound_types" value="quadratic_and_exponential" >
+    Quadratic and Exponential</input>
+
   <br/>
-  <input type="radio" name="plot_type" value="hist" >Histogram</input>
-  <br/>
-  <input type="radio" name="plot_type" value="area" >Area</input>
-  <br/>
+  <!-- <input type="radio" name="bound_types" value="semi_quadratic_and_exponential" >Semilogarithmic Quadratic and Exponential (use logarithmic scale for y-axis)</input>
+  <br/> -->
+
   <button type="button" id="query">View Plot</button>
   <br/>
 </div>
@@ -35,7 +36,7 @@ div #sidebar
   </div>
 </div>
 <div id="container" style="width:70%; height:400px;"></div>
-<script type="text/javascript">   
+<script type="text/javascript">
 $("#loading-div-background").css({ opacity: 0.7 });
 function datetime_to_epoch(datetime)
 {
@@ -44,22 +45,22 @@ function datetime_to_epoch(datetime)
   return epoch;
 }
 
-$("#query").click(function() {  
+$("#query").click(function() {
 
   $("#loading-div-background").show();
   $("#container").hide();
-  var plot_type = $('input:radio[name=plot_type]:checked').val();
-  var qu = {"plot_type":plot_type}
+  var bound_types = $('input:radio[name=bound_types]:checked').val();
+  var qu = {"bound_types":bound_types}
   $.ajax({
     type: "POST",
     async:true,
     contentType: "application/json; charset=utf-8",
     url: "/query",
     data: JSON.stringify(qu),
-    success: function (data) {     
+    success: function (data) {
      var graph = $("#container");
-     graph.html(data);   
-     $("#loading-div-background").hide();      
+     graph.html(data);
+     $("#loading-div-background").hide();
      $("#container").show();
    },
    dataType: "html"
