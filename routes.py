@@ -27,20 +27,27 @@ import mpld3
 from mpld3 import plugins
 
 
-def plot_growth(bound_types, lower, upper):
+def plot_growth(compare_type, lower, upper, width, height):
     """
     Plots comparisons of orders of growth (time complexity)
 
     Parameters
     ----------
-    bound_types: growth rate types to compare, of a notional function
+    compare_type: growth rate types to compare, of a notional function
     lower: lower limit of input size
     upper: upper limit of input size
+    width: figure width in inches, "figsize" is a tuple (w,h)
+    height: figure height in inches, "figsize" is a tuple (w,h)
 
     Returns
     --------
-    String of html and JS: representation of a matplotlib figure in HTML and D3js, using fig_to_html
+    String of html and JS: representation of a matplotlib figure in HTML and D3js, using fig_to_html (a General Function of mpld3)
     """
+    # Explicitly close open figure windows (rcParam `figure.max_num_figures`)
+    # http://stackoverflow.com/questions/8213522/matplotlib-clearing-a-plot-when-to-use-cla-clf-or-close
+    # (not working? still getting errors)
+    plt.close( 'all' )
+
     with lock:
 
         log= []
@@ -55,33 +62,34 @@ def plot_growth(bound_types, lower, upper):
             quadratic.append(n**2)
             exponential.append(2**n)
 
-        fig, ax = plt.subplots()
-        if bound_types == 'linear_and_log':
+        fig, ax = plt.subplots( figsize=(width, height) )
+
+        if compare_type == 'linearLog':
             ax.plot(log, label = 'log')
             ax.plot(linear, label='linear')
             ax.legend(loc = 'upper left')
             ax.grid(True, which = 'both')
             ax.set_axis_bgcolor('#FFF8DC')
-        elif bound_types == 'linear_and_log-linear':
+        elif compare_type == 'linearLogLinear':
             ax.plot(linear, label = 'linear')
             ax.plot(logLinear, label = 'log-linear')
             ax.legend(loc = 'upper left')
             ax.grid(True, which = 'both')
             ax.set_axis_bgcolor('#FFF8DC')
-        elif bound_types == 'log-linear_and_quadratic':
+        elif compare_type == 'logLinearQuadratic':
             ax.plot(logLinear, label = 'log-linear')
             ax.plot(quadratic, label = 'quadratic')
             ax.legend(loc = 'upper left')
             ax.grid(True, which = 'both')
             ax.set_axis_bgcolor('#FFF8DC')
-        elif bound_types == 'quadratic_and_exponential':
+        elif compare_type == 'quadraticExponential':
             ax.plot(quadratic, label = 'quadratic')
             ax.plot(exponential, label = 'exponential')
             ax.legend(loc = 'upper left')
             ax.grid(True, which = 'both')
             ax.set_axis_bgcolor('#FFF8DC')
         # can't set y-axis ticklabels padding correctly
-        # elif bound_types == 'semi_quadratic_and_exponential':
+        # elif compare_type == 'semiQuadraticExponential':
         #     ax.plot(quadratic, label = 'quadratic')
         #     ax.plot(exponential, label = 'exponential')
         #     ax.semilogy()
@@ -91,7 +99,6 @@ def plot_growth(bound_types, lower, upper):
 
     return mpld3.fig_to_html(fig)
 
-
 app = Flask(__name__)
 # log to stdout for heroku local
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
@@ -99,9 +106,9 @@ app.logger.setLevel(logging.ERROR)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index-3.html')
 
 @app.route('/query', methods=['POST'])
 def query():
     data = json.loads(request.data)
-    return plot_growth(data["bound_types"], 1, 500)
+    return plot_growth(data["compareType"], data["lowerLimit"], data["upperLimit"], data["plotWidth"], data["plotHeight"])
