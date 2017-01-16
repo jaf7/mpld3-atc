@@ -1,0 +1,95 @@
+/* 
+-------------------------------------------------------------- */
+
+ /*------------------------------------
+ box sizing, polyfills for easier divs
+ ------------------------------------*/
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+  /*----------------------------------*/
+
+
+body {
+  background-color: #4C0D09;
+  color: #D3B2AF;
+  /*font-family: 'Josefin Slab', serif;*/
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+p {
+  font-size: 16px;
+  font-style: normal;
+
+}
+
+/* override bootstrap default container max width of 1170px.  apparently, we typically don't need that much width.  also, using 960 gives nice even divisions with lots of common factors... */
+.container {
+  max-width: 960px;
+}
+
+/* =Navbar
+-------------------------------------------------- */
+
+.navbar { margin-bottom: 0; }
+
+.navbar-static-top {min-height: 50px; }
+
+.navbar-header { padding: 10px 10px 10px 10px; margin: 10px 10px 10px 10px; }
+
+.navbar-nav { padding: 10px 10px 10px 10px; margin: 10px 10px 10px 10px; }
+
+@media (max-width: 767px) {
+  .navbar-nav > li > a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: : 20px
+  }
+  .navbar-nav {
+    padding: 0px 0px 0px 0px;
+    margin: 5px 5px 5px 5px;
+  }
+}
+
+/* CONTENT AND PLOTS
+-------------------------------------------------- */
+.plot-slides-master {
+  float: right;
+}
+
+.plot-slides-buttons {
+  float: right;
+}
+
+/* STICKY FOOTER
+-------------------------------------------------- */
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 160px;
+}
+
+/*.footer,*/
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 160px;
+  background: #444;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  padding: 40px 0;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
