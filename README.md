@@ -11,7 +11,7 @@ A learning project that will present descriptions and interactive plots for grow
 
 ## Demo
 
-Almost ... Heroku link will be here
+[Heroku app](https://mpld3-growth-complexity-demo.herokuapp.com) - single dyno: first request needs a couple of seconds to wake up
 
 ## Built Using
 
