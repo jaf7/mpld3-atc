@@ -29,11 +29,11 @@ from mpld3 import plugins
 
 def plot_growth(compare_type, lower, upper, width, height):
     """
-    Plots comparisons of orders of growth (time complexity)
+    Plots comparisons of orders of growth (time complexity as number of "steps" in control flow)
 
     Parameters
     ----------
-    compare_type: growth rate types to compare, of a notional function
+    compare_type: growth rate types to compare, of a notional operation
     lower: lower limit of input size
     upper: upper limit of input size
     width: figure width in inches, "figsize" is a tuple (w,h)
@@ -41,7 +41,7 @@ def plot_growth(compare_type, lower, upper, width, height):
 
     Returns
     --------
-    String of html and JS: representation of a matplotlib figure in HTML and D3js, using fig_to_html (a General Function of mpld3)
+    String of html and JS: representation of a matplotlib figure in HTML and D3.js, using fig_to_html (a General Function of mpld3)
     """
     # Explicitly close open figure windows (rcParam `figure.max_num_figures`)
     # http://stackoverflow.com/questions/8213522/matplotlib-clearing-a-plot-when-to-use-cla-clf-or-close
@@ -106,7 +106,7 @@ app.logger.setLevel(logging.ERROR)
 
 @app.route('/')
 def home():
-    return render_template('index-3.html')
+    return render_template('index.html')
 
 @app.route('/query', methods=['POST'])
 def query():

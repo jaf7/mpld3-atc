@@ -1,172 +1,177 @@
 /*-------------------------------------------------------------------
 Wrapping in IIFE (advisable?)
 -------------------------------------------------------------------*/
-(function( $, document, window, viewport ) {
+(function($, document, window, viewport) {
 
-  $( document ).ready(function() {
+  $(document).ready(function() {
 
-    // For window.resize() listener
-    var currentBreakPoint = viewport.current();
-
-    // Params for plot_growth function in routes.py
-    var qu = {
+    // Arguments to pass to plot_growth() in routes.py
+    var plotData = {
       lowerLimit: 1,
       upperLimit: 1000,
       plotWidth: 8,
       plotHeight: 7,
-      compareType: "placeHolder" //linearLog, linearLogLinear, logLinearQuadratic,
-    };                  //quadraticExponential
-
-    var descriptions = {
-      "linearLog" : "<p>linearLog description</p>",
-      "linearLogLinear" :"linearLogLinear description",
-      "logLinearQuadratic" : "logLinearQuadratic description",
-      "quadraticExponential" : "quadraticExponential description"
+      compareType: "placeHolder"
     };
 
-    //button handler
-    $( ".btn-flex-container" ).on( 'click', '.btn-plot-choice', function() {
-      console.log( "this.classList[0]: ", this.classList[0] );
+
+    /*
+      mpld3 figures are not responsive: Connect appropriate
+      matplotlib figure size arguments to bootstrap viewport
+      breakpoints using Responsive Bootstrap Toolkit.
+      How to avoid duplicating this code? (see viewportChanged below)
+    */
+    if (viewport.is('<=sm')) {
+      plotData.plotWidth = 4;
+      plotData.plotHeight = 3;
+    }
+    if (viewport.is('md')) {
+      plotData.plotWidth = 7;
+      plotData.plotHeight = 6;
+    }
+    if (viewport.is('>md')) {
+      plotData.plotWidth = 8;
+      plotData.plotHeight = 7;
+    }
+
+
+    /*
+      Handle click events on buttons. Use jQuery .on() method
+      to filter the child element. This restricts the classList to
+      the object existing before MathJax class insertions.
+    */
+    $(".btn-flex-container").on('click', '.btn-plot-choice', function() {
       var compareChoice = this.classList[0];
-      qu.compareType = compareChoice;
-      setFigSize();
+      plotData.compareType = compareChoice;
+      genPlot();
     });
 
 
-    //Slider creation and handling https://refreshless.com/nouislider
-    var limitSlider = document.getElementById( "limit-slider" ),
-        lowerLimitInput = document.getElementById( "lower-limit-input" ),
-        upperLimitInput = document.getElementById( "upper-limit-input" );
+    // Slider creation and handling https://refreshless.com/nouislider
+    var limitSlider = document.getElementById("limit-slider"),
+      lowerLimitInput = document.getElementById("lower-limit-input"),
+      upperLimitInput = document.getElementById("upper-limit-input");
 
     noUiSlider.create(limitSlider, {
-      start: [ 1, 1000 ],
-      connect: [ true, true, false ],
+      start: [1, 1000],
+      connect: [true, true, false],
       behaviour: 'tap-drag',
       step: 1,
       margin: 1,
       range: {
-        'min': [ 1 ],
-        'max': [ 5000 ]
+        'min': [1],
+        'max': [5000]
       },
       format: wNumb({
         decimals: 0
       })
     });
     /*
-     * Binding slider handle and input field values:
-     * values is alwas an array of strings. handle is 0 or 1 and
-     * indicates the handle that caused the event.
-    */
+       Binding slider handle and input field values:
+       values is alwas an array of strings. handle is 0 or 1 and
+       indicates the handle that caused the event.
+     */
     // Bind slider handle changes to input field values
-    limitSlider.noUiSlider.on( "update", function( values, handle ) {
+    limitSlider.noUiSlider.on("update", function(values, handle) {
       // Need a Number to pass to plot_growth in routes.py
-      var currentValue = parseInt( values[ handle ] );
-
-      if ( handle === 0 ) {
+      var currentValue = parseInt(values[handle]);
+      if (handle === 0) {
         lowerLimitInput.value = currentValue;
-        qu.lowerLimit = currentValue;
-        console.log( "qu at low handle: ", qu );
+        plotData.lowerLimit = currentValue;
       } else {
         upperLimitInput.value = currentValue;
-        qu.upperLimit = currentValue;
-        console.log( "qu at high handle: ", qu );
+        plotData.upperLimit = currentValue;
       }
     });
     // Bind input field changes to slider handle values
-    lowerLimitInput.addEventListener( "change", function( values ) {
-      limitSlider.noUiSlider.set( [ this.value, values[1] ] );
+    lowerLimitInput.addEventListener("change", function(values) {
+      limitSlider.noUiSlider.set([this.value, values[1]]);
     });
-    upperLimitInput.addEventListener( "change", function ( values ) {
-      limitSlider.noUiSlider.set( [ values[0], this.value ] );
-    });
-
-
-    /* Since mpld3 figures are not responsive, this attempts
-     * a workaround using ResponsiveBootstrapToolkit
-     * https://github.com/maciej-gurban/responsive-bootstrap-toolkit
-     */
-    $( window ).resize(function() {
-      currentBreakPoint = viewport.current();
-      setFigSize();
-      // console.log( "viewport changed" );
-      // console.log( "viewport.current(): ", viewport.current() );
-      // var timer;
-      // clearTimeout( timer );
-      // setTimeout( function () {
-      //   if (currentBreakPoint !== viewport.current() ) {
-      //     setFigSize();
-      //   }
-      // });
-
-      // if ( currentBreakPoint !== viewport.current() ) {
-      //   var timer;
-      //   clearTimeout( timer );
-      //   setTimeout( setFigSize(), 1000 );
-      // }
-      // viewport.changed( function() {
-      //   setFigSize();
-      // });
+    upperLimitInput.addEventListener("change", function(values) {
+      limitSlider.noUiSlider.set([values[0], this.value]);
     });
 
-    var someFunction = function() {
-      if ( currentBreakPoint !== viewport.current() ) {
-        genPlot();
-      }
-    };
-
-    /* Set figure size for matplotlib, using
-     * ResponsiveBootstrapToolkit public method .is()
-     */
-    var setFigSize = function() {
-
-      // Define props on the qu object depending on viewport state
-      if ( viewport.is('<=sm') ) {
-        qu.plotWidth = 4;
-        qu.plotHeight = 3;
-      }
-      if ( viewport.is('md') ) {
-        qu.plotWidth = 7;
-        qu.plotHeight = 6;
-      }
-      if ( viewport.is('>md') ) {
-        qu.plotWidth = 8;
-        qu.plotHeight = 7;
-      }
-
-      genPlot();
-    };
 
     /*
-    * Call $.ajax() method to submit updated state to query() in routes.py
-    * Assign $.ajax() method to variable in order to use .done() promise callback
-    * https://medium.com/coding-design/writing-better-ajax-8ee4a7fb95f#.wkx1uei9f
-    * https://developers.google.com/web/fundamentals/getting-started/primers/promises
+      mpld3 figures are not responsive:
+      window resize events should trigger re-drawing figure at appropriate
+      dimensions. debounce() prevents multiple calls to plot_growth() and
+      multiple mpld3 renderings. It will not trigger until it hasn't been
+      invoked in [wait] milliseconds. [immediate] triggers on the leading
+      edge instead of the trailing edge. This debounce() is adapted from
+      Underscore.js and https://davidwalsh.name/javascript-debounce-function.
+      Re-writing here to think through it (rather than sourcing underscore.js lib)
+    */
+    var debounce = function(myFunction, wait, immediate) {
+      var timeout;
+      return function() {
+        var context = this,
+          args = arguments;                   // store the correct references to pass into closures
+        var callNow = immediate && !timeout;  // conditions for leading-edge firing
+        var later = function() {              // to be fired on trailing edge of wait time
+          timeout = null;                     // fired, reset to null so callNow is an option again
+          if (!immediate) { myFunction.apply(context, args); }  // use apply() to pass in context of calling object (this)
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);    // why does this get invoked though it's stored in a variable? <--??
+        if (callNow) { myFunction.apply(context, args); }
+      };
+    };
+    /*
+      The function to execute and fire rate limit.
+      How to avoid duplicating this code? (Can't pass a
+      reference into debounce() inner function scopes)
+    */
+    var viewportChanged = debounce(function() {
+      if (viewport.is('<=sm')) {
+        plotData.plotWidth = 4;
+        plotData.plotHeight = 3;
+      }
+      else if (viewport.is('md')) {
+        plotData.plotWidth = 7;
+        plotData.plotHeight = 6;
+      }
+      else if (viewport.is('>md')) {
+        plotData.plotWidth = 8;
+        plotData.plotHeight = 7;
+      }
+      genPlot();
+    }, 500);
+    // On resize, pass to debounce() the function to execute
+    window.addEventListener("resize", viewportChanged);
+
+
+    /*
+      $.ajax() method wrapper: submit updated state to plot_growth() in routes.py
+      (why doesn't it work to call getPlotSlide directly?) <--??
+      Assign $.ajax() method to a variable in order to use .done()
+      promise callback in a more readable fashion.
     */
     var genPlot = function() {
-      // console.log( "compareType at start of genPlot: ", compareType );
       var getPlotSlide = $.ajax({
         type: "POST",
         contentType: "application/json",
         url: "/query",
-        data: JSON.stringify( qu ),
+        data: JSON.stringify( plotData ),
         dataType: "html"
       });
-      getPlotSlide.done(function( data ) {
-        console.log( "getPlotSlide.done" );
-        console.log( "qu at getPlotSlide.done: ", qu );
-        console.log( "descriptions[ qu.compareType ]: ", descriptions[ qu.compareType ] );
-        // console.log( "data: ", data );
-        $( "#plot-space" ).fadeTo( 500, 0, function() { //
-          $( "#plot-space" ).html( data ).fadeTo( 500, 1 );
+      getPlotSlide.done(function(data) {
+        $("#plot-space").fadeTo(500, 0, function() {
+          $("#plot-space").html(data).fadeTo(500, 1);
         });
-
-        $( "#show-text" ).fadeTo(500, 0, function() {
-          $( this ).html( descriptions[ qu.compareType ] ).fadeTo(500, 1, function() {} );
+        $("#show-text").fadeTo(500, 0, function() {
+          $(this).html(descriptions[plotData.compareType]).fadeTo(500, 1, function() {});
         });
       });
     };
 
 
+    var descriptions = {
+      "linearLog": "<p>linearLog description</p>",
+      "linearLogLinear": "linearLogLinear description",
+      "logLinearQuadratic": "logLinearQuadratic description",
+      "plotDataadraticExponential": "plotDataadraticExponential description"
+    };
 
   });
-})( jQuery, document, window, ResponsiveBootstrapToolkit );
+})(jQuery, document, window, ResponsiveBootstrapToolkit);
