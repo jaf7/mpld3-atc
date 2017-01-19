@@ -22,16 +22,16 @@ Wrapping in IIFE (advisable?)
       How to avoid duplicating this code? (see viewportChanged below)
     */
     if (viewport.is('<=sm')) {
-      plotData.plotWidth = 4;
-      plotData.plotHeight = 3;
+      plotData.plotWidth = 6;
+      plotData.plotHeight = 5;
     }
     if (viewport.is('md')) {
-      plotData.plotWidth = 7;
-      plotData.plotHeight = 6;
+      plotData.plotWidth = 6;
+      plotData.plotHeight = 5;
     }
     if (viewport.is('>md')) {
-      plotData.plotWidth = 8;
-      plotData.plotHeight = 7;
+      plotData.plotWidth = 7;
+      plotData.plotHeight = 6;
     }
 
 
@@ -124,16 +124,16 @@ Wrapping in IIFE (advisable?)
     */
     var viewportChanged = debounce(function() {
       if (viewport.is('<=sm')) {
-        plotData.plotWidth = 4;
-        plotData.plotHeight = 3;
+        plotData.plotWidth = 6;
+        plotData.plotHeight = 5;
       }
       else if (viewport.is('md')) {
-        plotData.plotWidth = 7;
-        plotData.plotHeight = 6;
+        plotData.plotWidth = 6;
+        plotData.plotHeight = 5;
       }
       else if (viewport.is('>md')) {
-        plotData.plotWidth = 8;
-        plotData.plotHeight = 7;
+        plotData.plotWidth = 7;
+        plotData.plotHeight = 6;
       }
       genPlot();
     }, 500);

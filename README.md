@@ -38,7 +38,8 @@ A learning project that will present descriptions and interactive plots for grow
 * [html5Doctor](http://html5doctor.com/) - HTML5 learning resource
 * [matplotlib - What is a Backend?](http://matplotlib.org/faq/usage_faq.html#what-is-a-backend)
 * [matplotlib in a webapp server](http://matplotlib.org/faq/howto_faq.html#matplotlib-in-a-web-application-server)
-* [IIFE tutorial](http://www.tutorialsteacher.com/javascript/immediately-invoked-function-expression-iife) - Immediately Invoked Function Expressions
+* [IIFE lesson](https://www.kirupa.com/html5/immediately_invoked_function_expressions_iife.htm) - Immediately Invoked Function Expressions @ Kirupa.com: wonderful JavaScript lessons
+* [IIFE tutorial](http://www.tutorialsteacher.com/javascript/immediately-invoked-function-expression-iife) - Another helpful tutorial on Immediately Invoked Function Expressions
 * [Writing Better Ajax](https://medium.com/coding-design/writing-better-ajax-8ee4a7fb95f#.wkx1uei9f) - Terry Mun on [Medium](https://medium.com)
 * [What are Promises](https://developers.google.com/web/fundamentals/getting-started/primers/promises) - Web | Google Developers
 * [Debugging JS in Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/javascript/) - Web | Google Developers
@@ -48,7 +49,9 @@ A learning project that will present descriptions and interactive plots for grow
 #### TODO
 
 * Improve structure and readability of app.js []
-* Work on understanding debouncing and get responsive resizing of graphs working correctly [x]
+* Work on understanding debouncing & implement [x]
+* Get responsive resizing of graphs working correctly []
+* Fix MathJax font & button responsiveness []
 * Refactor app.js using Object Oriented principles []
 * Improve / re-design styling and layout []
 * Finish writing content
