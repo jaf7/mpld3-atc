@@ -18,12 +18,12 @@ A learning project that will present descriptions and interactive plots for grow
 * [HTML/CSS](http://learn.shayhowe.com/html-css/)
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [jQuery](https://jquery.com/)
-* [Python](https://www.python.org) - Use matplotlib to dynamically generate graphic comparisons of orders of growth
-* [Flask](http://flask.pocoo.org/) - Microframework for web apps
-* [matplotlib](http://matplotlib.org/) - Python 2D plotting library used to generate plot figures
-* [mpld3](http://mpld3.github.io/) - Exports matplotlib graphics to HTML (rendering [D3](https://d3js.org/))
+* [Python](https://www.python.org) - Back-end: Using matplotlib & mpld3 to dynamically generate graphic comparisons of orders of growth
+* [Flask](http://flask.pocoo.org/) - Microframework for web apps: used with Python for back-end
+* [matplotlib](http://matplotlib.org/) - Python 2D plotting library: used to generate plot figures
+* [mpld3](http://mpld3.github.io/) - Used to export matplotlib graphics to HTML (renders [D3](https://d3js.org/))
 * Forked from [mpld3-flask](https://github.com/nipunbatra/mpld3-flask) - Minimal Flask app using mpld3
-* [Underscore.js](underscorejs.org) - Amazing utility library, learned about debounce()
+* [Underscore.js](underscorejs.org) - Great utility library, learned about debounce()
 * [Responsive Bootstrap Toolkit](https://github.com/maciej-gurban/responsive-bootstrap-toolkit) - Breakpoint detection in JavaScript
 * [noUiSlider](https://refreshless.com/nouislider/) - Lightweight JavaScript range slider
 * [classList.js](https://github.com/eligrey/classList.js) - Make element.classList work for older IE browsers (cross-browser JS shim)
@@ -31,9 +31,9 @@ A learning project that will present descriptions and interactive plots for grow
 ## Resources Used
 
 * [MIT 6.00.1x Intro to Computer Science and Programming Using Python](https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-9)
-* [Eloquent JavaScript](eloquentjavascript.net) - Great book, starting second read of Chaps 1-6
-* [Debounce Function Explained](https://davidwalsh.name/javascript-debounce-function) - Excellent JS resource
-* [Demystifying Debounce in JS](https://john-dugan.com/javascript-debounce/) - Another helpful JS resource
+* [Eloquent JavaScript](eloquentjavascript.net) - Chaps 1-6, reviewing
+* [Debounce Function Explained](https://davidwalsh.name/javascript-debounce-function) - David Walsh, excellent JS resource
+* [Demystifying Debounce in JS](https://john-dugan.com/javascript-debounce/) - John Dugan, another helpful JS resource
 * [How JavaScript Timers Work](http://ejohn.org/blog/how-javascript-timers-work/) - John Resig, creator of [jQuery](https://jquery.com)
 * [html5Doctor](http://html5doctor.com/) - HTML5 learning resource
 * [matplotlib - What is a Backend?](http://matplotlib.org/faq/usage_faq.html#what-is-a-backend)
