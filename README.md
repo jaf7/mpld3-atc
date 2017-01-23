@@ -32,6 +32,7 @@ A learning project that will present descriptions and interactive plots for grow
 
 * [MIT 6.00.1x Intro to Computer Science and Programming Using Python](https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-9)
 * [Eloquent JavaScript](eloquentjavascript.net) - Chaps 1-6, reviewing
+* [Dash](https://kapeli.com/dash) - API Documentation Browser: Incredibly useful piece of software
 * [Debounce Function Explained](https://davidwalsh.name/javascript-debounce-function) - David Walsh, excellent JS resource
 * [Demystifying Debounce in JS](https://john-dugan.com/javascript-debounce/) - John Dugan, another helpful JS resource
 * [How JavaScript Timers Work](http://ejohn.org/blog/how-javascript-timers-work/) - John Resig, creator of [jQuery](https://jquery.com)
