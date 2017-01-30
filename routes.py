@@ -106,7 +106,7 @@ app.logger.setLevel(logging.ERROR)
 
 @app.route('/')
 def home():
-    return render_template('index-new.html')
+    return render_template('index.html')
 
 @app.route('/query', methods=['POST'])
 def query():
