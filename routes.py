@@ -45,7 +45,7 @@ def plot_growth(compare_type, lower, upper, width, height):
     """
     # Explicitly close open figure windows (rcParam `figure.max_num_figures`)
     # http://stackoverflow.com/questions/8213522/matplotlib-clearing-a-plot-when-to-use-cla-clf-or-close
-    # (not working? still getting errors)
+    # (getting errors)
     plt.close( 'all' )
 
     with lock:
@@ -106,7 +106,7 @@ app.logger.setLevel(logging.ERROR)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index-new.html')
 
 @app.route('/query', methods=['POST'])
 def query():

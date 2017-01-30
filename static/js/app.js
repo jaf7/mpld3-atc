@@ -1,8 +1,8 @@
 /*-------------------------------------------------------------------
 Wrapping in IIFE (advisable?)
 -------------------------------------------------------------------*/
-(function($, document, window, viewport) {
-
+// (function($, document, window, viewport) {
+  var viewport = ResponsiveBootstrapToolkit;
   $(document).ready(function() {
 
     // Arguments to pass to plot_growth() in routes.py
@@ -46,12 +46,13 @@ Wrapping in IIFE (advisable?)
       genPlot();
     });
 
-
-    // Slider creation and handling https://refreshless.com/nouislider
+    /*
+      Slider creation https://refreshless.com/nouislider
+      (no jQuery)
+    */
     var limitSlider = document.getElementById("limit-slider"),
-      lowerLimitInput = document.getElementById("lower-limit-input"),
-      upperLimitInput = document.getElementById("upper-limit-input");
-
+        lowerLimitInput = document.getElementById("lower-limit-input"),
+        upperLimitInput = document.getElementById("upper-limit-input");
     noUiSlider.create(limitSlider, {
       start: [1, 1000],
       connect: [true, true, false],
@@ -71,7 +72,7 @@ Wrapping in IIFE (advisable?)
        values is alwas an array of strings. handle is 0 or 1 and
        indicates the handle that caused the event.
      */
-    // Bind slider handle changes to input field values
+    // -- Bind slider handle changes to input field values
     limitSlider.noUiSlider.on("update", function(values, handle) {
       // Need a Number to pass to plot_growth in routes.py
       var currentValue = parseInt(values[handle]);
@@ -83,12 +84,28 @@ Wrapping in IIFE (advisable?)
         plotData.upperLimit = currentValue;
       }
     });
-    // Bind input field changes to slider handle values
+    // -- Bind input field changes to slider handle values
     lowerLimitInput.addEventListener("change", function(values) {
       limitSlider.noUiSlider.set([this.value, values[1]]);
     });
     upperLimitInput.addEventListener("change", function(values) {
       limitSlider.noUiSlider.set([values[0], this.value]);
+    });
+    // -- Handle input field focus for styling of addons "[" and "]"
+    $( "input" ).on( {
+      focusin: function() {
+        var lowerBrackets = $( "#basic-addon1, #basic-addon2" ),
+            upperBrackets = $( "#basic-addon3, #basic-addon4" );
+        if ( event.target == lowerLimitInput ) {
+          $( lowerBrackets ).addClass( "focused" );
+        }
+        else if ( event.target == upperLimitInput ) {
+          $( upperBrackets ).addClass( "focused" );
+        }
+      },
+      focusout: function() {
+        $( "span.input-group-addon" ).removeClass( "focused" );
+      }
     });
 
 
@@ -100,7 +117,6 @@ Wrapping in IIFE (advisable?)
       invoked in [wait] milliseconds. [immediate] triggers on the leading
       edge instead of the trailing edge. This debounce() is adapted from
       Underscore.js and https://davidwalsh.name/javascript-debounce-function.
-      Re-writing here to think through it (rather than sourcing underscore.js lib)
     */
     var debounce = function(myFunction, wait, immediate) {
       var timeout;
@@ -174,4 +190,4 @@ Wrapping in IIFE (advisable?)
     };
 
   });
-})(jQuery, document, window, ResponsiveBootstrapToolkit);
+// })(jQuery, document, window, ResponsiveBootstrapToolkit);
