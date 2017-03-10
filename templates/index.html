@@ -12,11 +12,11 @@
     <link href="../static/css/nouislider.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
     <script src="https://use.fontawesome.com/f8aaee0601.js"></script>
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body class="site">
-    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <a type="a" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-elements">
@@ -25,7 +25,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="navbar-brand" href="#">Brand</a>
+          <a class="navbar-brand" id="push-brand" href="#">[ Brand ]</a>
         </div>
 
         <div class="navbar-collapse collapse" id="collapse-elements">
@@ -38,7 +38,7 @@
       </div>
     </nav>
 
-    <main class="content=wrapper">
+    <main class="content-wrapper">
       <div class="container-fluid">
         <div class="row">
 
@@ -50,7 +50,20 @@
                 <div class="subhead">// What Is Computational Complexity?</div>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a euismod lorem. Phasellus vestibulum ligula eget ante volutpat, at pharetra quam eleifend. Nullam fringilla ac quam ac ullamcorper. Donec iaculis quis mi eget maximus. Fusce id purus vitae mi cursus consequat id tempor tellus. Nunc lacinia vestibulum urna, nec venenatis ligula dignissim ac. Aenean placerat lacinia tempor.
-
+                </p>
+                  <!-- <figure>
+                    <figcaption>Code Title</figcaption>
+                      <pre> -->
+                        <div class="microlight" contenteditable="true">
+                          for ( var i = 0; i&lt10; i++ ) {
+                            // say hello
+                            echo("hello");
+                          }
+                        </div>
+                      <!-- </pre>
+                  </figure> -->
+                <!-- </p> -->
+                <p>
     Vestibulum pulvinar dignissim neque eu fringilla. Duis augue odio, pharetra quis turpis eu, congue tempor nibh. Nulla facilisi. Aenean viverra, lacus quis mollis iaculis, quam quam cursus dui, at laoreet dui purus nec nisi. Proin sagittis scelerisque odio. Cras vestibulum malesuada molestie. Mauris quis elit vestibulum, vestibulum nunc quis, laoreet erat. Mauris auctor vel magna eu dignissim. Aliquam est justo, molestie ut suscipit vel, tincidunt sed orci. Nullam ornare elit a placerat ultricies. Integer nec tortor nec arcu rutrum egestas. Pellentesque vel purus vel sapien sagittis scelerisque. Cras lacus sapien, scelerisque nec ex a, ultrices sodales ante. Aenean tempor nunc et condimentum congue. Phasellus gravida tristique erat non iaculis. Donec efficitur varius lectus, sit amet cursus velit pulvinar eu.
 
     Fusce velit erat, dapibus quis iaculis condimentum, facilisis ut tellus. Maecenas convallis ipsum eu elit cursus, at sodales libero posuere. Donec imperdiet ut tortor a condimentum. Etiam sed mi commodo, convallis sem nec, mollis ante. Pellentesque a arcu vitae mauris scelerisque suscipit nec vitae sem. Praesent id consectetur metus. Quisque tincidunt metus vel eros eleifend, ac commodo felis venenatis. Phasellus non dignissim nulla, auctor commodo nulla. Sed convallis, neque in placerat semper, libero tortor iaculis nibh, eget vestibulum magna tellus a felis.
@@ -63,34 +76,35 @@
 
     In eu magna id lectus tempus tincidunt vestibulum nec odio. Aenean rutrum turpis eget sapien aliquet, molestie condimentum nulla aliquam. Quisque pretium, leo nec elementum pharetra, leo lorem sodales purus, quis lobortis mauris nulla placerat erat. Aenean consectetur posuere tellus nec iaculis. Quisque mollis turpis ut posuere mattis. Curabitur fermentum quis risus sed vehicula. Sed eu neque justo. Maecenas eleifend tristique erat, nec lobortis sapien dapibus vel.
                 </p>
-                <div class="subhead">// Linear Growth Complexity</div>
-                <p>
+                <div class="subhead">// Linear Growth</div>
+                <p class="growthDescription" id="linearLog">
     Etiam vitae aliquet nisl. Nulla sed nulla ut augue blandit pharetra. Aenean luctus arcu quis libero volutpat, auctor euismod libero imperdiet. Sed vitae pretium tellus. Fusce placerat lorem efficitur tellus lobortis, sodales posuere eros cursus. Phasellus tellus tellus, vulputate id tellus eu, molestie viverra nisl. Suspendisse quis odio eget est volutpat tristique ut in magna. Sed a imperdiet leo. Vestibulum ac condimentum lacus, eget luctus quam. Vestibulum interdum sem sem, euismod dignissim justo dictum in. Morbi rhoncus cursus leo vitae placerat. Suspendisse nec nunc at libero consequat dictum a vel tellus. Morbi porttitor dapibus nisl in accumsan. Maecenas mattis orci a lorem faucibus, vitae pretium turpis molestie. Duis pulvinar urna posuere neque volutpat facilisis. Proin vulputate magna ex, vitae iaculis mauris posuere at.
-
-    In pretium posuere dui, sit amet scelerisque nunc mollis at. Aliquam interdum scelerisque dictum. Fusce a quam sed arcu porttitor tincidunt. Aenean in dui nec odio sagittis tincidunt ac sit amet arcu. Aliquam at sem vel ante molestie feugiat et consequat nisl. Nullam congue blandit aliquam. Donec ut diam semper, molestie nibh facilisis, pharetra quam. Aenean sollicitudin massa in neque convallis, et fermentum ante finibus. Phasellus elit nisl, feugiat non dignissim id, ullamcorper porttitor ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-
-    In eu magna id lectus tempus tincidunt vestibulum nec odio. Aenean rutrum turpis eget sapien aliquet, molestie condimentum nulla aliquam. Quisque pretium, leo nec elementum pharetra, leo lorem sodales purus, quis lobortis mauris nulla placerat erat. Aenean consectetur posuere tellus nec iaculis. Quisque mollis turpis ut posuere mattis. Curabitur fermentum quis risus sed vehicula. Sed eu neque justo. Maecenas eleifend tristique erat, nec lobortis sapien dapibus vel.
                 </p>
-                <div class="subhead">// Logarithmic Growth Complexity</div>
+                <div class="subhead">// Logarithmic Growth</div>
                 <p>
-
+    In pretium posuere dui, sit amet scelerisque nunc mollis at. Aliquam interdum scelerisque dictum. Fusce a quam sed arcu porttitor tincidunt. Aenean in dui nec odio sagittis tincidunt ac sit amet arcu. Aliquam at sem vel ante molestie feugiat et consequat nisl. Nullam congue blandit aliquam. Donec ut diam semper, molestie nibh facilisis, pharetra quam. Aenean sollicitudin massa in neque convallis, et fermentum ante finibus. Phasellus elit nisl, feugiat non dignissim id, ullamcorper porttitor ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In eu magna id lectus tempus tincidunt vestibulum nec odio. Aenean rutrum turpis eget sapien aliquet, molestie condimentum nulla aliquam. Quisque pretium, leo nec elementum pharetra, leo lorem sodales purus, quis lobortis mauris nulla placerat erat.
+                </p>
+                <div class="subhead">// Log-Linear Growth</div>
+                <p class="growthDescription" id="linearLogLinear">
     Maecenas vitae tellus aliquet, vestibulum urna eget, rutrum ligula. Nulla lobortis elit non ultrices venenatis. Nulla nec volutpat ipsum. Maecenas efficitur dui lacus, vel ullamcorper ex sollicitudin sit amet. Sed nec quam non risus rutrum lobortis quis a urna. Phasellus ut eros sagittis, scelerisque leo non, porttitor arcu. Aenean tristique turpis congue risus elementum semper. Praesent non quam nec velit commodo facilisis nec id leo. Suspendisse orci metus, facilisis a cursus ut, semper ut est.
 
     Aenean euismod purus ut ante eleifend ultrices. In hac habitasse platea dictumst. Suspendisse eu condimentum nulla. Donec porttitor orci non massa placerat lacinia. Proin blandit quam eu justo maximus, vitae vestibulum arcu hendrerit. In consequat felis et turpis vestibulum iaculis. Etiam vel venenatis enim. Quisque pellentesque, magna vel ultrices interdum, dolor odio elementum mauris, ac pulvinar risus tortor sed enim. Sed risus ligula, dapibus id vestibulum ut, tincidunt ac eros. Mauris pellentesque nec ipsum sed ornare. Donec consectetur bibendum sapien ac pretium.
-
-    Vivamus interdum scelerisque posuere. Maecenas feugiat, felis vel congue dapibus, erat ex bibendum nisl, sed cursus quam quam id neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis vitae sapien sit amet erat facilisis varius vitae a tortor. Suspendisse mattis et augue at placerat. Praesent nisi velit, dictum et ultrices id, euismod quis nisl. Ut convallis non quam non euismod. Proin justo nibh, iaculis a molestie eget, lobortis non quam. Cras hendrerit at erat in eleifend. Mauris in tellus a erat efficitur hendrerit in nec lorem.
-
+                </p>
+                <div class="subhead">// Quadratic Growth</div>
+                <p class="growthDescription" id="logLinearQuadratic">
     Quisque rutrum pharetra feugiat. Vivamus tempor lobortis ipsum, ut cursus odio dictum vitae. Nulla ut tortor tempor, finibus risus quis, finibus elit. Nulla non ligula at est finibus aliquam. Vivamus in efficitur magna, vitae placerat turpis. Duis lobortis facilisis viverra. Cras eu mi in lectus volutpat mollis. Vestibulum purus mauris, elementum sed iaculis vel, dignissim quis eros. Pellentesque in fermentum erat.
 
     Fusce et dolor pulvinar massa ultricies elementum. Vivamus ut metus volutpat, pharetra eros eget, fermentum mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus rhoncus in risus vel ultrices. Vestibulum id lacus a erat facilisis tincidunt at et arcu. Sed in purus aliquam, vulputate odio vel, cursus leo. Aenean lobortis arcu ut felis egestas, quis vestibulum est molestie. Morbi a ultrices risus. In vel ullamcorper odio, vitae laoreet mi. Ut diam mi, sodales et ipsum in, semper consectetur mauris. Phasellus volutpat mi quis ipsum egestas, id ullamcorper risus volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-
-    Maecenas venenatis ex vitae hendrerit fringilla. Quisque vel est risus. Aenean quis ipsum a nulla dapibus ornare ac ac ligula. Praesent dignissim posuere nibh, non commodo velit feugiat sit amet. Interdum et malesuada fames ac ante ipsum primis in faucibus. In ultricies dui sed nunc suscipit porta. Pellentesque commodo aliquet porttitor. Donec semper augue eget sapien gravida mattis efficitur in velit. Nullam bibendum ut massa quis pellentesque. Aliquam a varius ligula, vel efficitur urna. Praesent eleifend convallis ipsum, et vehicula mi venenatis lacinia. Duis varius turpis vel arcu tempus, nec imperdiet ex dapibus.
-
+                </p>
+                <div class="subhead">// Exponential Growth</div>
+                <p class="growthDescription" id="quadraticExponential">
     In ullamcorper dictum ligula, in luctus magna dapibus ac. Curabitur et efficitur odio. In elementum elit ut sagittis elementum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque eu odio quis enim ultricies pharetra sit amet et justo. Sed convallis malesuada metus. Vestibulum hendrerit sem a risus interdum porta. Phasellus in porttitor tortor. Morbi a sagittis mauris, a lacinia nisl. Suspendisse nec nibh nunc. Nam rutrum, nunc interdum finibus eleifend, diam turpis luctus odio, quis hendrerit tortor massa pharetra lorem.
 
     Aliquam id eros non lorem finibus volutpat et sit amet elit. Integer pulvinar nunc ac justo porttitor finibus. Praesent non dignissim arcu. Donec vehicula massa ut lectus congue laoreet sed et lacus. Mauris fermentum enim a ligula dapibus vulputate. Sed semper bibendum erat, quis euismod quam commodo in. Curabitur nulla purus, pellentesque et libero vitae, pellentesque consectetur magna. Donec sodales, libero vel efficitur posuere, nisi lectus elementum nisl, et accumsan nisi tellus in neque. Nunc sapien orci, venenatis sit amet venenatis sit amet, imperdiet id ligula.
 
-    Praesent eget lacinia est, nec tempus tellus. Sed lacinia, nibh a auctor porttitor, velit libero dapibus dolor, quis scelerisque dolor ipsum in nulla. Donec eu nulla at velit accumsan bibendum. Mauris viverra lectus sapien, vel varius felis lobortis non. Morbi id tempor lorem, sed egestas dolor. Aliquam vitae nisi fermentum, consectetur velit vel, laoreet urna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+    In ullamcorper dictum ligula, in luctus magna dapibus ac. Curabitur et efficitur odio. In elementum elit ut sagittis elementum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque eu odio quis enim ultricies pharetra sit amet et justo. Sed convallis malesuada metus. Vestibulum hendrerit sem a risus interdum porta. Phasellus in porttitor tortor. Morbi a sagittis mauris, a lacinia nisl. Suspendisse nec nibh nunc. Nam rutrum, nunc interdum finibus eleifend, diam turpis luctus odio, quis hendrerit tortor massa pharetra lorem.
+
+    Aliquam id eros non lorem finibus volutpat et sit amet elit. Integer pulvinar nunc ac justo porttitor finibus. Praesent non dignissim arcu. Donec vehicula massa ut lectus congue laoreet sed et lacus. Mauris fermentum enim a ligula dapibus vulputate. Sed semper bibendum erat, quis euismod quam commodo in. Curabitur nulla purus, pellentesque et libero vitae, pellentesque consectetur magna. Donec sodales, libero vel efficitur posuere, nisi lectus elementum nisl, et accumsan nisi tellus in neque. Nunc sapien orci, venenatis sit amet venenatis sit amet, imperdiet id ligula.
                 </p>
               </div> <!-- #show-text -->
             </div>
@@ -146,6 +160,8 @@
     <script type="text/javascript" src="../static/js/nouislider.min.js"></script>
     <script type="text/javascript" src="../static/js/wNumb.js"></script>
     <script type="text/javascript" src="../static/js/classList.js"></script> <!-- https://github.com/eligrey/classList.js -->
+    <script type="text/javascript" src="../static/js/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="../static/js/microlight.js"></script>
     <script type="text/javascript" src="../static/js/app.js"></script>
 
   </body>

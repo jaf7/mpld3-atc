@@ -5,8 +5,10 @@
   "main": "app.js",
   "dependencies": {
     "classlist-polyfill": "^1.0.3",
+    "microlight": "0.0.7",
     "nouislider": "^9.2.0",
     "responsive-toolkit": "^2.6.3",
+    "waypoints": "^4.0.1",
     "wnumb": "^1.0.4"
   },
   "devDependencies": {},

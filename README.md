@@ -26,6 +26,7 @@ A learning project that will present descriptions and interactive plots for grow
 * [Underscore.js](underscorejs.org) - Great utility library, learned about debounce()
 * [Responsive Bootstrap Toolkit](https://github.com/maciej-gurban/responsive-bootstrap-toolkit) - Breakpoint detection in JavaScript
 * [noUiSlider](https://refreshless.com/nouislider/) - Lightweight JavaScript range slider
+* [Waypoints](http://imakewebthings.com/waypoints/) - Javascript library for triggering functions when scrolling to elements
 * [classList.js](https://github.com/eligrey/classList.js) - Make element.classList work for older IE browsers (cross-browser JS shim)
 
 ## Resources Used
@@ -51,10 +52,11 @@ A learning project that will present descriptions and interactive plots for grow
 
 * Improve structure and readability of app.js []
 * Work on understanding debouncing & implement [x]
+* Add debounce() functionality to waypoint scrolling function []
 * Get responsive resizing of graphs working correctly []
 * Fix MathJax font & button responsiveness []
 * Refactor app.js using Object Oriented principles []
-* Improve / re-design styling and layout []
+* Improve / re-design styling and layout [\\]
 * Finish writing content
   (descriptions and resources for analysis of orders of growth and big-O) []
 * ...

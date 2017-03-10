@@ -7,23 +7,48 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-}
-*/
+}*/
 
-/* Content
+
+/* General Content
 -------------------------------------------------- */
 body {
   color: #93A1A1;
   background-color: #073642;
   font-family: 'Inconsolata', monospace;
 }
+
+.navbar-default {
+  background-color: #073642;
+  border-bottom: 1px dashed #bdcccc;
+}
+.navbar-default .navbar-brand {
+  color: #bdcccc;
+  margin-left: 15px;
+}
+.navbar-default .navbar-brand:hover {
+  color: #b58900;
+}
+.navbar-default .navbar-brand:focus {
+  color: #b58900;
+  font-weight: 600;
+}
+#push-brand {
+  margin-left: 0;
+}
+ul.nav.navbar-nav {
+  float: right;
+}
+
+main.content-wrapper {
+  margin-top: 60px;
+}
 .row {
   margin-left: 0;
   margin-right: 0;
 }
-.outer-col {
-  padding-left: 30px;
-  padding-right: 30px;
+div.col-md-7.outer-col {
+  padding-right: 20px;
 }
 .title {
   color: #B58900;
@@ -42,15 +67,37 @@ p {
   font-size: 1.6rem;
   line-height: 1.5;
 }
-.affix {
-  right: 5px;
-  top: 71px;
+.microlight {
+  font-family: monospace;
+  white-space: pre;
+  float: both;
+}
+.microlight:focus {
+    outline: -webkit-focus-ring-color auto 0px;
+    outline-color: -webkit-focus-ring-color;
+    outline-style: auto;
+    outline-width: 0px;
+}
+
+/* Affixed content (range slider and plot)
+-------------------------------------------------- */
+@media only screen and (min-width: 480px) {
+  .affix {
+    position: relative;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .affix {
+    position: fixed;
+    right: .5em;
+    top: 71px;
+  }
 }
 
 /* noUiSlider styling
 -------------------------------------------------- */
 .slider-wrapper {
-  padding: 2% 2% 2% 0;
+  padding: 2% 0;
 }
 
 /* Slider base (.noUi-background doesn't seem to work)*/
@@ -73,17 +120,20 @@ p {
 .noUi-horizontal.noUi-extended .noUi-handle {
 	left: -1px;
   width: 10px;
-  height: 20px;
+  height: 15px;
   border-radius: 10%;
   box-shadow: none;
-  background-color: #268BD2;
-  border: none;
+  background-color: #073642;
+  border: 1px solid #2AA198;
   left: -5px;
   top: -6px;
   transition: width .2s cubic-bezier(0.215, 0.610, 0.355, 1.000),
   height .2s cubic-bezier(0.215, 0.610, 0.355, 1.000),
   left .2s cubic-bezier(0.215, 0.610, 0.355, 1.000),
   top .2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+.noUi-horizontal.noUi-extended .noUi-handle.noUi-active {
+  border: 2px solid #859900;
 }
 .noUi-horizontal.noUi-extended .noUi-handle:before {
   content: none;
@@ -92,12 +142,17 @@ p {
   content: none;
 }
 /* Contain handles within slider bar */
+.noUi-horizontal.noUi-extended {
+	padding-right: 0px;
+}
+.noUi-horizontal.noUi-extended .noUi-handle {
+	left: -1px;
+}
 .noUi-horizontal.noUi-extended .noUi-origin  {
 	right: -32px;
 }
 
-/* noUiSlider input fields
--------------------------------------------------- */
+/* Slider input fields */
 div.input-wrapper {
   display: block;
 }
@@ -153,6 +208,7 @@ span#basic-addon4.input-group-addon {
 
 /* plot chooser buttons
 -------------------------------------------------- */
+/*
 .plot-nav {
 text-align: center;
 margin-bottom: 20px;
@@ -165,8 +221,6 @@ padding-left: 0;
 .plot-nav li {
 display: inline;
 }
-
-/* add media query setup */
 .btn {
   border-width: 0;
   outline: none;
@@ -175,7 +229,7 @@ display: inline;
   background-color: #A6D2FF;
   color: black;
   transition: background-color .3s;
-  /*padding: 1em;*/
+  padding: 1em;
   min-height: 45px;
   margin: 0 22px;
   font-size: 16px;
@@ -189,7 +243,6 @@ display: inline;
 .btn-end-right {
   margin-right: 0;
 }
-
 @media (max-width: 768px) {
   .btn-responsive {
     height: 40px;
@@ -223,11 +276,12 @@ display: inline;
     margin: 20px 10px;
   }
 }
+*/
 
 /* Plot Space
 -------------------------------------------------- */
 #plot-space {
-  /*align-content: center;*/
+  text-align: center;
 }
 
 /* FOOTER (sticky footer using flexbox)

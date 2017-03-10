@@ -45,15 +45,14 @@ def plot_growth(compare_type, lower, upper, width, height):
     """
     # Explicitly close open figure windows (rcParam `figure.max_num_figures`)
     # http://stackoverflow.com/questions/8213522/matplotlib-clearing-a-plot-when-to-use-cla-clf-or-close
-    # (getting errors)
     plt.close( 'all' )
 
     with lock:
 
         log= []
         linear = []
-        quadratic = []
         logLinear = []
+        quadratic = []
         exponential = []
         for n in range(lower, upper+1):
             log.append(math.log(n, 2))
@@ -65,37 +64,42 @@ def plot_growth(compare_type, lower, upper, width, height):
         fig, ax = plt.subplots( figsize=(width, height) )
 
         if compare_type == 'linearLog':
-            ax.plot(log, label = 'log')
-            ax.plot(linear, label='linear')
-            ax.legend(loc = 'upper left')
+            ax.plot(linear, '#bdcccc', label='linear')
+            ax.plot(log, '#B58900', label = 'log')
+            ax.legend(loc = 'upper left', facecolor = '#657B83')
             ax.grid(True, which = 'both')
-            ax.set_axis_bgcolor('#FFF8DC')
+            # ax.set_axis_bgcolor('#073642')
+            ax.set_facecolor('#073642')
         elif compare_type == 'linearLogLinear':
-            ax.plot(linear, label = 'linear')
-            ax.plot(logLinear, label = 'log-linear')
-            ax.legend(loc = 'upper left')
+            ax.plot(logLinear, '#bdcccc', label = 'log-linear')
+            ax.plot(linear, '#B58900', label = 'linear')
+            ax.legend(loc = 'upper left', facecolor = '#657B83')
             ax.grid(True, which = 'both')
-            ax.set_axis_bgcolor('#FFF8DC')
+            # ax.set_axis_bgcolor('#073642')
+            ax.set_facecolor('#073642')
         elif compare_type == 'logLinearQuadratic':
-            ax.plot(logLinear, label = 'log-linear')
-            ax.plot(quadratic, label = 'quadratic')
-            ax.legend(loc = 'upper left')
+            ax.plot(quadratic, '#bdcccc', label = 'quadratic')
+            ax.plot(logLinear, '#B58900', label = 'log-linear')
+            ax.legend(loc = 'upper left', facecolor = '#657B83')
             ax.grid(True, which = 'both')
-            ax.set_axis_bgcolor('#FFF8DC')
+            # ax.set_axis_bgcolor('#073642')
+            ax.set_facecolor('#073642')
         elif compare_type == 'quadraticExponential':
-            ax.plot(quadratic, label = 'quadratic')
-            ax.plot(exponential, label = 'exponential')
-            ax.legend(loc = 'upper left')
+            ax.plot(exponential, '#bdcccc', label = 'exponential')
+            ax.plot(quadratic, '#B58900', label = 'quadratic')
+            ax.legend(loc = 'upper left', facecolor = '#657B83')
             ax.grid(True, which = 'both')
-            ax.set_axis_bgcolor('#FFF8DC')
+            # ax.set_axis_bgcolor('#073642')
+            ax.set_facecolor('#073642')
         # can't set y-axis ticklabels padding correctly
         # elif compare_type == 'semiQuadraticExponential':
         #     ax.plot(quadratic, label = 'quadratic')
         #     ax.plot(exponential, label = 'exponential')
         #     ax.semilogy()
-        #     ax.legend(loc = 'upper left')
+        #     ax.legend(loc = 'upper left', facecolor = '#657B83')
         #     ax.grid(True, which = 'both')
         #     ax.set_axis_bgcolor('#FFF8DC')
+        #     ax.set_facecolor('#073642')
 
     return mpld3.fig_to_html(fig)
 

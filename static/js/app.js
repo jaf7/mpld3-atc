@@ -1,10 +1,6 @@
-/*-------------------------------------------------------------------
-Wrapping in IIFE (advisable?)
-Experimenting without IIFE
--------------------------------------------------------------------*/
-// (function($, document, window, viewport) {
+(function($, document, window, viewport) {
   $(document).ready(function() {
-    var viewport = ResponsiveBootstrapToolkit;
+    //var viewport = ResponsiveBootstrapToolkit;
 
     // Arguments to pass to plot_growth() in routes.py
     var plotData = {
@@ -34,8 +30,8 @@ Experimenting without IIFE
       plotData.plotHeight = 5;
     }
     if (viewport.is('>md')) {
-      plotData.plotWidth = 7;
-      plotData.plotHeight = 6;
+      plotData.plotWidth = 6;
+      plotData.plotHeight = 5;
     }
 
 
@@ -64,7 +60,7 @@ Experimenting without IIFE
       };
     };
     /*
-      The function to pass to debounce(), and fire rate limit.
+      On window resize: function to pass to debounce(), and fire rate limit.
       How to avoid duplicating this code? (Can't pass a
       reference into debounce() inner function scopes, so
       conditional code is repeated here-- how to avoid this?)
@@ -104,27 +100,30 @@ Experimenting without IIFE
 
 
     /*
-      Waypoints function to trigger on scrolling to
-      each .growthDescription element
-      -- add debounce()
+      Waypoints function, trigger when scrolling to
+      .growthDescription elements
+      -- add debounce()?
       -- refine: selectively trigger (for ex. don't
          trigger when scrolling back up to last element)
     */
     var scrollWaypoints = $( ".growthDescription" ).waypoint(
       function() {
-        console.log( "plotType", plotType);
-        console.dir(this);
-
         var plotType = this.element.id;
         plotData.compareType = plotType;
+        console.log( "plotType", plotType);
+        console.dir(this);
+        var thisClientHeight = this.element.clientHeight,
+            thisClientHeightDiv2 = Math.floor( this.element.clientHeight/2 );
+        console.log( "clientHeight: ", thisClientHeight );
+        console.log( "clientHeight/2: ", thisClientHeightDiv2 );
         genPlot();
       },
-      { offset: "60%" }
+      { offset: "40%" }
     );
 
 
     /*
-      Slider creation, binding, styling
+      Slider creation, binding, and styling
       https://refreshless.com/nouislider
       (no jQuery)
     */
@@ -170,7 +169,7 @@ Experimenting without IIFE
     upperLimitInput.addEventListener("change", function(values) {
       limitSlider.noUiSlider.set([values[0], this.value]);
     });
-    // -- Handle input field focus for styling of addons "[" and "]"
+    // -- Styling of addons "[" and "]": handler for input field focus events
     $( "input" ).on( {
       focusin: function() {
         var lowerBrackets = $( "#basic-addon1, #basic-addon2" ),
@@ -214,4 +213,4 @@ Experimenting without IIFE
 
 
   });
-// })(jQuery, document, window, ResponsiveBootstrapToolkit);
+})(jQuery, document, window, ResponsiveBootstrapToolkit);
