@@ -18,6 +18,16 @@ body {
   font-family: 'Inconsolata', monospace;
 }
 
+/* Hidden div for calculating pixels per inch
+-------------------------------------------------- */
+.ppi {
+  height: 1in;
+  width: 1in;
+  left: 100%;
+  position: fixed;
+  top: 100%;
+}
+
 .navbar-default {
   background-color: #073642;
   border-bottom: 1px dashed #bdcccc;
@@ -86,11 +96,14 @@ p {
     position: relative;
   }
 }
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 768px) {
   .affix {
     position: fixed;
     right: .5em;
     top: 71px;
+  }
+  .btn-plot-choice {
+    display: none;
   }
 }
 
@@ -168,6 +181,7 @@ span.input-group-addon {
   background: transparent;
   color: #2AA198;
 }
+/*"focused" class is added by input handler in app.js*/
 span.input-group-addon.focused {
   color: #859900;
   font-size: 1.2em;
@@ -208,75 +222,27 @@ span#basic-addon4.input-group-addon {
 
 /* plot chooser buttons
 -------------------------------------------------- */
-/*
-.plot-nav {
-text-align: center;
-margin-bottom: 20px;
+.btn-plot-choice {
+  border: 0;
+  /*padding-top: 28px;*/
+  padding-left: 0;
+  padding-right: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 0.9em;
 }
-.plot-nav ul {
-display: inline-block;
-list-style: none;
-padding-left: 0;
+.btn-plot-choice:hover, .btn-plot-choice:focus {
+  color: #859900;
+  /*font-size: 0.95em;*/
 }
-.plot-nav li {
-display: inline;
+span.btn-addon {
+  color: #2AA198;
 }
-.btn {
-  border-width: 0;
-  outline: none;
-  border-radius: 2px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
-  background-color: #A6D2FF;
-  color: black;
-  transition: background-color .3s;
-  padding: 1em;
-  min-height: 45px;
-  margin: 0 22px;
-  font-size: 16px;
+span.btn-addon.focused {
+  color: #859900;
+  /*font-size: .98em;*/
 }
-.btn:hover, .btn:focus {
-  background-color: white;
-}
-.btn-end-left {
-  margin-left: 0;
-}
-.btn-end-right {
-  margin-right: 0;
-}
-@media (max-width: 768px) {
-  .btn-responsive {
-    height: 40px;
-    padding: 2px 4px;
-    font-size:80%;
-    line-height: 1;
-    background: inherit;
-    margin: 20px 10px;
-    width: 180;
-  }
-}
-@media (min-width: 769px) and (max-width: 992px) {
-  .btn-responsive {
-    height: 60px;
-    padding:4px 9px;
-    font-size:90%;
-    line-height: 1.2;
-    background: inherit;
-    margin: 20px 10px;
-  }
-}
-@media (min-width: 993px) {
-  .btn-responsive {
-    display: flex;
-    justify-content: space-between;
-    height: 4rem;
-    padding:4px 9px;
-    font-size:100%;
-    line-height: 1.2;
-    background: inherit;
-    margin: 20px 10px;
-  }
-}
-*/
+
 
 /* Plot Space
 -------------------------------------------------- */
@@ -295,7 +261,7 @@ display: inline;
   flex: 1;
 }
 footer {
-    margin-right: 5px;
+    /*margin-right: 5px;*/
     margin: 0px 15px 0px 15px;
     background-color: rgba(255, 255, 255, 0.37);
 	  border: 1px solid #F7F7F7;

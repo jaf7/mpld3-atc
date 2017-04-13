@@ -24,6 +24,7 @@ A learning project that will present descriptions and interactive plots for grow
 * [mpld3](http://mpld3.github.io/) - Used to export matplotlib graphics to HTML (renders [D3](https://d3js.org/))
 * Forked from [mpld3-flask](https://github.com/nipunbatra/mpld3-flask) - Minimal Flask app using mpld3
 * [Underscore.js](underscorejs.org) - Great utility library, learned about debounce()
+* [StackOverflow debounce answer](http://stackoverflow.com/questions/24004791/can-someone-explain-the-debounce-function-in-javascript) - A helpful explication of how debounce() works
 * [Responsive Bootstrap Toolkit](https://github.com/maciej-gurban/responsive-bootstrap-toolkit) - Breakpoint detection in JavaScript
 * [noUiSlider](https://refreshless.com/nouislider/) - Lightweight JavaScript range slider
 * [Waypoints](http://imakewebthings.com/waypoints/) - Javascript library for triggering functions when scrolling to elements

@@ -29,7 +29,7 @@ from mpld3 import plugins
 
 def plot_growth(compare_type, lower, upper, width, height):
     """
-    Plots comparisons of orders of growth (time complexity as number of "steps" in control flow)
+    Plots comparisons of orders of growth (time complexity as the number of "steps" in control flow)
 
     Parameters
     ----------
@@ -61,7 +61,7 @@ def plot_growth(compare_type, lower, upper, width, height):
             quadratic.append(n**2)
             exponential.append(2**n)
 
-        fig, ax = plt.subplots( figsize=(width, height) )
+        fig, ax = plt.subplots( figsize=(math.floor(width), math.floor(height) ) )
 
         if compare_type == 'linearLog':
             ax.plot(linear, '#bdcccc', label='linear')

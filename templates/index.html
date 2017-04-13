@@ -16,6 +16,7 @@
   </head>
 
   <body class="site">
+    <div class="ppi"></div>
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -42,7 +43,7 @@
       <div class="container-fluid">
         <div class="row">
 
-          <div class="col-md-7 outer-col">
+          <div class="col-sm-6 outer-col">
             <div class="pad">
               <span class="title">// Computational Complexity and Algorithms</span>
               <div class="text" id="show-text">
@@ -76,27 +77,58 @@
 
     In eu magna id lectus tempus tincidunt vestibulum nec odio. Aenean rutrum turpis eget sapien aliquet, molestie condimentum nulla aliquam. Quisque pretium, leo nec elementum pharetra, leo lorem sodales purus, quis lobortis mauris nulla placerat erat. Aenean consectetur posuere tellus nec iaculis. Quisque mollis turpis ut posuere mattis. Curabitur fermentum quis risus sed vehicula. Sed eu neque justo. Maecenas eleifend tristique erat, nec lobortis sapien dapibus vel.
                 </p>
-                <div class="subhead">// Linear Growth</div>
+
+                <div class="subhead">// Linear Growth
+                  <button class="linearLog btn btn-plot-choice">
+                    <span class="btn-addon">[</span>
+                    `O(n),O(log n)`
+                    <span class="btn-addon">]</span>
+                  </button>
+                </div>
                 <p class="growthDescription" id="linearLog">
     Etiam vitae aliquet nisl. Nulla sed nulla ut augue blandit pharetra. Aenean luctus arcu quis libero volutpat, auctor euismod libero imperdiet. Sed vitae pretium tellus. Fusce placerat lorem efficitur tellus lobortis, sodales posuere eros cursus. Phasellus tellus tellus, vulputate id tellus eu, molestie viverra nisl. Suspendisse quis odio eget est volutpat tristique ut in magna. Sed a imperdiet leo. Vestibulum ac condimentum lacus, eget luctus quam. Vestibulum interdum sem sem, euismod dignissim justo dictum in. Morbi rhoncus cursus leo vitae placerat. Suspendisse nec nunc at libero consequat dictum a vel tellus. Morbi porttitor dapibus nisl in accumsan. Maecenas mattis orci a lorem faucibus, vitae pretium turpis molestie. Duis pulvinar urna posuere neque volutpat facilisis. Proin vulputate magna ex, vitae iaculis mauris posuere at.
                 </p>
-                <div class="subhead">// Logarithmic Growth</div>
+                <div class="subhead">// Logarithmic Growth
+                  <button class="linearLog btn btn-plot-choice">
+                    <span class="btn-addon">[</span>
+                    `O(n),O(log n)`
+                    <span class="btn-addon">]</span>
+                  </button>
+                </div>
                 <p>
     In pretium posuere dui, sit amet scelerisque nunc mollis at. Aliquam interdum scelerisque dictum. Fusce a quam sed arcu porttitor tincidunt. Aenean in dui nec odio sagittis tincidunt ac sit amet arcu. Aliquam at sem vel ante molestie feugiat et consequat nisl. Nullam congue blandit aliquam. Donec ut diam semper, molestie nibh facilisis, pharetra quam. Aenean sollicitudin massa in neque convallis, et fermentum ante finibus. Phasellus elit nisl, feugiat non dignissim id, ullamcorper porttitor ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In eu magna id lectus tempus tincidunt vestibulum nec odio. Aenean rutrum turpis eget sapien aliquet, molestie condimentum nulla aliquam. Quisque pretium, leo nec elementum pharetra, leo lorem sodales purus, quis lobortis mauris nulla placerat erat.
                 </p>
-                <div class="subhead">// Log-Linear Growth</div>
+                <div class="subhead">// Log-Linear Growth
+                  <button class="linearLogLinear btn btn-plot-choice">
+                    <span class="btn-addon">[</span>
+                    `O(n),O(nlogn)`
+                    <span class="btn-addon">]</span>
+                  </button>
+                </div>
                 <p class="growthDescription" id="linearLogLinear">
     Maecenas vitae tellus aliquet, vestibulum urna eget, rutrum ligula. Nulla lobortis elit non ultrices venenatis. Nulla nec volutpat ipsum. Maecenas efficitur dui lacus, vel ullamcorper ex sollicitudin sit amet. Sed nec quam non risus rutrum lobortis quis a urna. Phasellus ut eros sagittis, scelerisque leo non, porttitor arcu. Aenean tristique turpis congue risus elementum semper. Praesent non quam nec velit commodo facilisis nec id leo. Suspendisse orci metus, facilisis a cursus ut, semper ut est.
 
     Aenean euismod purus ut ante eleifend ultrices. In hac habitasse platea dictumst. Suspendisse eu condimentum nulla. Donec porttitor orci non massa placerat lacinia. Proin blandit quam eu justo maximus, vitae vestibulum arcu hendrerit. In consequat felis et turpis vestibulum iaculis. Etiam vel venenatis enim. Quisque pellentesque, magna vel ultrices interdum, dolor odio elementum mauris, ac pulvinar risus tortor sed enim. Sed risus ligula, dapibus id vestibulum ut, tincidunt ac eros. Mauris pellentesque nec ipsum sed ornare. Donec consectetur bibendum sapien ac pretium.
                 </p>
-                <div class="subhead">// Quadratic Growth</div>
+                <div class="subhead">// Quadratic Growth
+                  <button class="logLinearQuadratic btn btn-plot-choice">
+                    <span class="btn-addon">[</span>
+                    `O(nlogn),O(n^2)`
+                    <span class="btn-addon">]</span>
+                  </button>
+                </div>
                 <p class="growthDescription" id="logLinearQuadratic">
     Quisque rutrum pharetra feugiat. Vivamus tempor lobortis ipsum, ut cursus odio dictum vitae. Nulla ut tortor tempor, finibus risus quis, finibus elit. Nulla non ligula at est finibus aliquam. Vivamus in efficitur magna, vitae placerat turpis. Duis lobortis facilisis viverra. Cras eu mi in lectus volutpat mollis. Vestibulum purus mauris, elementum sed iaculis vel, dignissim quis eros. Pellentesque in fermentum erat.
 
     Fusce et dolor pulvinar massa ultricies elementum. Vivamus ut metus volutpat, pharetra eros eget, fermentum mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus rhoncus in risus vel ultrices. Vestibulum id lacus a erat facilisis tincidunt at et arcu. Sed in purus aliquam, vulputate odio vel, cursus leo. Aenean lobortis arcu ut felis egestas, quis vestibulum est molestie. Morbi a ultrices risus. In vel ullamcorper odio, vitae laoreet mi. Ut diam mi, sodales et ipsum in, semper consectetur mauris. Phasellus volutpat mi quis ipsum egestas, id ullamcorper risus volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
                 </p>
-                <div class="subhead">// Exponential Growth</div>
+                <div class="subhead">// Exponential Growth
+                  <button class="quadraticExponential btn btn-plot-choice">
+                    <span class="btn-addon">[</span>
+                    `O(n^2),O(2^n)`
+                    <span class="btn-addon">]</span>
+                  </button>
+                </div>
                 <p class="growthDescription" id="quadraticExponential">
     In ullamcorper dictum ligula, in luctus magna dapibus ac. Curabitur et efficitur odio. In elementum elit ut sagittis elementum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque eu odio quis enim ultricies pharetra sit amet et justo. Sed convallis malesuada metus. Vestibulum hendrerit sem a risus interdum porta. Phasellus in porttitor tortor. Morbi a sagittis mauris, a lacinia nisl. Suspendisse nec nibh nunc. Nam rutrum, nunc interdum finibus eleifend, diam turpis luctus odio, quis hendrerit tortor massa pharetra lorem.
 
@@ -110,7 +142,7 @@
             </div>
           </div> <!-- col-md-7 -->
 
-          <div class="col-md-5 outer-col" data-spy="affix">
+          <div class="col-sm-6 outer-col" data-spy="affix">
               <h4>// Input Range</h4>
               <div class="slider-wrapper">
                 <div class="noUi-extended" id="limit-slider"></div>
