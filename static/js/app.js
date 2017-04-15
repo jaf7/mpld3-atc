@@ -224,9 +224,6 @@
       Assign $.ajax() method to a variable in order to use the .done() promise callback (more semantic?)
     */
     var generatePlot = function() {
-      console.log('console.dir on plotData:');
-      console.dir( plotData );
-      console.log( JSON.stringify( plotData ) );
       var getPlotSlide = $.ajax({
         type: "POST",
         contentType: "application/json",
@@ -235,8 +232,6 @@
         dataType: "html"
       });
       getPlotSlide.done(function(data) {
-        console.log('returned data:');
-        console.dir(data);
         $("#plot-space").fadeTo(200, 0, function() {
           $("#plot-space").html(data).fadeTo(200, 1);
         });

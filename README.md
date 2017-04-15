@@ -1,6 +1,6 @@
 # mpld3-growth-complexity-demo
 
-A learning project that will present descriptions and interactive plots for growth complexities of algorithms as described in big-O notation.  
+A learning project that will present descriptions and interactive graphic plots for growth complexities of algorithms as described in big-O notation.  
 
 ## Purpose
 
@@ -25,7 +25,7 @@ A learning project that will present descriptions and interactive plots for grow
 * Forked from [mpld3-flask](https://github.com/nipunbatra/mpld3-flask) - Minimal Flask app using mpld3
 * [Underscore.js](underscorejs.org) - Great utility library, learned about debounce()
 * [StackOverflow debounce answer](http://stackoverflow.com/questions/24004791/can-someone-explain-the-debounce-function-in-javascript) - A helpful explication of how debounce() works
-* [Responsive Bootstrap Toolkit](https://github.com/maciej-gurban/responsive-bootstrap-toolkit) - Breakpoint detection in JavaScript
+* [Responsive Bootstrap Toolkit](https://github.com/maciej-gurban/responsive-bootstrap-toolkit) - Breakpoint detection in JavaScript (not used in latest version: implemented custom detection/adjustment from scratch, but very valuable to learn from especially OO design)
 * [noUiSlider](https://refreshless.com/nouislider/) - Lightweight JavaScript range slider
 * [Waypoints](http://imakewebthings.com/waypoints/) - Javascript library for triggering functions when scrolling to elements
 * [classList.js](https://github.com/eligrey/classList.js) - Make element.classList work for older IE browsers (cross-browser JS shim)
@@ -41,7 +41,7 @@ A learning project that will present descriptions and interactive plots for grow
 * [html5Doctor](http://html5doctor.com/) - HTML5 learning resource
 * [matplotlib - What is a Backend?](http://matplotlib.org/faq/usage_faq.html#what-is-a-backend)
 * [matplotlib in a webapp server](http://matplotlib.org/faq/howto_faq.html#matplotlib-in-a-web-application-server)
-* [IIFE lesson](https://www.kirupa.com/html5/immediately_invoked_function_expressions_iife.htm) - Immediately Invoked Function Expressions @ Kirupa.com: wonderful JavaScript lessons
+* [IIFE lesson](https://www.kirupa.com/html5/immediately_invoked_function_expressions_iife.htm) - Immediately Invoked Function Expressions @ Kirupa.com: Great JavaScript lessons
 * [IIFE tutorial](http://www.tutorialsteacher.com/javascript/immediately-invoked-function-expression-iife) - Another helpful tutorial on Immediately Invoked Function Expressions
 * [Writing Better Ajax](https://medium.com/coding-design/writing-better-ajax-8ee4a7fb95f#.wkx1uei9f) - Terry Mun on [Medium](https://medium.com)
 * [What are Promises](https://developers.google.com/web/fundamentals/getting-started/primers/promises) - Web | Google Developers
@@ -53,11 +53,12 @@ A learning project that will present descriptions and interactive plots for grow
 
 * Improve structure and readability of app.js []
 * Work on understanding debouncing & implement [x]
-* Add debounce() functionality to waypoint scrolling function []
-* Get responsive resizing of graphs working correctly []
-* Fix MathJax font & button responsiveness []
+* Add debounce() functionality to waypoint scrolling function [x]
+* Get responsive resizing of graphs working correctly [x]
+* Tune graph size ratio to window size []
+* Fix MathJax font & button responsiveness [x]
 * Refactor app.js using Object Oriented principles []
-* Improve / re-design styling and layout [\\]
+* Improve / re-design styling and layout [\]
 * Finish writing content
-  (descriptions and resources for analysis of orders of growth and big-O) []
+  (descriptions of graphic plots and learning resources for analysis of orders of growth and big-O) []
 * ...

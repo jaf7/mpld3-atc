@@ -9,15 +9,6 @@
   box-sizing: border-box;
 }*/
 
-
-/* General Content
--------------------------------------------------- */
-body {
-  color: #93A1A1;
-  background-color: #073642;
-  font-family: 'Inconsolata', monospace;
-}
-
 /* Hidden div for calculating pixels per inch
 -------------------------------------------------- */
 .ppi {
@@ -26,6 +17,14 @@ body {
   left: 100%;
   position: fixed;
   top: 100%;
+}
+
+/* General Content
+-------------------------------------------------- */
+body {
+  color: #93A1A1;
+  background-color: #073642;
+  font-family: 'Inconsolata', monospace;
 }
 
 .navbar-default {
@@ -45,6 +44,9 @@ body {
 }
 #push-brand {
   margin-left: 0;
+}
+.icon-tree-algorithm {
+  font-size: 2.7em;
 }
 ul.nav.navbar-nav {
   float: right;
@@ -91,7 +93,7 @@ p {
 
 /* Affixed content (range slider and plot)
 -------------------------------------------------- */
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 320px) {
   .affix {
     position: relative;
   }
@@ -233,14 +235,12 @@ span#basic-addon4.input-group-addon {
 }
 .btn-plot-choice:hover, .btn-plot-choice:focus {
   color: #859900;
-  /*font-size: 0.95em;*/
 }
 span.btn-addon {
   color: #2AA198;
 }
-span.btn-addon.focused {
+span.btn-addon.focused, span.btn-addon: {
   color: #859900;
-  /*font-size: .98em;*/
 }
 
 
