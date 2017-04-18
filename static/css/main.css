@@ -52,6 +52,7 @@ ul.nav.navbar-nav {
   float: right;
 }
 
+
 main.content-wrapper {
   margin-top: 60px;
 }
@@ -82,13 +83,17 @@ p {
 .microlight {
   font-family: monospace;
   white-space: pre;
-  float: both;
+  /*float: both;*/
+  text-align: center;
 }
 .microlight:focus {
     outline: -webkit-focus-ring-color auto 0px;
     outline-color: -webkit-focus-ring-color;
     outline-style: auto;
     outline-width: 0px;
+}
+.fa {
+  color: #bdcccc;
 }
 
 /* Affixed content (range slider and plot)
@@ -261,9 +266,21 @@ span.btn-addon.focused, span.btn-addon: {
   flex: 1;
 }
 footer {
-    /*margin-right: 5px;*/
-    margin: 0px 15px 0px 15px;
-    background-color: rgba(255, 255, 255, 0.37);
-	  border: 1px solid #F7F7F7;
-	  box-shadow: 0px 0px 2px 0px rgba(181, 181, 181, 0.3);
+  border-top: 1px dashed #bdcccc;
+  /*height: 100px;*/
+  margin-top: 10px;
+}
+.footer-inner-left, .footer-inner-right {
+  height: 80px;
+}
+.footer-text {
+  padding-left: 15px;
+}
+.footer-img {
+  padding-right: 15px;
+  right: 15px;
+}
+.footer-text, .footer-img {
+  position: absolute;
+  bottom: 0;
 }
