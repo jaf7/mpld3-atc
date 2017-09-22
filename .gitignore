@@ -1,3 +1,9 @@
 *.pyc
-static/img/temp/*
+notes/
+static/css/brand.css
+static/css/meyers-reset.css
+static/js/old-js-apps/
+static/css/old-main-css/
+templates/content.rtf
+templates/old-index/
 venv/
