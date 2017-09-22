@@ -72,8 +72,8 @@
         // first, clear the timeout if one is set
         clearTimeout(timeout);
         /*
-        then set a new timer identifier: each time debounce() is called,
-        this will overwrite the value of timeout, creating a new timer
+        then create a new timer: each time debounce() is called,
+        this will overwrite the value of timeout, creating a new timer.
         this effectively cancels any existing timers, starting over, which makes debounce() work
         */
         timeout = setTimeout(later, wait);
