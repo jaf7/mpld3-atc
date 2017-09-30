@@ -4,9 +4,9 @@ A learning project that will present descriptions and interactive graphic plots 
 
 ## Purpose
 
-* To learn more about the tools used: Python, JavaScript, jQuery, HTML/CSS, matplotlib, mpld3, Flask, Heroku
+* To learn more about the tools used: Python, JavaScript, jQuery, HTML/CSS, matplotlib, mpld3, Flask, Heroku, virtualenv
 * To begin to learn what back-end and front-end are and how they function
-* To review the basics of algorithmic growth complexity learned in MIT 6.00.1x
+* To review the basics of algorithmic growth complexity learned in [MIT 6.00.1x](https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-9) ([certificate](https://courses.edx.org/certificates/be5594d409634b2fb9bbf9b668939c47))
 * To take joy in the study
 
 ## Demo
@@ -22,6 +22,8 @@ A learning project that will present descriptions and interactive graphic plots 
 * [Flask](http://flask.pocoo.org/) - Microframework for web apps: used with Python for back-end
 * [matplotlib](http://matplotlib.org/) - Python 2D plotting library: used to generate plot figures
 * [mpld3](http://mpld3.github.io/) - Used to export matplotlib graphics to HTML (renders [D3](https://d3js.org/))
+* [Heroku](https://devcenter.heroku.com/) - deployed to Heroku remote, running on a single web dyno
+* [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) - For running a local development server inside a virtual environment, logging to stdout, spinning up dynos
 * Forked from [mpld3-flask](https://github.com/nipunbatra/mpld3-flask) - Minimal Flask app using mpld3
 * [Underscore.js](underscorejs.org) - Great utility library, learned about debounce()
 * [StackOverflow debounce answer](http://stackoverflow.com/questions/24004791/can-someone-explain-the-debounce-function-in-javascript) - A helpful explication of how debounce() works
@@ -33,6 +35,8 @@ A learning project that will present descriptions and interactive graphic plots 
 ## Resources Used
 
 * [MIT 6.00.1x Intro to Computer Science and Programming Using Python](https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-9)
+* [Grokking Algorithms](https://www.manning.com/books/grokking-algorithms) Currently reading
+* [Computer Science Distilled](https://leanpub.com/computer-science-distilled) - Currently reading
 * [Eloquent JavaScript](eloquentjavascript.net) - Chaps 1-6, reviewing
 * [Dash](https://kapeli.com/dash) - API Documentation Browser: Incredibly useful piece of software
 * [Debounce Function Explained](https://davidwalsh.name/javascript-debounce-function) - David Walsh, excellent JS resource
@@ -47,7 +51,7 @@ A learning project that will present descriptions and interactive graphic plots 
 * [What are Promises](https://developers.google.com/web/fundamentals/getting-started/primers/promises) - Web | Google Developers
 * [Debugging JS in Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/javascript/) - Web | Google Developers
 * [git-scm](https://git-scm.com) - git learning resource
-* [Stack Overflow](stackoverflow.com) - At least 5 times a day!
+* [Stack Overflow](stackoverflow.com) - For learning, not copy / paste.
 
 #### TODO
 
@@ -56,9 +60,11 @@ A learning project that will present descriptions and interactive graphic plots 
 * Add debounce() functionality to waypoint scrolling function [x]
 * Get responsive resizing of graphs working correctly [x]
 * Tune graph size ratio to window size []
+* Figure out ScalarFormatter for Matplotlib (ax.ticklabel_format()) []
+* For small screens and column wrapping: add plot-text user guidance for using plot buttons
 * Fix MathJax font & button responsiveness [x]
 * Refactor app.js using Object Oriented principles []
 * Improve / re-design styling and layout [\]
-* Finish writing content
-  (descriptions of graphic plots and learning resources for analysis of orders of growth and big-O) []
+* Finish writing content []
+* Learn to use Jinja Templates correctly
 * ...
