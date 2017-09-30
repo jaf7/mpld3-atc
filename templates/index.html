@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
-  <body class="site">
+  <body class="site solarized_base1">
     <div class="ppi"></div>
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
@@ -36,9 +36,23 @@
 
         <div class="navbar-collapse collapse" id="collapse-elements">
           <ul class="nav navbar-nav">
-            <li><a href="#">one</a></li>
-            <li><a href="#">two</a></li>
-            <li><a href="#">three</a></li>
+            <li>
+              <!-- <a href="resources"> -->
+                <a href="{{ url_for('static', filename='html/resources.html') }}">
+                <span class="btn-addon">[</span>
+                  Resources
+                <span class="btn-addon">]</span>
+              </a>
+            </li>
+            <li>
+              <!-- <a href="overview"> -->
+                <a href="{{ url_for('static', filename='html/overview.html') }}">
+                <span class="btn-addon">[</span>
+                  Overview
+                <span class="btn-addon">]</span>
+              </a>
+            </li>
+            <!-- <li><a href="#">three</a></li> -->
           </ul>
         </div>
       </div>
@@ -49,59 +63,67 @@
         <div class="row">
 
           <div class="col-sm-6 outer-col">
+            <!-- <br/> -->
             <div class="pad">
-              <span class="title">// Computational Complexity and Algorithms</span>
+              <div class="title">// Algorithms, Time Complexity and Big O Notation</div>
               <div class="text"> <!-- id="show-text"> -->
-                <br />
-                <div class="subhead">// What Is Computational Complexity?</div>
+                <br/>
                 <p>
-    <!-- Since the chances are high that very often I will be using existing algorithms for things like search and sort rather than implementing my own from scratch,
-      [doesn't follow]
-     it's important to understand the trade-offs involved in choosing one algorithm over another. I know that I need some way to quantify an algorithm's relative suitability to a given task I want to accomplish.
-    I think I can safely say that the quality of workflow experience from a user's perspective is heavily dependent on efficiency: both efficiency in time (operations performed per unit of time), and in space (quantity of memory used.) In web and phone apps, from a user's perspective, one way efficiency manifests is in perceived "responsiveness." It's easy to see that inefficiency will be expensive because potential users will reject an application that operates slowly. Also, we can imagine without difficulty that inefficiency will be extremely expensive in areas like scientific computing, cryptography, or working with massive collections of data, for example. -->
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a euismod lorem. Phasellus vestibulum ligula eget ante volutpat, at pharetra quam eleifend. Nullam fringilla ac quam ac ullamcorper. Donec iaculis quis mi eget maximus. Fusce id purus vitae mi cursus consequat id tempor tellus. Nunc lacinia vestibulum urna, nec venenatis ligula dignissim ac. Aenean placerat lacinia tempor.
+                Hello and welcome! This site is my first web development project and it functions as a kind of learning platform. After some uncertainty about how to make a start at actually <em class="solarized_base1_lightened">building</em> something, I decided to just let my interest guide me. For me this meant I wanted to review the fundamentals of algorithm <em class="solarized_base1_lightened">time complexity</em>. Since this subject matter lends itself to visualization (by plotting rates of change on a graph), I decided to attempt to present a few interactive plots, with accompanying brief discussion of what I'm learning about algorithms. As such, the effort to articulate these concepts clearly is an ongoing project in itself. I'm eager to build my understanding so feedback is welcome (contact info is in the footer).
                 </p>
-
-                <div class="row">
-                  <div class="col-xs-10 col-xs-offset-1">
-
-                    <!-- Using white-space: pre here, so indents are weird.
-                    There must be a better way that preserves visual flow in html ?? -->
-                    <div class="microlight" contenteditable="true">for ( var i = 0; i&lt10; i++ ) {
-        // say hello
-        echo("hello");
-}</div>
-
-                  </div>
-                </div>
-
+                <br/>
                 <p>
-    Vestibulum pulvinar dignissim neque eu fringilla. Duis augue odio, pharetra quis turpis eu, congue tempor nibh. Nulla facilisi. Aenean viverra, lacus quis mollis iaculis, quam quam cursus dui, at laoreet dui purus nec nisi. Proin sagittis scelerisque odio. Cras vestibulum malesuada molestie. Mauris quis elit vestibulum, vestibulum nunc quis, laoreet erat. Mauris auctor vel magna eu dignissim. Aliquam est justo, molestie ut suscipit vel, tincidunt sed orci. Nullam ornare elit a placerat ultricies. Integer nec tortor nec arcu rutrum egestas. Pellentesque vel purus vel sapien sagittis scelerisque. Cras lacus sapien, scelerisque nec ex a, ultrices sodales ante. Aenean tempor nunc et condimentum congue. Phasellus gravida tristique erat non iaculis. Donec efficitur varius lectus, sit amet cursus velit pulvinar eu.
-
-    Fusce velit erat, dapibus quis iaculis condimentum, facilisis ut tellus. Maecenas convallis ipsum eu elit cursus, at sodales libero posuere. Donec imperdiet ut tortor a condimentum. Etiam sed mi commodo, convallis sem nec, mollis ante. Pellentesque a arcu vitae mauris scelerisque suscipit nec vitae sem. Praesent id consectetur metus. Quisque tincidunt metus vel eros eleifend, ac commodo felis venenatis. Phasellus non dignissim nulla, auctor commodo nulla. Sed convallis, neque in placerat semper, libero tortor iaculis nibh, eget vestibulum magna tellus a felis.
+                You can read an <a href="overview">overview</a> of how I'm building this site (also in the navigation above). There is also a <a href="https://github.com/jaf7/mpld3-growth-complexity-demo">GitHub</a> repository. This is an ongoing learning experience, and it's perhaps as valuable for uncovering how <em class="solarized_base1_lightened">not</em> to do some things as for learning appropriate practices. I currently think that on balance, as a beginner, it's good to have a project where you can play around and throw things at the wall. It provides numerous opportunities for mistakes, backtracking, changing, and refining as you learn. And it's serious fun!
                 </p>
-                <div class="subhead">// What Are Orders of Growth?</div>
+                <br/>
+
+                <hr class="style_1">
+                <br/>
+
+                <div class="subhead">// What is an Algorithm?</div>
                 <p>
-    <!--
-    Define Running Time: # operations performed
-    Define Growth Rate: How quickly does this *operations performed* value increase as input size increases?
-
-    In this demonstration I'm attempting to visualize and gain some preliminary, intuitive understanding of the relative efficiency of some common types of algorithms, given an identical environment with regard to memory and operations performed per unit of time. Thus the intent of these visualizations is to perceive the relative growth rates that these algorithms yield in terms of number of operations performed.
-
-    (And although it will be crucial to understand the suitability of a given algorithm pattern for processing different data structures, the appropriate first step is to artificially limit my scope to growth rates, and afterwards study their applications)
-
-    The rate of growth of running times:
-    The running times of different algorithms don't grow at the same rate. As the input size increases, what matters is the relative rate of growth in running time. In Big O notation, we abstract away from units of time elapsed in any particular instance.
-    We also limit consideration to how input size is related to number of operations performed.
-    In addition, it makes sense at the start to limit scope to *worst case* scenarios only. This way a parameter is established: a given operation will never run more slowly than it's analyzed Big O run time. This parameter is a base from which to define and understand how to implement "best case" or "average case" operations.
-     -->
-
-    Etiam vitae aliquet nisl. Nulla sed nulla ut augue blandit pharetra. Aenean luctus arcu quis libero volutpat, auctor euismod libero imperdiet. Sed vitae pretium tellus. Fusce placerat lorem efficitur tellus lobortis, sodales posuere eros cursus. Phasellus tellus tellus, vulputate id tellus eu, molestie viverra nisl. Suspendisse quis odio eget est volutpat tristique ut in magna. Sed a imperdiet leo. Vestibulum ac condimentum lacus, eget luctus quam. Vestibulum interdum sem sem, euismod dignissim justo dictum in. Morbi rhoncus cursus leo vitae placerat. Suspendisse nec nunc at libero consequat dictum a vel tellus. Morbi porttitor dapibus nisl in accumsan. Maecenas mattis orci a lorem faucibus, vitae pretium turpis molestie. Duis pulvinar urna posuere neque volutpat facilisis. Proin vulputate magna ex, vitae iaculis mauris posuere at.
-
-    In pretium posuere dui, sit amet scelerisque nunc mollis at. Aliquam interdum scelerisque dictum. Fusce a quam sed arcu porttitor tincidunt. Aenean in dui nec odio sagittis tincidunt ac sit amet arcu. Aliquam at sem vel ante molestie feugiat et consequat nisl. Nullam congue blandit aliquam. Donec ut diam semper, molestie nibh facilisis, pharetra quam. Aenean sollicitudin massa in neque convallis, et fermentum ante finibus. Phasellus elit nisl, feugiat non dignissim id, ullamcorper porttitor ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-
-    In eu magna id lectus tempus tincidunt vestibulum nec odio. Aenean rutrum turpis eget sapien aliquet, molestie condimentum nulla aliquam. Quisque pretium, leo nec elementum pharetra, leo lorem sodales purus, quis lobortis mauris nulla placerat erat. Aenean consectetur posuere tellus nec iaculis. Quisque mollis turpis ut posuere mattis. Curabitur fermentum quis risus sed vehicula. Sed eu neque justo. Maecenas eleifend tristique erat, nec lobortis sapien dapibus vel.
+                There's an interesting fact about problem solving: we don't solve the same problem over and over again. A solution by its nature is something we can re-use. Of course we may refine the solution, or alter it to fit a particular case just-so. But the structure, the pattern, remains. Otherwise it's a different, alternative solution. The challenge often comes in discerning the most appropriate solution to apply. In all kinds of efforts, we can become amazingly adept at this discerning application, with long practice.
                 </p>
+                <br/>
+                <p>
+                An algorithm is an explicit way of expressing a solution by recasting it into a series of ordered, unambiguous steps that, given an input, produce a result. In a general sense, a recipe for chocolate cake, or directions to a museum in the city, or the steps to rebuild a motorcycle engine are all algorithms. And so are the steps in code that effect the ordering of a list, and the steps in code that effect a search for an item in that list. Problems we encounter as developers can be highly complex. When we think of complexity, we intuitively relate this to the difficulty in solving a problem. Baking a cake might be less difficult, less complex, than rebuilding a motorcycle engine (perhaps depending on who's doing the work). In the face of complexity we're obliged to decompose problems into simpler sub-problems. As we do the work of decomposition, we can reach a point where we've articulated discrete units of work, (operations or steps) to be performed. In computation, when these steps lead from an input to a solution output, we've formulated an algorithm. And we are able to generalize this series of steps to apply to many variations of the original problem. But there are almost always multiple approaches to solving a problem. How do we decide what the most effective way is, given our constraints? For the sake of simplicity and to facilitate grasping the fundamental concepts, here we'll consider just one constraint: execution time or <em class="solarized_base1_lightened">running time</em>, which in computer science is referred to as <em class="solarized_base1_lightened">time complexity</em>.
+                </p>
+                <br/>
+
+                <hr class="style_1">
+                <br/>
+
+                <div class="subhead">// What is Time Complexity?</div>
+                <p>
+                Time complexity refers to how the running time of an algorithm grows as its input scales. It's a tool for analyzing how efficiently one class of algorithms will compute a solution, relative to other kinds of algorithms, and independent of their operating environment (how fast the processor is for example). This independence results from the fact that when analyzing time complexity, we consider not elapsed clock time, but instead the <em class="solarized_base1_lightened">number of operations performed</em> to reach a solution. When we ask what the time complexity of an algorithm is, we are asking about the <em class="solarized_base1_lightened">rate of growth</em> of this number, as our input size increases. That is, how quickly does the number of operations performed increase as the size of the input increases? This rate of growth gives us something concrete to compare to other algorithm growth rates. And we do this comparison to understand the relative resource consumption of different kinds of algorithmic solutions. We are asking "what is the computational cost of this solution?" and we producing a concrete, quantified answer.
+                </p>
+                <br/>
+
+                <hr class="style_1">
+                <br/>
+
+                <div class="subhead">// What is Big O Notation?</div>
+                <p class="waypoint" id="what-is-big-o">
+                (Worst case)
+                <!--
+                Define Running Time: # operations performed
+                Define Growth Rate: How quickly does this *operations performed* value increase as input size increases?
+
+                In this demonstration I'm attempting to visualize and gain some preliminary, intuitive understanding of the relative efficiency of some common types of algorithms, given an identical environment with regard to memory and operations performed per unit of time. Thus the intent of these visualizations is to perceive the relative growth rates that these algorithms yield in terms of number of operations performed.
+
+                (And although it will be crucial to understand the suitability of a given algorithm pattern for processing different data structures, the appropriate first step is to artificially limit my scope to growth rates, and afterwards study their applications)
+
+                The rate of growth of running times:
+                The running times of different algorithms don't grow at the same rate. As the input size increases, what matters is the relative rate of growth in running time. In Big O notation, we abstract away from units of time elapsed in any particular instance.
+                We also limit consideration to how input size is related to number of operations performed.
+                In addition, it makes sense at the start to limit scope to *worst case* scenarios only. This way a parameter is established: a given operation will never run more slowly than it's analyzed Big O run time. This parameter is a base from which to define and understand how to implement "best case" or "average case" operations.
+                 -->
+                Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut semiotics, raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditation. Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.
+                </p>
+                <br/>
+
+                <hr class="style_1">
+                <br/>
 
                 <div class="subhead">// Linear Growth
                   <button class="linearLog btn btn-plot-choice">
@@ -110,10 +132,25 @@
                     <span class="btn-addon">]</span>
                   </button>
                 </div>
-                <p class="growthDescription" id="linearLog">
-    <!-- In simple search, the max number of operations = size of input. -->
-    Etiam vitae aliquet nisl. Nulla sed nulla ut augue blandit pharetra. Aenean luctus arcu quis libero volutpat, auctor euismod libero imperdiet. Sed vitae pretium tellus. Fusce placerat lorem efficitur tellus lobortis, sodales posuere eros cursus. Phasellus tellus tellus, vulputate id tellus eu, molestie viverra nisl. Suspendisse quis odio eget est volutpat tristique ut in magna. Sed a imperdiet leo. Vestibulum ac condimentum lacus, eget luctus quam. Vestibulum interdum sem sem, euismod dignissim justo dictum in. Morbi rhoncus cursus leo vitae placerat. Suspendisse nec nunc at libero consequat dictum a vel tellus. Morbi porttitor dapibus nisl in accumsan. Maecenas mattis orci a lorem faucibus, vitae pretium turpis molestie. Duis pulvinar urna posuere neque volutpat facilisis. Proin vulputate magna ex, vitae iaculis mauris posuere at.
+                <p class="waypoint growthDescription" id="linearLog">
+                <!-- In simple search, the max number of operations = size of input. -->
+                Ethical Kickstarter PBR asymmetrical lo-fi. Dreamcatcher street art Carles, stumptown gluten-free Kickstarter artisan Wes Anderson wolf pug. Godard sustainable you probably haven't heard of them.
                 </p>
+                <div class="row">
+                  <div class="col-xs-10 col-xs-offset-1">
+                    <!-- Using white-space: pre here, so indents are weird.
+                    There must be a better way that preserves visual flow in html ?? -->
+                    <div class="microlight" contenteditable="true">for ( var i = 0; i&lt10; i++ ) {
+        // say hello
+        echo("hello");
+}
+                    </div>
+                  </div>
+                </div>
+                <p>
+                Vegan farm-to-table Williamsburg slow-carb readymade disrupt deep v. Meggings seitan Wes Anderson semiotics, cliche American Apparel whatever. Helvetica cray plaid, vegan brunch Banksy leggings +1 direct trade. Wayfarers codeply PBR selfies. Banh mi McSweeney's Shoreditch selfies, forage fingerstache food truck occupy YOLO Pitchfork fixie iPhone fanny pack art party Portland.
+                </p>
+
                 <div class="subhead">// Logarithmic Growth
                   <button class="linearLog btn btn-plot-choice">
                     <span class="btn-addon">[</span>
@@ -122,11 +159,11 @@
                   </button>
                 </div>
                 <p>
-    <!-- "log time" is what the natives call it -->
-    <!-- https://www.khanacademy.org/math/algebra2/exponential-and-logarithmic-functions/introduction-to-logarithms/v/logarithms -->
-    <!-- code: binary_search.py, binary_search.rb -->
-    <!-- Binary search requires log n operations to search a list of size n. -->
-    In pretium posuere dui, sit amet scelerisque nunc mollis at. Aliquam interdum scelerisque dictum. Fusce a quam sed arcu porttitor tincidunt. Aenean in dui nec odio sagittis tincidunt ac sit amet arcu. Aliquam at sem vel ante molestie feugiat et consequat nisl. Nullam congue blandit aliquam. Donec ut diam semper, molestie nibh facilisis, pharetra quam. Aenean sollicitudin massa in neque convallis, et fermentum ante finibus. Phasellus elit nisl, feugiat non dignissim id, ullamcorper porttitor ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In eu magna id lectus tempus tincidunt vestibulum nec odio. Aenean rutrum turpis eget sapien aliquet, molestie condimentum nulla aliquam. Quisque pretium, leo nec elementum pharetra, leo lorem sodales purus, quis lobortis mauris nulla placerat erat.
+                <!-- "log time" is what the natives call it -->
+                <!-- https://www.khanacademy.org/math/algebra2/exponential-and-logarithmic-functions/introduction-to-logarithms/v/logarithms -->
+                <!-- code: binary_search.py, binary_search.rb -->
+                <!-- Binary search requires log n operations to search a list of size n. -->
+                Ethical Kickstarter PBR asymmetrical lo-fi. Dreamcatcher street art Carles, stumptown gluten-free Kickstarter artisan Wes Anderson wolf pug. Godard sustainable you probably haven't heard of them, vegan farm-to-table Williamsburg slow-carb readymade disrupt deep v. Meggings seitan Wes Anderson semiotics, cliche American Apparel whatever. Helvetica cray plaid, vegan brunch Banksy leggings +1 direct trade. Wayfarers codeply PBR selfies. Banh mi McSweeney's Shoreditch selfies, forage fingerstache food truck occupy YOLO Pitchfork fixie iPhone fanny pack art party Portland.
                 </p>
                 <div class="subhead">// Log-Linear Growth
                   <button class="linearLogLinear btn btn-plot-choice">
@@ -135,10 +172,8 @@
                     <span class="btn-addon">]</span>
                   </button>
                 </div>
-                <p class="growthDescription" id="linearLogLinear">
-    Maecenas vitae tellus aliquet, vestibulum urna eget, rutrum ligula. Nulla lobortis elit non ultrices venenatis. Nulla nec volutpat ipsum. Maecenas efficitur dui lacus, vel ullamcorper ex sollicitudin sit amet. Sed nec quam non risus rutrum lobortis quis a urna. Phasellus ut eros sagittis, scelerisque leo non, porttitor arcu. Aenean tristique turpis congue risus elementum semper. Praesent non quam nec velit commodo facilisis nec id leo. Suspendisse orci metus, facilisis a cursus ut, semper ut est.
-
-    Aenean euismod purus ut ante eleifend ultrices. In hac habitasse platea dictumst. Suspendisse eu condimentum nulla. Donec porttitor orci non massa placerat lacinia. Proin blandit quam eu justo maximus, vitae vestibulum arcu hendrerit. In consequat felis et turpis vestibulum iaculis. Etiam vel venenatis enim. Quisque pellentesque, magna vel ultrices interdum, dolor odio elementum mauris, ac pulvinar risus tortor sed enim. Sed risus ligula, dapibus id vestibulum ut, tincidunt ac eros. Mauris pellentesque nec ipsum sed ornare. Donec consectetur bibendum sapien ac pretium.
+                <p class=" waypoint growthDescription" id="linearLogLinear">
+                Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut semiotics, raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditation. Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.
                 </p>
                 <div class="subhead">// Quadratic Growth
                   <button class="logLinearQuadratic btn btn-plot-choice">
@@ -147,10 +182,8 @@
                     <span class="btn-addon">]</span>
                   </button>
                 </div>
-                <p class="growthDescription" id="logLinearQuadratic">
-    Quisque rutrum pharetra feugiat. Vivamus tempor lobortis ipsum, ut cursus odio dictum vitae. Nulla ut tortor tempor, finibus risus quis, finibus elit. Nulla non ligula at est finibus aliquam. Vivamus in efficitur magna, vitae placerat turpis. Duis lobortis facilisis viverra. Cras eu mi in lectus volutpat mollis. Vestibulum purus mauris, elementum sed iaculis vel, dignissim quis eros. Pellentesque in fermentum erat.
-
-    Fusce et dolor pulvinar massa ultricies elementum. Vivamus ut metus volutpat, pharetra eros eget, fermentum mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus rhoncus in risus vel ultrices. Vestibulum id lacus a erat facilisis tincidunt at et arcu. Sed in purus aliquam, vulputate odio vel, cursus leo. Aenean lobortis arcu ut felis egestas, quis vestibulum est molestie. Morbi a ultrices risus. In vel ullamcorper odio, vitae laoreet mi. Ut diam mi, sodales et ipsum in, semper consectetur mauris. Phasellus volutpat mi quis ipsum egestas, id ullamcorper risus volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                <p class="waypoint growthDescription" id="logLinearQuadratic">
+                Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut semiotics, raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditation. Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.
                 </p>
                 <div class="subhead">// Exponential Growth
                   <button class="quadraticExponential btn btn-plot-choice">
@@ -159,22 +192,27 @@
                     <span class="btn-addon">]</span>
                   </button>
                 </div>
-                <p class="growthDescription" id="quadraticExponential">
-    In ullamcorper dictum ligula, in luctus magna dapibus ac. Curabitur et efficitur odio. In elementum elit ut sagittis elementum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque eu odio quis enim ultricies pharetra sit amet et justo. Sed convallis malesuada metus. Vestibulum hendrerit sem a risus interdum porta. Phasellus in porttitor tortor. Morbi a sagittis mauris, a lacinia nisl. Suspendisse nec nibh nunc. Nam rutrum, nunc interdum finibus eleifend, diam turpis luctus odio, quis hendrerit tortor massa pharetra lorem.
+                <p class="waypoint growthDescription" id="quadraticExponential">
+                Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut semiotics, raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditation. Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.
+                </p>
+                <br/>
 
-    Aliquam id eros non lorem finibus volutpat et sit amet elit. Integer pulvinar nunc ac justo porttitor finibus. Praesent non dignissim arcu. Donec vehicula massa ut lectus congue laoreet sed et lacus. Mauris fermentum enim a ligula dapibus vulputate. Sed semper bibendum erat, quis euismod quam commodo in. Curabitur nulla purus, pellentesque et libero vitae, pellentesque consectetur magna. Donec sodales, libero vel efficitur posuere, nisi lectus elementum nisl, et accumsan nisi tellus in neque. Nunc sapien orci, venenatis sit amet venenatis sit amet, imperdiet id ligula.
+                <hr class="style_1">
+                <br/>
 
-    In ullamcorper dictum ligula, in luctus magna dapibus ac. Curabitur et efficitur odio. In elementum elit ut sagittis elementum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque eu odio quis enim ultricies pharetra sit amet et justo. Sed convallis malesuada metus. Vestibulum hendrerit sem a risus interdum porta. Phasellus in porttitor tortor. Morbi a sagittis mauris, a lacinia nisl. Suspendisse nec nibh nunc. Nam rutrum, nunc interdum finibus eleifend, diam turpis luctus odio, quis hendrerit tortor massa pharetra lorem.
-
-    Aliquam id eros non lorem finibus volutpat et sit amet elit. Integer pulvinar nunc ac justo porttitor finibus. Praesent non dignissim arcu. Donec vehicula massa ut lectus congue laoreet sed et lacus. Mauris fermentum enim a ligula dapibus vulputate. Sed semper bibendum erat, quis euismod quam commodo in. Curabitur nulla purus, pellentesque et libero vitae, pellentesque consectetur magna. Donec sodales, libero vel efficitur posuere, nisi lectus elementum nisl, et accumsan nisi tellus in neque. Nunc sapien orci, venenatis sit amet venenatis sit amet, imperdiet id ligula.
+                <div class="subhead">// Further Reading</div>
+                <p>
+                Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut semiotics, raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditation. Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.
                 </p>
               </div> <!-- #show-text -->
             </div>
           </div> <!-- col-sm-6 (left column) -->
 
           <div class="col-sm-6 outer-col" data-spy="affix">
+              <br/>
               <!-- <h4>// Input Range</h4> -->
               <div class="subhead">// Input Range</div>
+              <br/>
               <div class="slider-wrapper">
                 <div class="noUi-extended" id="limit-slider"></div>
                 <!-- input fields -->
@@ -192,30 +230,35 @@
                 </div>
               </div> <!-- slider-wrapper -->
               <br />
-              <br />
-              <br />
+              <!-- <br /> -->
+              <!-- <br /> -->
               <!-- <h4>// Growth Plot</h4> -->
               <div class="subhead" id="growth-plot">// Growth Plot</div>
               <div id="plot-space">
-               <p>
-                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mi arcu, finibus ac imperdiet a, ullamcorper sed mauris. Donec aliquam ex ultrices nulla bibendum, vel mattis massa ullamcorper. Cras eget elit luctus, rutrum sem nec, placerat libero. Integer eu pharetra orci. Nam eros ex, tempor vitae accumsan sed, hendrerit a nibh.
-               </p>
-               <p>
-                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mi arcu, finibus ac imperdiet a, ullamcorper sed mauris. Donec aliquam ex ultrices nulla bibendum, vel mattis massa ullamcorper. Cras eget elit luctus, rutrum sem nec, placerat libero. Integer eu pharetra orci. Nam eros ex, tempor vitae accumsan sed, hendrerit a nibh.
-               </p>
-               <p>
-                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mi arcu, finibus ac imperdiet a, ullamcorper sed mauris. Donec aliquam ex ultrices nulla bibendum, vel mattis massa ullamcorper. Cras eget elit luctus, rutrum sem nec, placerat libero. Integer eu pharetra orci. Nam eros ex, tempor vitae accumsan sed, hendrerit a nibh.
-               </p>
-              </div>
+              <br/>
+                <div class="solarized_blue" id="plot-info">
+                   Scroll down to view plotted comparisons of algorithm run times.
+                   <br/>
+                   Change the input size above with the sliders, or by entering new numbers.
+                   <hr class="style_2">
+                   When you hover / touch the graph, these icons
+                   <img src="../static/images/mpld3-icons.png" alt="graph icons: home, move, magnify">
+                   appear at the graph's bottom left. Click on them to reset
+                   <img src="../static/images/home.png" alt="home icon">
+                   move <img src="../static/images/move.png" alt="move icon">
+                   and magnify <img src="../static/images/magnify.png" alt="magnify icon">
+                   the graph.
+                </div>
+              </div> <!-- start with empty node -->
 
           </div> <!-- col-sm-6 (right column) -->
         </div> <!-- row -->
-      </div> <!-- container -->
+      </div> <!-- container-fluid -->
     </main>
 
     <footer>
       <div class="row">
-        <div class="col-xs-8">
+        <div class="col-xs-9">
           <div class="footer-inner-left">
             <h5 class="footer-text">
               // Caffeinated Electrons &copy; 2017 //
@@ -228,18 +271,18 @@
               <span class="glyphicon glyphicon-globe"></span> Santa Fe, NM
               <span class="glyphicon glyphicon-phone"></span> 1-555-electrons
               <span class="glyphicon glyphicon-envelope"></span>
-              <a href="mailto:#">011@110.001</a>
+              <a href="mailto:#">janthonyfields@gmail.com</a>
             </h5>
           </div>
         </div>
-        <div class="col-xs-4">
+        <div class="col-xs-3">
           <div class="footer-inner-right">
             <div class="footer-img">
               <p>
                 <a href="https://twitter.com/janthonyfields"><i class="fa fa-twitter fa-2x"></i></a>
-                <a><i class="fa fa-linkedin fa-2x"></i></a>
-                <a href="https://github.com/jaf7"><i class="fa fa-github fa-2x"></i></a>
-                <a><i class="fa fa-codepen fa-2x"></i></a>
+                <!-- <a><i class="fa fa-linkedin fa-2x"></i></a> -->
+                <a href="https://github.com/jaf7/mpld3-growth-complexity-demo"><i class="fa fa-github fa-2x"></i></a>
+                <!-- <a><i class="fa fa-codepen fa-2x"></i></a> -->
               </p>
             </div>
           </div>

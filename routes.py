@@ -61,7 +61,7 @@ def plot_growth(compare_type, lower, upper, width, height):
             quadratic.append(n**2)
             exponential.append(2**n)
 
-        fig, ax = plt.subplots( figsize=(math.floor(width), math.floor(height) ) )
+        fig, ax = plt.subplots( figsize=(math.floor(width), math.floor(height) ), tight_layout=True )
 
         if compare_type == 'linearLog':
             ax.plot(linear, '#bdcccc', label='linear')
@@ -84,22 +84,18 @@ def plot_growth(compare_type, lower, upper, width, height):
             ax.grid(True, which = 'both')
             # ax.set_axis_bgcolor('#073642')
             ax.set_facecolor('#073642')
-        elif compare_type == 'quadraticExponential':
+        elif compare_type == 'quadraticExponential':            
             ax.plot(exponential, '#bdcccc', label = 'exponential')
             ax.plot(quadratic, '#B58900', label = 'quadratic')
+            # The below raises TypeError: ticklabel_format() takes exactly 1 argument (3 given)
+            # MatPlotLib docs say ticklabel_format takes **kwargs including these used here
+            # stackoverflow says this should work: https://stackoverflow.com/questions/28371674/prevent-scientific-notation-in-matplotlib-pyplot
+            # No longer raising TypeError (?)
+            ax.ticklabel_format(style='plain', scilimits=(5,5), useOffset=False, axis='y') 
             ax.legend(loc = 'upper left', facecolor = '#657B83')
             ax.grid(True, which = 'both')
             # ax.set_axis_bgcolor('#073642')
-            ax.set_facecolor('#073642')
-        # can't set y-axis ticklabels padding correctly
-        # elif compare_type == 'semiQuadraticExponential':
-        #     ax.plot(quadratic, label = 'quadratic')
-        #     ax.plot(exponential, label = 'exponential')
-        #     ax.semilogy()
-        #     ax.legend(loc = 'upper left', facecolor = '#657B83')
-        #     ax.grid(True, which = 'both')
-        #     ax.set_axis_bgcolor('#FFF8DC')
-        #     ax.set_facecolor('#073642')
+            ax.set_facecolor('#073642')                         
 
     return mpld3.fig_to_html(fig)
 
@@ -111,6 +107,14 @@ app.logger.setLevel(logging.ERROR)
 @app.route('/')
 def home():
     return render_template('index.html')
+
+# @app.route('/resources/')
+# def resources():
+#   return render_template('resources.html')
+
+# @app.route('/overview/')
+# def overview():
+#     return render_template('overview.html')
 
 @app.route('/query', methods=['POST'])
 def query():

@@ -66,5 +66,5 @@ A learning project that will present descriptions and interactive graphic plots 
 * Refactor app.js using Object Oriented principles []
 * Improve / re-design styling and layout [\]
 * Finish writing content []
-* Learn to use Jinja Templates correctly
+* Learn to use Jinja Templates correctly (& serving pages from correct directory)
 * ...

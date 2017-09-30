@@ -14,7 +14,6 @@
       compareType: null
     };
 
-
     /*
       mpld3 figures are not responsive. Define the plot size in relation to
       window.innerWidth, window.innerHeight.
@@ -56,8 +55,9 @@
       Underscore.js and https://davidwalsh.name/javascript-debounce-function.
       I'm rewriting it here to learn from the work-through & think-through.
     */
+    var timeout = null; // declare outside debounce scope so we can do clearTimeout() inside .waypoint callback fn
     var debounce = function(myFunction, wait, immediate) {
-      var timeout;
+      // var timeout;
 
       return function() {
         var context = this,                   // store the this property to pass into function closures
@@ -83,39 +83,44 @@
       };
     };
     // Function to pass to debounce(), and fire rate limit.
-    var timedGeneratePlot = debounce(function() {
+    var generatePlotWithDebounce = debounce(function() {
       setPlotSize();
       generatePlot();
     }, 800);
-    // On window resize, call the debounced function timedGeneratePlot()
+    // On window resize, call the debounced function generatePlotWithDebounce()
     window.addEventListener("resize", function() {
       if ( plotData.compareType ) {
         // plotData.plotWidth = setPlotSize();
         // plotData.plotHeight = setPlotSize();
-        timedGeneratePlot();
+        generatePlotWithDebounce();
       }
     });
 
 
     /*
-      Add .waypoint method from Waypoints library to trigger
-      setting plot type & generating new plot when scrolling the
-      waypoints (a waypoint is created for each matched element)
-      TODO:
-      selectively trigger (don't trigger when scrolling back up to last element)
+      Trigger plot generation on scroll.
+      Waypoints lib: create waypoint for matched elements: http://imakewebthings.com/waypoints/guides/jquery-zepto/
     */
-    var scrollWaypoints = $( ".growthDescription" ).waypoint(
-      function() {
-        // only trigger for large displays (greater than tablet)
-        // .viewportWidth() is a convenience method on the Waypoint Object.
+    var plotInfo = document.getElementById("plot-info").outerHTML; // store this node prior to overwrite at line 259 (generatePLot())
+    var scrollWaypoints = $( ".waypoint" ).waypoint(
+      function( direction ) {
         if ( Waypoint.viewportWidth() >= 768 ) {
-          var plotType = this.element.id;
-          plotData.compareType = plotType;
-          timedGeneratePlot();
+          if ( this.element.id != "what-is-big-o" ) {
+              plotData.compareType = this.element.id;
+              generatePlotWithDebounce();
+          }
+          else if ( direction == "up" ) {
+            clearTimeout(timeout)
+            if ( $("#plot-space").css("display") == "block" ) {
+              $( "#plot-space" ).fadeTo( 600, 0, function() {
+                document.getElementById("plot-space").innerHTML = plotInfo;
+                $( "#plot-info" ).css( "opacity", "1" );
+                $( "#plot-space" ).fadeTo( 600, 1 );
+              });
+            }
+          }
         }
-      },
-      { offset: "40%" }
-    );
+      }, { offset: "40%" });
 
 
     /*
@@ -133,23 +138,21 @@
       step: 1,
       margin: 1,
       range: {
-        // if upper limit exceeds 1022, numeric.py throws an error (though not in asfarray which converts values to floats (?))
+        // if upper limit exceeds 1022, numeric.py throws an error (though not in asarray which converts values to floats (?))
         // numeric.py: line 460, in asarray: OverflowError: long int too large to convert to float
         'min': [1],
         'max': [1000]
       },
-      format: wNumb({
-        decimals: 0
-      })
+      format: wNumb({ decimals: 0 })
     });
 
 
     /*
        Bind the slider handle and input field values:
-       *values* is alwas an array of strings. *handle* is 0 or 1 and
+       *values* is always an array of strings. *handle* is 0 or 1 and
        indicates the handle that caused the event.
      */
-    // -- Bind slider handle changes to input field values
+    // Bind slider handle changes to input field values
     limitSlider.noUiSlider.on("update", function(values, handle) {
       // Need a Number to pass to plot_growth in routes.py
       var currentValue = parseInt(values[handle]);
@@ -161,7 +164,7 @@
         plotData.upperLimit = currentValue;
       }
     });
-    // -- Bind input field changes to slider handle values
+    // Bind input field changes to slider handle values
     lowerLimitInput.addEventListener("change", function(values) {
       limitSlider.noUiSlider.set([this.value, values[1]]);
     });
@@ -192,9 +195,10 @@
 
 
     /*
-      Button styling helper and event handler:
+      Button styling helper / event handler:
       Re-style buttons on these events by adding/removing "focused" class
-      Avoid MathJax element/class insertions by filtering descendant of .content-wrapper
+      Avoid MathJax element/class insertions: select .content-wrapper, filter to descendants .btn-plot-choice
+      http://api.jquery.com/on/#on-events-selector-data
     */
     $( ".content-wrapper" ).on({
       "mouseover click": function() {
@@ -215,7 +219,7 @@
     $( ".content-wrapper" ).on('click', '.btn-plot-choice', function() {
       var plotChoice = this.classList[0];
       plotData.compareType = plotChoice;
-      timedGeneratePlot();
+      generatePlotWithDebounce();
     });
 
 
@@ -231,16 +235,25 @@
         data: JSON.stringify( plotData ),
         dataType: "html"
       });
-      getPlotSlide.done(function(data) {
-        $("#plot-space").fadeTo(200, 0, function() {
-          $("#plot-space").html(data).fadeTo(200, 1);
-        });
-        // $("#show-text").fadeTo(500, 0, function() {
-        //   $(this).html(descriptions[plotData.compareType]).fadeTo(500, 1, function() {});
-        // });
+      getPlotSlide.done(function( data ) {
+        // insert <br/> for quadraticExponential?
+
+        if ( $( "#plot-info" ).css("display") == "block" ) {
+            debugger
+          $( "#plot-info" ).fadeTo( 600, 0, function() {
+            $( "#plot-space" ).fadeTo( 600, 1, function() {
+              $( "#plot-space" ).html( data ).fadeTo( 600, 1 );
+            });
+          });
+        } else {
+          $( "#plot-space" ).fadeTo( 600, 0, function() {
+            $( "#plot-space" ).fadeTo( 600, 1, function() {
+              $( "#plot-space" ).html( data ).fadeTo( 600, 1 );
+            });
+          });
+        }
       });
     };
-
 
   });
 })(jQuery, document, window, ResponsiveBootstrapToolkit);
