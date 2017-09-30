@@ -1,19 +1,19 @@
 @charset "UTF-8";
 
 @font-face {
-  font-family: "algorithm";
-  src:url("../fonts/algorithm.eot");
-  src:url("../fonts/algorithm.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/algorithm.woff") format("woff"),
-    url("../fonts/algorithm.ttf") format("truetype"),
-    url("../fonts/algorithm.svg#algorithm") format("svg");
+  font-family: "sort-icon";
+  src:url("fonts/sort-icon.eot");
+  src:url("fonts/sort-icon.eot?#iefix") format("embedded-opentype"),
+    url("fonts/sort-icon.woff") format("woff"),
+    url("fonts/sort-icon.ttf") format("truetype"),
+    url("fonts/sort-icon.svg#sort-icon") format("svg");
   font-weight: normal;
   font-style: normal;
 
 }
 
 [data-icon]:before {
-  font-family: "algorithm" !important;
+  font-family: "sort-icon" !important;
   content: attr(data-icon);
   font-style: normal !important;
   font-weight: normal !important;
@@ -27,7 +27,7 @@
 
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
-  font-family: "algorithm" !important;
+  font-family: "sort-icon" !important;
   font-style: normal !important;
   font-weight: normal !important;
   font-variant: normal !important;
@@ -38,9 +38,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-diode-symbol-4:before {
+.icon-sort-icon:before {
   content: "\61";
-}
-.icon-tree-algorithm:before {
-  content: "\62";
 }
