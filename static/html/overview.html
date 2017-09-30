@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Build Overview</title>
+
+    <link href="../css/bootstrap.min.css" media="all" rel="stylesheet"  type="text/css">
+    <link href="../css/main.css" media="all" rel="stylesheet" type="text/css">
+    <link href="../css/brand.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <script src="https://use.fontawesome.com/84b0cfaa21.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body class="site solarized_base1">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a type="a" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-elements">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="navbar-brand" id="push-brand" href="/">
+            <i class="fa fa-code" aria-hidden="true"></i>
+            <!-- <i class="icon-sort-icon"></i> -->
+            <!-- <i class="icon-tree-algorithm"></i> -->
+          </a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="collapse-elements">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="resources.html">
+                <span class="btn-addon">[</span>
+                  Resources
+                <span class="btn-addon">]</span>
+              </a>
+            </li>
+            <li>
+              <a href="overview.html">
+                <span class="btn-addon">[</span>
+                  Overview
+                <span class="btn-addon">]</span>
+              </a>
+            </li>
+            <!-- <li><a href="#">three</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="content-wrapper tools-page">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1">
+
+<!--             <p>
+            ... you can find such visualizations all over the internet, and I considered simply using freely available images. But given the subject matter (the <em>behavior</em> of algorithms as their input size scales up), why not attempt a dynamic presentation that gives the user a bit of interaction, such as changing the input size and zooming / moving the graph?
+            </p> -->
+            <p>
+            I was introduced to computational complexity in <a href="">MIT 600.1x</a>, "Introduction to Computer Science and Programming Using <a href="https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-11">Python</a>". For a first project, I decided to learn about <a href="https://matplotlib.org/">Matplotlib</a>, a Python 2D plotting library, and use it in a web page to present dynamic graphs that accept user input.
+            </p>
+            <br/>
+
+            <p>
+            In searching for a starting point, I came across <a href="http://mpld3.github.io/">mpld3</a>, an <a href="https://en.wikipedia.org/wiki/Application_programming_interface">API</a> for exporting Matplotlib figures (plots) to HTML. Then I discovered a <a href="https://github.com/nipunbatra/mpld3-flask">demo project</a> on GitHub that utilized this API combined with <a href="http://flask.pocoo.org/">Flask</a>, a microframework for Python web apps. Flask is accessible enough to begin using very quickly but also highly extensible, and thus appears to be a good platform for continuing to learn as I build more complex projects. I decided to fork the demo and started experimenting.
+            </p>
+            <br/>
+
+            <p>
+            Building this site is teaching me the basics of <a href="https://git-scm.com/">git</a> workflow from the command line: checking status, staging changes, doing commits with messages, pushing to a remote repository. I'm also learning about deploying to a cloud <a href="https://en.wikipedia.org/wiki/Platform_as_a_service">PaaS</a>, specifically <a href="https://devcenter.heroku.com/">Heroku</a>. This site runs on a web <a href="https://devcenter.heroku.com/articles/how-heroku-works#running-applications-on-dynos">dyno</a> and I am pushing changes to my Heroku remote simultaneously. I am developing locally using the Heroku <a href="https://devcenter.heroku.com/articles/heroku-cli">CLI</a> inside a Python <a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/#lower-level-virtualenv">virtual environment</a> to spin up a local server and observe changes immediately. It's a lot of fun and I can't wait to learn more.
+            </p>
+            <br/>
+
+            <p>
+            At present this site uses Python, Flask, Matplotlib and mpld3 on the backend to generate figures (plots) of algorithm running time growth rates and export them into the site HTML. On the frontend it uses JavaScript for behaviour, interaction and <a href="https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started">Ajax</a> requests. The source and a full list of resources used is in the <a href="https://github.com/jaf7/mpld3-growth-complexity-demo">GitHub</a> repository.
+            </p>
+            <br/>
+
+            <p>
+            Thanks for reading!
+            </p>
+
+          </div> <!-- col-xs-8 -->
+        </div> <!-- row -->
+      </div> <!-- container -->
+    </main>
+
+    <footer>
+      <div class="row">
+        <div class="col-xs-9">
+          <div class="footer-inner-left">
+            <h5 class="footer-text">
+              // Caffeinated Electrons &copy; 2017 //
+              <i>Made with
+                <span class="fa fa-coffee"></span>&nbsp;
+                <span class="fa fa-headphones"></span> and&nbsp;
+                <span class="fa fa-heart"></span>
+              </i>
+              // Contact:
+              <span class="glyphicon glyphicon-globe"></span> Santa Fe, NM
+              <span class="glyphicon glyphicon-phone"></span> 1-555-electrons
+              <span class="glyphicon glyphicon-envelope"></span>
+              <a href="mailto:#">janthonyfields@gmail.com</a>
+            </h5>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="footer-inner-right">
+            <div class="footer-img">
+              <p>
+                <a href="https://twitter.com/janthonyfields"><i class="fa fa-twitter fa-2x"></i></a>
+                <!-- <a><i class="fa fa-linkedin fa-2x"></i></a> -->
+                <a href="https://github.com/jaf7/mpld3-growth-complexity-demo"><i class="fa fa-github fa-2x"></i></a>
+                <!-- <a><i class="fa fa-codepen fa-2x"></i></a> -->
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="../static/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../static/js/app.js"></script>
+
+  </body>
+</html>
