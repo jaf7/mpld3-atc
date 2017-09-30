@@ -99,6 +99,8 @@ def plot_growth(compare_type, lower, upper, width, height):
 
     return mpld3.fig_to_html(fig)
 
+# create Flask instance for single module
+# http://flask.pocoo.org/docs/0.12/quickstart/
 app = Flask(__name__)
 # log to stdout for heroku local
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
