@@ -59,6 +59,7 @@ A learning project that will present descriptions and interactive graphic plots 
 * Work on understanding debouncing & implement [x]
 * Add debounce() functionality to waypoint scrolling function [x]
 * Get responsive resizing of graphs working correctly [x]
+* Improve fade transition times of graphs []
 * Tune graph size ratio to window size []
 * Figure out ScalarFormatter for Matplotlib (ax.ticklabel_format()) []
 * For small screens and column wrapping: add plot-text user guidance for using plot buttons
@@ -66,5 +67,5 @@ A learning project that will present descriptions and interactive graphic plots 
 * Refactor app.js using Object Oriented principles []
 * Improve / re-design styling and layout [\]
 * Finish writing content []
-* Learn to use Jinja Templates correctly (& serving pages from correct directory)
+* Learn to use Jinja Templates correctly (& how to  pages from correct directory)
 * ...
