@@ -21,8 +21,26 @@
 
 /* General Content
 -------------------------------------------------- */
-body {
+
+/* Begin to break out colors used multiple times into classes*/
+.solarized_blue {
+  color: #268BD2;
+}
+.solarized_base1 {
   color: #93A1A1;
+}
+.solarized_base1_lightened {
+  color: #AFC0C0;
+}
+.solarized_base2 {
+  color: #EEE8D5;
+}
+.solarized_base2_lightened {
+  color: #CBC6B7;
+}
+
+body {
+  /*color: #93A1A1;*/
   background-color: #073642;
   font-family: 'Inconsolata', monospace;
 }
@@ -30,10 +48,12 @@ body {
 .navbar-default {
   background-color: #073642;
   border-bottom: 1px dashed #bdcccc;
+  height: 60px;
 }
 .navbar-default .navbar-brand {
   color: #bdcccc;
   margin-left: 15px;
+  padding: 5px;
 }
 .navbar-default .navbar-brand:hover {
   color: #b58900;
@@ -43,7 +63,7 @@ body {
   font-weight: 600;
 }
 #push-brand {
-  margin-left: 5px;
+  margin-left: 8px;
   margin-bottom: 25px;
 }
 .fa-code {
@@ -52,30 +72,38 @@ body {
 .fa-code:hover, fa-code:active {
   color: #B58900;
 }
-
-/*.icon-tree-algorithm {
-  font-size: 2.7em;
-}*/
-/*.icon-sort-icon {
-  font-size: 2.7em;
-}*/
 ul.nav.navbar-nav {
   float: right;
 }
-
+.navbar-default .navbar-nav > li > a {
+  color: #bdcccc;
+}
+.navbar-default .navbar-nav > li > a:hover {
+  color: #b58900;
+}
+.navbar-default .navbar-nav > li > a:focus {
+  color: #b58900;
+}
 
 main.content-wrapper {
   margin-top: 8.5rem;
+  flex: 1;
+  font-size: 1.7rem;
+}
+main.content-wrapper.tools-page {
+  margin-top: 11rem;
+  font-size: 1.8rem;
 }
 .row {
   margin-left: 0;
   margin-right: 0;
 }
 div.col-sm-6.outer-col {
-  padding-right: 20px;
+  padding-right: 60px;
+  /*padding-left: 30px;*/
 }
 div.col-sm-6.outer-col.affix {
-  margin-top: 2rem;
+  /*margin-top: 2rem;*/
 }
 .title {
   color: #B58900;
@@ -91,9 +119,26 @@ h4 {
 }
 p {
   text-align: justify;
-  font-size: 1.6rem;
+  /*font-size: 1.7rem;*/
   line-height: 1.5;
 }
+hr.style_1 {
+  border: 0;
+  height: 1px; 
+  width: 50%;
+  /*background-color: #FFCC33;*/
+  background-image: linear-gradient( to right, #073642, #FFCC33, #073642 )
+}
+hr.style_2 {
+  border: 1px;
+  height: 1px;
+  width: 50%;
+  background-color: #93A1A1;
+  background-image: linear-gradient( to right, #073642, #93A1A1, #073642 );
+}
+/*em {
+  color: #268BD2;
+}*/
 .microlight {
   font-family: monospace;
   white-space: pre;
@@ -275,9 +320,25 @@ span.btn-addon.focused, span.btn-addon: {
 /* Plot Space
 -------------------------------------------------- */
 #plot-space {
+  display: block;
   text-align: center;
 }
+#plot-info {
+  /*color: #268BD2;*/
+  display: block;
+  margin-top: 1rem;
+  border: 1px dashed #bdcccc;
+  padding: 130px 25px;
+  font-size: 1.5rem;
+  line-height: 3rem;
+}
+svg.mpld3-figure {
+  float: right;
+  padding-left: 6rem;
+  /*the below works to offset exponential growth plot*/
+  /*margin-top: -3rem;*/
 
+}
 /* FOOTER (sticky footer using flexbox)
 -------------------------------------------------- */
 .site {
@@ -285,16 +346,16 @@ span.btn-addon.focused, span.btn-addon: {
   min-height: 100vh;
   flex-direction: column;
 }
-.content-wrapper {
+/*.content-wrapper {
   flex: 1;
-}
+}*/
 footer {
   border-top: 1px dashed #bdcccc;
   /*height: 100px;*/
   margin-top: 10px;
 }
 .footer-inner-left, .footer-inner-right {
-  height: 80px;
+  height: 60px;
 }
 .footer-text {
   padding-left: 15px;
