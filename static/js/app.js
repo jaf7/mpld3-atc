@@ -100,7 +100,7 @@
     /*
       Trigger plot generation on scroll.
       Waypoints lib: create waypoint for matched elements: http://imakewebthings.com/waypoints/guides/jquery-zepto/
-    */
+    */ 
     var plotInfo = document.getElementById("plot-info").outerHTML; // store this node prior to overwrite at line 259 (generatePLot())
     var scrollWaypoints = $( ".waypoint" ).waypoint(
       function( direction ) {
@@ -239,7 +239,6 @@
         // insert <br/> for quadraticExponential?
 
         if ( $( "#plot-info" ).css("display") == "block" ) {
-            debugger
           $( "#plot-info" ).fadeTo( 600, 0, function() {
             $( "#plot-space" ).fadeTo( 600, 1, function() {
               $( "#plot-space" ).html( data ).fadeTo( 600, 1 );
