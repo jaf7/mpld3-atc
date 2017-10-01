@@ -89,6 +89,7 @@ main.content-wrapper {
   margin-top: 8.5rem;
   flex: 1;
   font-size: 1.7rem;
+  word-spacing: .01em;
 }
 main.content-wrapper.tools-page {
   margin-top: 11rem;
@@ -99,7 +100,7 @@ main.content-wrapper.tools-page {
   margin-right: 0;
 }
 div.col-sm-6.outer-col {
-  padding-right: 60px;
+  /*padding-right: 60px;*/
   /*padding-left: 30px;*/
 }
 div.col-sm-6.outer-col.affix {
@@ -119,14 +120,12 @@ h4 {
 }
 p {
   text-align: justify;
-  /*font-size: 1.7rem;*/
   line-height: 1.5;
 }
 hr.style_1 {
   border: 0;
   height: 1px; 
   width: 50%;
-  /*background-color: #FFCC33;*/
   background-image: linear-gradient( to right, #073642, #FFCC33, #073642 )
 }
 hr.style_2 {
@@ -165,11 +164,25 @@ hr.style_2 {
 /* Affixed content (range slider and plot)
 -------------------------------------------------- */
 @media only screen and (min-width: 320px) {
+  main.content-wrapper {
+  font-size: 1.6rem;
+  /*font-*/
+  /*word-spacing: .01em;*/
+  }
+  div.col-sm-6.outer-col {
+  padding: 1rem;
+  }
+  /*p {
+  text-align: left;
+  }*/
   .affix {
     position: relative;
   }
 }
 @media only screen and (min-width: 768px) {
+  div.col-sm-6.outer-col {
+  padding-right: 60px;
+  }
   .affix {
     position: fixed;
     right: .5em;
@@ -326,7 +339,7 @@ span.btn-addon.focused, span.btn-addon: {
 #plot-info {
   /*color: #268BD2;*/
   display: block;
-  margin-top: 1rem;
+  margin-top: 3rem;
   border: 1px dashed #bdcccc;
   padding: 130px 25px;
   font-size: 1.5rem;
