@@ -11,7 +11,7 @@ A learning project that will present descriptions and interactive graphic plots 
 
 ## Demo
 
-[Heroku app](https://mpld3-growth-complexity-demo.herokuapp.com) - Work in progress! Single dyno: first request needs a couple of seconds to wake up
+[Heroku app](https://mpld3-growth-complexity-demo.herokuapp.com) - Single dyno: first request needs a couple of seconds to spin up
 
 ## Built Using
 
@@ -62,10 +62,13 @@ A learning project that will present descriptions and interactive graphic plots 
 * Improve fade transition times of graphs []
 * Tune graph size ratio to window size []
 * Figure out ScalarFormatter for Matplotlib (ax.ticklabel_format()) []
+* Correct affix behaviour at bottom of scroll (remove at appropriate location relative to #plot-space) []
+* Add re-plot button to slider input []
 * For small screens and column wrapping: add plot-text user guidance for using plot buttons
 * Fix MathJax font & button responsiveness [x]
 * Refactor app.js using Object Oriented principles []
 * Improve / re-design styling and layout [\]
 * Finish writing content []
-* Learn to use Jinja Templates correctly (& how to  pages from correct directory)
+* Learn to use Jinja Templates correctly (& how to  pages from correct directory) []
+* Learn how to affect label precision on y-axis of plot
 * ...
