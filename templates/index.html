@@ -67,40 +67,45 @@
             <div class="pad">
               <div class="title">// Algorithms, Time Complexity and Big O Notation</div>
               <div class="text"> <!-- id="show-text"> -->
-                <br/>
+                <!-- <br/> -->
                 <p>
                 Hello and welcome! This site is my first web development project and it functions as a kind of learning platform. After some uncertainty about how to make a start at actually <em class="solarized_base1_lightened">building</em> something, I decided to just let my interest guide me. For me this meant I wanted to review the fundamentals of algorithm <em class="solarized_base1_lightened">time complexity</em>. Since this subject matter lends itself to visualization (by plotting rates of change on a graph), I decided to attempt to present a few interactive plots, with accompanying brief discussion of what I'm learning about algorithms. As such, the effort to articulate these concepts clearly is an ongoing project in itself. I'm eager to build my understanding so feedback is welcome (contact info is in the footer).
                 </p>
-                <br/>
+                <!-- <br/> -->
                 <p>
                 You can read an <a href="overview">overview</a> of how I'm building this site (also in the navigation above). There is also a <a href="https://github.com/jaf7/mpld3-growth-complexity-demo">GitHub</a> repository. This is an ongoing learning experience, and it's perhaps as valuable for uncovering how <em class="solarized_base1_lightened">not</em> to do some things as for learning appropriate practices. I currently think that on balance, as a beginner, it's good to have a project where you can play around and throw things at the wall. It provides numerous opportunities for mistakes, backtracking, changing, and refining as you learn. And it's serious fun!
                 </p>
-                <br/>
+                <!-- <br/> -->
 
                 <hr class="style_1">
-                <br/>
+                <!-- <br/> -->
 
                 <div class="subhead">// What is an Algorithm?</div>
                 <p>
                 There's an interesting fact about problem solving: we don't solve the same problem over and over again. A solution by its nature is something we can re-use. Of course we may refine the solution, or alter it to fit a particular case just-so. But the structure, the pattern, remains. Otherwise it's a different, alternative solution. The challenge often comes in discerning the most appropriate solution to apply. In all kinds of efforts, we can become amazingly adept at this discerning application, with long practice.
                 </p>
-                <br/>
+                <!-- <br/> -->
                 <p>
-                An algorithm is an explicit way of expressing a solution by recasting it into a series of ordered, unambiguous steps that, given an input, produce a result. In a general sense, a recipe for chocolate cake, or directions to a museum in the city, or the steps to rebuild a motorcycle engine are all algorithms. And so are the steps in code that effect the ordering of a list, and the steps in code that effect a search for an item in that list. Problems we encounter as developers can be highly complex. When we think of complexity, we intuitively relate this to the difficulty in solving a problem. Baking a cake might be less difficult, less complex, than rebuilding a motorcycle engine (perhaps depending on who's doing the work). In the face of complexity we're obliged to decompose problems into simpler sub-problems. As we do the work of decomposition, we can reach a point where we've articulated discrete units of work, (operations or steps) to be performed. In computation, when these steps lead from an input to a solution output, we've formulated an algorithm. And we are able to generalize this series of steps to apply to many variations of the original problem. But there are almost always multiple approaches to solving a problem. How do we decide what the most effective way is, given our constraints? For the sake of simplicity and to facilitate grasping the fundamental concepts, here we'll consider just one constraint: execution time or <em class="solarized_base1_lightened">running time</em>, which in computer science is referred to as <em class="solarized_base1_lightened">time complexity</em>.
+                An algorithm is an explicit way of expressing a solution by recasting it into a series of ordered, unambiguous steps that, given an input, produce a result. In a general sense, a recipe for chocolate cake, or directions to a museum in the city, or the steps to rebuild a motorcycle engine are all algorithms. And so are the steps in code that effect the ordering of a list, and the steps in code that effect a search for an item in that list.
                 </p>
-                <br/>
+                <!-- <br/> -->
+
+                <p>
+                Problems we encounter as developers can be highly complex. When we think of complexity, we intuitively relate this to the difficulty in solving a problem. Baking a cake might be less difficult, less complex, than rebuilding a motorcycle engine (perhaps depending on who's doing the work). In the face of complexity we're obliged to decompose problems into simpler sub-problems. As we do the work of decomposition, we can reach a point where we've articulated discrete units of work, (operations or steps) to be performed. In computation, when these steps lead from an input to a solution output, we've formulated an algorithm. And we are able to generalize this series of steps to apply to many variations of the original problem. But there are almost always multiple approaches to solving a problem. How do we decide what the most effective way is, given our constraints? For the sake of simplicity and to facilitate grasping the fundamental concepts, here we'll consider just one constraint: execution time or <em class="solarized_base1_lightened">running time</em>, which in computer science is referred to as <em class="solarized_base1_lightened">time complexity</em>.
+                </p>
+                <!-- <br/> -->
 
                 <hr class="style_1">
-                <br/>
+                <!-- <br/> -->
 
                 <div class="subhead">// What is Time Complexity?</div>
                 <p>
                 Time complexity refers to how the running time of an algorithm grows as its input scales. It's a tool for analyzing how efficiently one class of algorithms will compute a solution, relative to other kinds of algorithms, and independent of their operating environment (how fast the processor is for example). This independence results from the fact that when analyzing time complexity, we consider not elapsed clock time, but instead the <em class="solarized_base1_lightened">number of operations performed</em> to reach a solution. When we ask what the time complexity of an algorithm is, we are asking about the <em class="solarized_base1_lightened">rate of growth</em> of this number, as our input size increases. That is, how quickly does the number of operations performed increase as the size of the input increases? This rate of growth gives us something concrete to compare to other algorithm growth rates. And we do this comparison to understand the relative resource consumption of different kinds of algorithmic solutions. We are asking "what is the computational cost of this solution?" and we producing a concrete, quantified answer.
                 </p>
-                <br/>
+                <!-- <br/> -->
 
                 <hr class="style_1">
-                <br/>
+                <!-- <br/> -->
 
                 <div class="subhead">// What is Big O Notation?</div>
                 <p class="waypoint" id="what-is-big-o">
@@ -120,10 +125,10 @@
                  -->
                 Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut semiotics, raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditation. Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.
                 </p>
-                <br/>
+                <!-- <br/> -->
 
                 <hr class="style_1">
-                <br/>
+                <!-- <br/> -->
 
                 <div class="subhead">// Linear Growth
                   <button class="linearLog btn btn-plot-choice">
@@ -195,10 +200,10 @@
                 <p class="waypoint growthDescription" id="quadraticExponential">
                 Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut semiotics, raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditation. Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.
                 </p>
-                <br/>
+                <!-- <br/> -->
 
                 <hr class="style_1">
-                <br/>
+                <!-- <br/> -->
 
                 <div class="subhead">// Further Reading</div>
                 <p>
@@ -209,10 +214,10 @@
           </div> <!-- col-sm-6 (left column) -->
 
           <div class="col-sm-6 outer-col" data-spy="affix">
-              <br/>
+              <!-- <br/> -->
               <!-- <h4>// Input Range</h4> -->
               <div class="subhead">// Input Range</div>
-              <br/>
+              <!-- <br/> -->
               <div class="slider-wrapper">
                 <div class="noUi-extended" id="limit-slider"></div>
                 <!-- input fields -->
@@ -234,10 +239,10 @@
               <!-- <h4>// Growth Plot</h4> -->
               <div class="subhead" id="growth-plot">// Growth Plot</div>
               <div id="plot-space">
-              <br/>
+              <!-- <br/> -->
                 <div class="solarized_blue" id="plot-info">
                    Scroll down to view plotted comparisons of algorithm run times.
-                   <br/>
+                   <!-- <br/> -->
                    Change the input size above with the sliders, or by entering new numbers.
                    <hr class="style_2">
                    When you hover / touch the graph, these icons
