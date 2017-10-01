@@ -40,7 +40,6 @@
 }
 
 body {
-  /*color: #93A1A1;*/
   background-color: #073642;
   font-family: 'Inconsolata', monospace;
 }
@@ -98,13 +97,6 @@ main.content-wrapper.tools-page {
 .row {
   margin-left: 0;
   margin-right: 0;
-}
-div.col-sm-6.outer-col {
-  /*padding-right: 60px;*/
-  /*padding-left: 30px;*/
-}
-div.col-sm-6.outer-col.affix {
-  /*margin-top: 2rem;*/
 }
 .title {
   color: #B58900;
@@ -167,14 +159,10 @@ hr.style_2 {
   main.content-wrapper {
   font-size: 1.6rem;
   /*font-*/
-  /*word-spacing: .01em;*/
   }
   div.col-sm-6.outer-col {
   padding: 1rem;
   }
-  /*p {
-  text-align: left;
-  }*/
   .affix {
     position: relative;
   }
