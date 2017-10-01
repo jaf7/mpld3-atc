@@ -11,7 +11,7 @@ A learning project that will present descriptions and interactive graphic plots 
 
 ## Demo
 
-[Heroku app](https://mpld3-growth-complexity-demo.herokuapp.com) - Single dyno: first request needs a couple of seconds to spin up
+[Heroku app](https://mpld3-growth-complexity-demo.herokuapp.com) - Single dyno: first request needs a couple of seconds to spin up. N.B. Mobile (< ~480px width) presentation is less complete.
 
 ## Built Using
 
@@ -63,6 +63,7 @@ A learning project that will present descriptions and interactive graphic plots 
 * Tune graph size ratio to window size []
 * Figure out ScalarFormatter for Matplotlib (ax.ticklabel_format()) []
 * Correct affix behaviour at bottom of scroll (remove at appropriate location relative to #plot-space) []
+* Change #plot-text for small screens []
 * Add re-plot button to slider input []
 * For small screens and column wrapping: add plot-text user guidance for using plot buttons
 * Fix MathJax font & button responsiveness [x]
