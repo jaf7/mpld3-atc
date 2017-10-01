@@ -113,6 +113,7 @@ h4 {
 p {
   text-align: justify;
   line-height: 1.5;
+  margin-bottom: 2rem;
 }
 hr.style_1 {
   border: 0;
