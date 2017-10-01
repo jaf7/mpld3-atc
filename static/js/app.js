@@ -86,7 +86,7 @@
     var generatePlotWithDebounce = debounce(function() {
       setPlotSize();
       generatePlot();
-    }, 800);
+    }, 600);
     // On window resize, call the debounced function generatePlotWithDebounce()
     window.addEventListener("resize", function() {
       if ( plotData.compareType ) {
@@ -112,10 +112,10 @@
           else if ( direction == "up" ) {
             clearTimeout(timeout)
             if ( $("#plot-space").css("display") == "block" ) {
-              $( "#plot-space" ).fadeTo( 600, 0, function() {
+              $( "#plot-space" ).fadeTo( 300, 0, function() {
                 document.getElementById("plot-space").innerHTML = plotInfo;
                 $( "#plot-info" ).css( "opacity", "1" );
-                $( "#plot-space" ).fadeTo( 600, 1 );
+                $( "#plot-space" ).fadeTo( 300, 1 );
               });
             }
           }
@@ -141,7 +141,7 @@
         // if upper limit exceeds 1022, numeric.py throws an error (though not in asarray which converts values to floats (?))
         // numeric.py: line 460, in asarray: OverflowError: long int too large to convert to float
         'min': [1],
-        'max': [1000]
+        'max': [1000] // 1000
       },
       format: wNumb({ decimals: 0 })
     });
@@ -239,15 +239,15 @@
         // insert <br/> for quadraticExponential?
 
         if ( $( "#plot-info" ).css("display") == "block" ) {
-          $( "#plot-info" ).fadeTo( 600, 0, function() {
-            $( "#plot-space" ).fadeTo( 600, 1, function() {
-              $( "#plot-space" ).html( data ).fadeTo( 600, 1 );
+          $( "#plot-info" ).fadeTo( 100, 0, function() {
+            $( "#plot-space" ).fadeTo( 100, 1, function() {
+              $( "#plot-space" ).html( data ).fadeTo( 300, 1 );
             });
           });
         } else {
-          $( "#plot-space" ).fadeTo( 600, 0, function() {
-            $( "#plot-space" ).fadeTo( 600, 1, function() {
-              $( "#plot-space" ).html( data ).fadeTo( 600, 1 );
+          $( "#plot-space" ).fadeTo( 300, 0, function() {
+            $( "#plot-space" ).fadeTo( 300, 1, function() {
+              $( "#plot-space" ).html( data ).fadeTo( 300, 1 );
             });
           });
         }
