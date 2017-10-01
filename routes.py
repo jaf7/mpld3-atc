@@ -15,6 +15,9 @@ import matplotlib.pyplot as plt
 # Interactive mode off
 plt.ioff()
 
+# Class for formatting tick precision with '%' formatter
+from matplotlib.ticker import FormatStrFormatter
+
 # https://docs.python.org/2.7/library/threading.html#threading.Lock
 # Lock() to be used as context manager
 from threading import Lock
@@ -61,38 +64,38 @@ def plot_growth(compare_type, lower, upper, width, height):
             quadratic.append(n**2)
             exponential.append(2**n)
 
-        fig, ax = plt.subplots( figsize=(math.floor(width), math.floor(height) ), tight_layout=True )
+        fig, ax = plt.subplots( figsize = (math.floor(width), math.floor(height) ), tight_layout = True )
 
         if compare_type == 'linearLog':
             ax.plot(linear, '#bdcccc', label='linear')
             ax.plot(log, '#B58900', label = 'log')
-            ax.legend(loc = 'upper left', facecolor = '#657B83')
+            ax.legend(loc = 'upper left', fontsize = 'x-large', facecolor = '#657B83')
             ax.grid(True, which = 'both')
             # ax.set_axis_bgcolor('#073642')
             ax.set_facecolor('#073642')
         elif compare_type == 'linearLogLinear':
             ax.plot(logLinear, '#bdcccc', label = 'log-linear')
             ax.plot(linear, '#B58900', label = 'linear')
-            ax.legend(loc = 'upper left', facecolor = '#657B83')
+            ax.legend(loc = 'upper left', fontsize = 'x-large', facecolor = '#657B83')
             ax.grid(True, which = 'both')
             # ax.set_axis_bgcolor('#073642')
             ax.set_facecolor('#073642')
         elif compare_type == 'logLinearQuadratic':
             ax.plot(quadratic, '#bdcccc', label = 'quadratic')
             ax.plot(logLinear, '#B58900', label = 'log-linear')
-            ax.legend(loc = 'upper left', facecolor = '#657B83')
+            ax.legend(loc = 'upper left', fontsize = 'x-large', facecolor = '#657B83')
             ax.grid(True, which = 'both')
             # ax.set_axis_bgcolor('#073642')
             ax.set_facecolor('#073642')
         elif compare_type == 'quadraticExponential':            
             ax.plot(exponential, '#bdcccc', label = 'exponential')
             ax.plot(quadratic, '#B58900', label = 'quadratic')
-            # The below raises TypeError: ticklabel_format() takes exactly 1 argument (3 given)
-            # MatPlotLib docs say ticklabel_format takes **kwargs including these used here
-            # stackoverflow says this should work: https://stackoverflow.com/questions/28371674/prevent-scientific-notation-in-matplotlib-pyplot
-            # No longer raising TypeError (?)
-            ax.ticklabel_format(style='plain', scilimits=(5,5), useOffset=False, axis='y') 
-            ax.legend(loc = 'upper left', facecolor = '#657B83')
+            # how to make ticklabel precision work?
+            # https://stackoverflow.com/a/43528839/5797160
+            # https://docs.python.org/3/library/string.html#format-specification-mini-language
+            ax.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
+
+            ax.legend(loc = 'upper left', fontsize = 'x-large', facecolor = '#657B83')
             ax.grid(True, which = 'both')
             # ax.set_axis_bgcolor('#073642')
             ax.set_facecolor('#073642')                         
@@ -104,7 +107,7 @@ def plot_growth(compare_type, lower, upper, width, height):
 app = Flask(__name__)
 # log to stdout for heroku local
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
-app.logger.setLevel(logging.ERROR)
+app.logger.setLevel(logging.WARNING) # ('DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL') http://flask.pocoo.org/docs/0.12/errorhandling/
 
 @app.route('/')
 def home():
