@@ -12,6 +12,7 @@
     <link href="../static/css/nouislider.min.css" rel="stylesheet" />
     <link href="../static/css/brand.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
     <script src="https://use.fontawesome.com/84b0cfaa21.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
@@ -100,8 +101,9 @@
 
                 <div class="subhead">// What is Time Complexity?</div>
                 <p>
-                Time complexity refers to how the running time of an algorithm grows as its input scales. It's a tool for analyzing how efficiently one class of algorithms will compute a solution, relative to other kinds of algorithms, and independent of their operating environment (how fast the processor is for example). This independence results from the fact that when analyzing time complexity, we consider not elapsed clock time, but instead the <em class="solarized_base1_lightened">number of operations performed</em> to reach a solution. When we ask what the time complexity of an algorithm is, we are asking about the <em class="solarized_base1_lightened">rate of growth</em> of this number, as our input size increases. That is, how quickly does the number of operations performed increase as the size of the input increases? This rate of growth gives us something concrete to compare to other algorithm growth rates. And we do this comparison to understand the relative resource consumption of different kinds of algorithmic solutions. We are asking "what is the computational cost of this solution?" and we producing a concrete, quantified answer.
+                Time complexity refers to how the running time of an algorithm grows as its input scales. It's a tool for analyzing how efficiently one class of algorithms will compute a solution, relative to other kinds of algorithms, and independent of their operating environment (how fast the processor is, or how the programming language is implemented, for example). This independence results from the fact that when analyzing time complexity, we consider not elapsed clock time, but instead the <em class="solarized_base1_lightened">number of operations performed</em> to reach a solution.<a class="footnote" id="footnote-1-ref" href="#footnote-1" aria-label="See footnote">[1]</a> (We'll examine another kind of "independence" momentarily). When we ask what the time complexity of an algorithm is, we are asking (in part) about the <em class="solarized_base1_lightened">rate of growth</em> of this number, as our input size increases. That is, how quickly does the number of operations performed increase as the size of the input increases? This rate of growth gives us something concrete to compare to other algorithm growth rates. And we do this comparison to understand the relative resource consumption of different kinds of algorithmic solutions. We are asking "what is the computational cost of this solution?" and we're producing a concrete, quantified answer.
                 </p>
+                <p class="footnote-ref" id="footnote-1">[1] In order to best lay a foundational understanding, we hold the time value of an "operation" constant here. That is, we assume that the amount of time it takes to perform any discrete operation is identical. <a href="#footnote-1-ref" aria-label="Return to text">&#8617;</a></p>
                 <!-- <br/> -->
 
                 <hr class="style_1">
@@ -109,7 +111,31 @@
 
                 <div class="subhead">// What is Big O Notation?</div>
                 <p class="waypoint" id="what-is-big-o">
-                (Worst case)
+                To return briefly to the notion of <em class="solarized_base1_lightened">independence</em>: while a certain kind of independence (from a particular operating environment) can be achieved by considering the number of operations performed by the algorithm (instead of elapsed compute time), what about the <em class="solarized_base1_lightened">input value</em> itself? Doesn't the efficiency of an algorithm still depend on the particular input value(s) provided? Let's illustrate this. Let's say we have an array (or list) that we want to search for a particular element. We'll search this array by iterating over it, checking for equivalence, and returning true if the value is present in the array or false otherwise:
+                </p>
+                <div class="row">
+                  <div class="col-xs-10 col-xs-offset-1">
+                    <div class="microlight" contenteditable="true">function iterateArray( inputArray, element ) {
+  for ( let i = 0; i < inputArray.length; i++ ) {
+    if ( inputArray[i] === element ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+                    </div>
+                  </div>
+                </div>
+                <p>
+                Now let's say that our input array is a sorted list of integers from 1 to 100: <span class="microlight">[1,2,3,4,5,6, ...100]</span>. How many operations will it take to return a match? The answer is <em class="solarized_base1_lightened">dependent</em> on the size of our input array, and the element we're searching for: if we make <span class="microlight">element = 5</span>, iterateArray() will perform 5 comparisons to match the integer 5. But if <span class="microlight">element = 50</span>, the number of operations increases by 45. As our list size grows, the potential cost in operations required to match an element in it grows. If our array contains <span class="microlight">1,000,000</span> elements, this algorithm will match <span class="microlight">element = 5</span> in many fewer operations than it will take to match <span class="microlight">element = 900,000</span>. It appears that the speed of this algorithm can vary a great deal. How are we to establish a reliable representation of this algorithm's efficiency, so that we can compare it to other algorithms?
+                </p>
+                <p>
+                It seems we need to somehow <em class="solarized_base1_lightened">abstract</em> away from this variability if we are to treat this algorithm as part of a general class, to which we can compare other classes of algorithms. It turns out that we can consider such algorithms strictly in a <em class="solarized_base1_lightened">worst case</em> scenario. This worst case is also referred to as an <em class="solarized_base1_lightened">upper bound</em>: meaning we can impose a constraint on our input value(s), one that always represents these values as the <em class="solarized_base1_lightened">most costly</em> to obtain an output solution from. For every algorithm pattern we analyze, we assume this worst case. In this way, the effect of the variability we observed above becomes insignificant. We are examining the performance of our algorithm as we approach an upper bound in computation cost (such as an arbitrarily large input array size). In turn, we can impose the same constraint on a different algorithm, and in this way we can make a comparison that is independent of particular input configurations.
+                </p>
+                <p>
+                With this approach we can make two useful examinations: first, how an algorithm type's efficiency changes as its input size grows, and second, how the efficiency of one algorithm type compares to the efficiency of another algorithm type. Take our example code above. In the first examination, we might observe what happens as the size of our input array grows arbitrarily large. At what rate will our number of operations grow? In the latter examination, we can compare the relative growth rates of two different types of algorithm (such as the one we've expressed above compared to a second, different pattern). But how do we describe these <em class="solarized_base1_lightened">growth rates</em>? We express them as discrete <em class="solarized_base1_lightened">Orders of Growth</em>: with <em class="solarized_base1_lightened">big</em> "O" notation (literally using a capital "O").
+                </p>
                 <!--
                 Define Running Time: # operations performed
                 Define Growth Rate: How quickly does this *operations performed* value increase as input size increases?
@@ -123,12 +149,7 @@
                 We also limit consideration to how input size is related to number of operations performed.
                 In addition, it makes sense at the start to limit scope to *worst case* scenarios only. This way a parameter is established: a given operation will never run more slowly than it's analyzed Big O run time. This parameter is a base from which to define and understand how to implement "best case" or "average case" operations.
                  -->
-                Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut semiotics, raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditation. Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.
-                </p>
-                <!-- <br/> -->
-
                 <hr class="style_1">
-                <!-- <br/> -->
 
                 <div class="subhead">// Linear Growth
                   <button class="linearLog btn btn-plot-choice">
