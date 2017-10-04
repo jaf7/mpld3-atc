@@ -42,6 +42,9 @@
 body {
   background-color: #073642;
   font-family: 'Inconsolata', monospace;
+  /*font-family: 'Open Sans', sans-serif;*/
+  /*font-family: 'Space Mono', monospace;*/
+  /*font-weight: 300;*/
 }
 
 .navbar-default {
@@ -76,6 +79,7 @@ ul.nav.navbar-nav {
 }
 .navbar-default .navbar-nav > li > a {
   color: #bdcccc;
+  font-size: 1.8rem;
 }
 .navbar-default .navbar-nav > li > a:hover {
   color: #b58900;
@@ -87,25 +91,29 @@ ul.nav.navbar-nav {
 main.content-wrapper {
   margin-top: 8.5rem;
   flex: 1;
-  font-size: 1.7rem;
-  word-spacing: .01em;
+  font-size: 1.8rem;
+  word-spacing: .1rem;
 }
 main.content-wrapper.tools-page {
   margin-top: 11rem;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
 }
 .row {
   margin-left: 0;
   margin-right: 0;
 }
+.title, .subhead {
+  /*font-family: 'Inconsolata', monospace;*/
+  margin-bottom: 0.5rem;
+}
 .title {
   color: #B58900;
-  font-size: 2.3rem
+  font-size: 2.3rem;
 }
 .subhead {
   color: #bdcccc;
   font-size: 1.9rem;
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 h4 {
   color: #bdcccc;
@@ -114,6 +122,25 @@ p {
   text-align: justify;
   line-height: 1.5;
   margin-bottom: 2rem;
+}
+a:hover, a:active {
+  text-decoration: none;
+  color: #B58900;
+}
+.footnote:before {
+  /*display: block;*/
+  /*content: " ";*/
+  position: relative;
+  height: 8em;
+  top: -8em;
+  visibility: hidden;
+}
+.footnote-ref:before {
+  /*content: " ";*/
+  position: relative;
+  height: 10em;
+  top: -10em;
+  visibility: hidden;
 }
 hr.style_1 {
   border: 0;
@@ -128,13 +155,11 @@ hr.style_2 {
   background-color: #93A1A1;
   background-image: linear-gradient( to right, #073642, #93A1A1, #073642 );
 }
-/*em {
-  color: #268BD2;
-}*/
 .microlight {
-  font-family: monospace;
+  font-family: 'Inconsolata', monospace;
+  /*font-family: monospace;*/
   white-space: pre;
-  margin-bottom: 15px;
+  margin-bottom: 0.5rem;
   /*text-align: left;*/
   overflow-x: auto;
   /*background-color: #263238;
@@ -148,29 +173,31 @@ hr.style_2 {
     outline-width: 0px;
 }
 .microlight:not(:last-child) {
-  margin-bottom: 15px;
+  margin-bottom: 0.5rem;
 }
 .fa {
   color: #bdcccc;
 }
 
-/* Affixed content (range slider and plot)
+/* Media queries for affixed content (range slider and plot)
 -------------------------------------------------- */
 @media only screen and (min-width: 320px) {
-  main.content-wrapper {
-  font-size: 1.6rem;
-  /*font-*/
-  }
+/*  main.content-wrapper {
+    font-size: 1.6rem;
+  }*/
   div.col-sm-6.outer-col {
-  padding: 1rem;
+    padding: 1rem;
   }
   .affix {
     position: relative;
   }
 }
 @media only screen and (min-width: 768px) {
+/*  main.content-wrapper {
+    font-size: 1.6rem;
+  }*/
   div.col-sm-6.outer-col {
-  padding-right: 60px;
+    padding-right: 60px;
   }
   .affix {
     position: fixed;
@@ -181,6 +208,7 @@ hr.style_2 {
     display: none;
   }
 }
+
 div#growth-plot {
   margin-top: 1.5rem;
 }
