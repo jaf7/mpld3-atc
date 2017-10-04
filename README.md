@@ -69,7 +69,10 @@ A learning project that will present descriptions and interactive graphic plots 
 * Fix MathJax font & button responsiveness [x]
 * Refactor app.js using Object Oriented principles []
 * Improve / re-design styling and layout [\]
+* Fix footnote link offsets []
 * Finish writing content []
 * Learn to use Jinja Templates correctly (& how to  pages from correct directory) []
 * Learn how to affect label precision on y-axis of plot
+* Make code examples switchable between Ruby and JavaScript []
+* Add "run it in repl.it" links to code []
 * ...
