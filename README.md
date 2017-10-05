@@ -1,6 +1,6 @@
 # mpld3-growth-complexity-demo
 
-A learning project that will present descriptions and interactive graphic plots for growth complexities of algorithms as described in big-O notation.  
+A learning project that presents descriptions of algorithm growth complexities and big-O notation using interactive plots.
 
 ## Purpose
 
