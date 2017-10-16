@@ -127,6 +127,10 @@ a:hover, a:active {
   text-decoration: none;
   color: #B58900;
 }
+a.musicforprogramming:hover, a.musicforprogramming:active {
+  text-decoration: none;
+  color: #9CE22E;
+}
 .footnote:before {
   /*display: block;*/
   /*content: " ";*/
