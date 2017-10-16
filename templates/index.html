@@ -74,7 +74,7 @@
                 </p>
                 <!-- <br/> -->
                 <p>
-                You can read an <a href="overview">overview</a> of how I'm building this site (also in the navigation above). There is also a <a href="https://github.com/jaf7/mpld3-growth-complexity-demo">GitHub</a> repository. This is an ongoing learning experience, and it's perhaps as valuable for uncovering how <em class="solarized_base1_lightened">not</em> to do some things as for learning appropriate practices. I currently think that on balance, as a beginner, it's good to have a project where you can play around and throw things at the wall. It provides numerous opportunities for mistakes, backtracking, changing, and refining as you learn. And it's serious fun!
+                You can read a detailed <a href="{{ url_for('static', filename='html/overview.html') }}">overview</a> of my motivation and progress in building this site. I'm also compiling a list of helpful <a href="{{ url_for('static', filename='html/resources.html') }}">resources</a> for beginner / further study. You'll find the GitHub repository <a href="https://github.com/jaf7/mpld3-growth-complexity-demo">here</a> (the README contains additional info and my current TODO / FIXME list). This site's styling is inspired by the strikingly cool <a class="musicforprogramming" href="https://musicforprogramming.net/">Music For Programming</a> site by <a class="musicforprogramming" href="http://johndatadavies.info/">John Davies</a>. This is an ongoing learning experience, and it's perhaps as valuable for uncovering how <em class="solarized_base1_lightened">not</em> to do some things as for learning appropriate practices. I currently think that on balance, as a beginner, it's good to have a project where you can play around and throw things at the wall. It provides numerous opportunities for mistakes, backtracking, changing, and refining as you learn. And it's serious fun!
                 </p>
                 <!-- <br/> -->
 
@@ -83,13 +83,12 @@
 
                 <div class="subhead">// What is an Algorithm?</div>
                 <p>
-                There's an interesting fact about problem solving: we don't solve the same problem over and over again. A solution by its nature is something we can re-use. Of course we may refine the solution, or alter it to fit a particular case just-so. But the structure, the pattern, remains. Otherwise it's a different, alternative solution. The challenge often comes in discerning the most appropriate solution to apply. In all kinds of efforts, we can become amazingly adept at this discerning application, with long practice.
+                There's an interesting fact about problem solving: we tend not to solve the same problem over and over again. That is, we don't reformulate a solution to a problem every time we're confronted with it. A problem solution by its nature is something we can re-use. Of course we often refine solutions, or alter them to fit a particular case just so. But the structure--the pattern of a formulated solution--tends to remain stable in a significant way. Otherwise I'd offer that it's a different, alternative solution. And indeed, discerning the most appropriate solution to apply, out of the alternatives we can formulate, is a crucial skill in problem solving. With long and intentional practice, we can become amazingly adept at this skill of discerning application.
                 </p>
                 <!-- <br/> -->
                 <p>
-                An algorithm is an explicit way of expressing a solution by recasting it into a series of ordered, unambiguous steps that, given an input, produce a result. In a general sense, a recipe for chocolate cake, or directions to a museum in the city, or the steps to rebuild a motorcycle engine are all algorithms. And so are the steps in code that effect the ordering of a list, and the steps in code that effect a search for an item in that list.
+                An algorithm is an explicit way of expressing a solution by recasting it into a series of ordered, unambiguous steps that, given an input, produce a result. In a general sense, a <a href="https://iambaker.net/the-perfect-chocolate-cake/">recipe</a> for chocolate cake, or <a href="https://goo.gl/maps/EENUAFtoGqJ2">directions</a> to a museum in the city, or the <a href="http://www.thisoldtractor.com/projects_roy_smith_2013-03-19_inspect_and_prepare_the_crankcase.html">steps</a> to rebuild a motorcycle engine are all algorithms. And so are the steps in code that effect the ordering of a list, and the steps in code that effect a search for an item in that list.
                 </p>
-                <!-- <br/> -->
 
                 <p>
                 Problems we encounter as developers can be highly complex. When we think of complexity, we intuitively relate this to the difficulty in solving a problem. Baking a cake might be less difficult, less complex, than rebuilding a motorcycle engine (perhaps depending on who's doing the work). In the face of complexity we're obliged to decompose problems into simpler sub-problems. As we do the work of decomposition, we can reach a point where we've articulated discrete units of work, (operations or steps) to be performed. In computation, when these steps lead from an input to a solution output, we've formulated an algorithm. And we are able to generalize this series of steps to apply to many variations of the original problem. But there are almost always multiple approaches to solving a problem. How do we decide what the most effective way is, given our constraints? For the sake of simplicity and to facilitate grasping the fundamental concepts, here we'll consider just one constraint: execution time or <em class="solarized_base1_lightened">running time</em>, which in computer science is referred to as <em class="solarized_base1_lightened">time complexity</em>.
@@ -101,7 +100,7 @@
 
                 <div class="subhead">// What is Time Complexity?</div>
                 <p>
-                Time complexity refers to how the running time of an algorithm grows as its input scales. It's a tool for analyzing how efficiently one class of algorithms will compute a solution, relative to other kinds of algorithms, and independent of their operating environment (how fast the processor is, or how the programming language is implemented, for example). This independence results from the fact that when analyzing time complexity, we consider not elapsed clock time, but instead the <em class="solarized_base1_lightened">number of operations performed</em> to reach a solution.<a class="footnote" id="footnote-1-ref" href="#footnote-1" aria-label="See footnote">[1]</a> (We'll examine another kind of "independence" momentarily). When we ask what the time complexity of an algorithm is, we are asking (in part) about the <em class="solarized_base1_lightened">rate of growth</em> of this number, as our input size increases. That is, how quickly does the number of operations performed increase as the size of the input increases? This rate of growth gives us something concrete to compare to other algorithm growth rates. And we do this comparison to understand the relative resource consumption of different kinds of algorithmic solutions. We are asking "what is the computational cost of this solution?" and we're producing a concrete, quantified answer.
+                Time complexity refers to how the running time of an algorithm grows as its input scales. It's a tool for analyzing how efficiently one class of algorithms will compute a solution, relative to other kinds of algorithms, and independent of their operating environment (how fast the processor is, or how the programming language is implemented, for example). This independence results in part from the fact that when analyzing time complexity, we consider not elapsed clock time, but instead the <em class="solarized_base1_lightened">number of operations performed</em> to reach a solution.<a class="footnote" id="footnote-1-ref" href="#footnote-1" aria-label="See footnote">[1]</a> (We'll examine another kind of "independence" momentarily). When we ask what the time complexity of an algorithm is, we are asking (in part) about the <em class="solarized_base1_lightened">rate of growth</em> of this number, as our input size increases. That is, how quickly does the number of operations performed increase as the size of the input increases? This rate of growth gives us something concrete to compare to other algorithm growth rates. And we do this comparison to understand the relative resource consumption of different kinds of algorithmic solutions. We are asking "what is the computational cost of this solution?" and we're producing a concrete, quantified answer.
                 </p>
                 <p class="footnote-ref" id="footnote-1">[1] In order to best lay a foundational understanding, we hold the time value of an "operation" constant here. That is, we assume that the amount of time it takes to perform any discrete operation is identical. <a href="#footnote-1-ref" aria-label="Return to text">&#8617;</a></p>
                 <!-- <br/> -->
@@ -111,7 +110,7 @@
 
                 <div class="subhead">// What is Big O Notation?</div>
                 <p class="waypoint" id="what-is-big-o">
-                To return briefly to the notion of <em class="solarized_base1_lightened">independence</em>: while a certain kind of independence (from a particular operating environment) can be achieved by considering the number of operations performed by the algorithm (instead of elapsed compute time), what about the <em class="solarized_base1_lightened">input value</em> itself? Doesn't the efficiency of an algorithm still depend on the particular input value(s) provided? Let's illustrate this. Let's say we have an array (or list) that we want to search for a particular element. We'll search this array by iterating over it, checking for equivalence, and returning true if the value is present in the array or false otherwise:
+                To return briefly to the notion of <em class="solarized_base1_lightened">independence</em>: while a certain kind of independence (from a particular operating environment) can be achieved by considering the number of operations performed by the algorithm (instead of elapsed compute time), what about the <em class="solarized_base1_lightened">input value</em> itself? Doesn't the efficiency of an algorithm still depend on the particular input value(s) provided? Let's illustrate this. Let's say we have an array (or list) of unique non-repeating values that we want to search for a particular element. We'll search this array with an algorithm (the function <span class="microlight">iterateArray</span>) by iterating over it, checking for equivalence, and returning true if the value is present in the array or false otherwise:
                 </p>
                 <div class="row">
                   <div class="col-xs-10 col-xs-offset-1">
@@ -119,19 +118,18 @@
   for ( let i = 0; i < inputArray.length; i++ ) {
     if ( inputArray[i] === element ) {
       return true;
-    } else {
-      return false;
     }
   }
+  return false;
 }
                     </div>
                   </div>
                 </div>
                 <p>
-                Now let's say that our input array is a sorted list of integers from 1 to 100: <span class="microlight">[1,2,3,4,5,6, ...100]</span>. How many operations will it take to return a match? The answer is <em class="solarized_base1_lightened">dependent</em> on the size of our input array, and the element we're searching for: if we make <span class="microlight">element = 5</span>, iterateArray() will perform 5 comparisons to match the integer 5. But if <span class="microlight">element = 50</span>, the number of operations increases by 45. As our list size grows, the potential cost in operations required to match an element in it grows. If our array contains <span class="microlight">1,000,000</span> elements, this algorithm will match <span class="microlight">element = 5</span> in many fewer operations than it will take to match <span class="microlight">element = 900,000</span>. It appears that the speed of this algorithm can vary a great deal. How are we to establish a reliable representation of this algorithm's efficiency, so that we can compare it to other algorithms?
+                Now let's say that our input array is a sorted list of integers from 1 to 100: <span class="microlight">[1,2,3,4,5,6, ...100]</span>. How many operations will it take to return a match? The answer is <em class="solarized_base1_lightened">dependent</em> on the size of our input array, and the element we're searching for: if we make <span class="microlight">element = 5</span>, iterateArray() will perform 5 comparisons (while evaluating the <span class="microlight">if</span> statement) to match the integer 5. But if <span class="microlight">element = 50</span>, the number of comparison operations increases by 45. As our list size grows, the potential cost in operations required to match an element in it grows. If our array contains <span class="microlight">1,000,000</span> elements, this algorithm will match <span class="microlight">element = 5</span> in many fewer operations than it will take to match the element at index 999,999. It seems that the speed of this algorithm can vary a great deal. So how do we establish a reliable representation of this algorithm's efficiency, so that we can compare it to other algorithms?
                 </p>
                 <p>
-                It seems we need to somehow <em class="solarized_base1_lightened">abstract</em> away from this variability if we are to treat this algorithm as part of a general class, to which we can compare other classes of algorithms. It turns out that we can consider such algorithms strictly in a <em class="solarized_base1_lightened">worst case</em> scenario. This worst case is also referred to as an <em class="solarized_base1_lightened">upper bound</em>: meaning we can impose a constraint on our input value(s), one that always represents these values as the <em class="solarized_base1_lightened">most costly</em> to obtain an output solution from. For every algorithm pattern we analyze, we assume this worst case. In this way, the effect of the variability we observed above becomes insignificant. We are examining the performance of our algorithm as we approach an upper bound in computation cost (such as an arbitrarily large input array size). In turn, we can impose the same constraint on a different algorithm, and in this way we can make a comparison that is independent of particular input configurations.
+                It seems we need to somehow <em class="solarized_base1_lightened">abstract</em> away from this variability if we are to treat this algorithm as part of a general class, to which we can compare other classes of algorithms. It turns out that we can perform this abstraction by considering such algorithms strictly in a <em class="solarized_base1_lightened">worst case</em> scenario. This worst case is also referred to as an <em class="solarized_base1_lightened">upper bound</em>: meaning we can impose a constraint on our input value(s), one that always represents these values as the <em class="solarized_base1_lightened">most costly</em> to obtain an output solution from. For every algorithm pattern we analyze, we assume this worst case. In this way, the effect of the variability we observed above becomes insignificant (its impact on algorithm performance becomes vanishingly small). We are examining the performance of our algorithm as we approach an upper bound in computation cost (such as an arbitrarily large input array size). In turn, we can impose the same constraint on a different algorithm, and in this way we can make a comparison that is independent of particular input configurations.
                 </p>
                 <p>
                 With this approach we can make two useful examinations: first, how an algorithm type's efficiency changes as its input size grows, and second, how the efficiency of one algorithm type compares to the efficiency of another algorithm type. Take our example code above. In the first examination, we might observe what happens as the size of our input array grows arbitrarily large. At what rate will our number of operations grow? In the latter examination, we can compare the relative growth rates of two different types of algorithm (such as the one we've expressed above compared to a second, different pattern). But how do we describe these <em class="solarized_base1_lightened">growth rates</em>? We express them as discrete <em class="solarized_base1_lightened">Orders of Growth</em>: with <em class="solarized_base1_lightened">big</em> "O" notation (literally using a capital "O").
@@ -151,6 +149,12 @@
                  -->
                 <hr class="style_1">
 
+                <p>
+                Take a moment to read the info in the Growth Plot area to the right (below on mobile).
+                </p>
+
+                <hr class="style_1">
+
                 <div class="subhead">// Linear Growth
                   <button class="linearLog btn btn-plot-choice">
                     <span class="btn-addon">[</span>
@@ -160,19 +164,24 @@
                 </div>
                 <p class="waypoint growthDescription" id="linearLog">
                 <!-- In simple search, the max number of operations = size of input. -->
-                Ethical Kickstarter PBR asymmetrical lo-fi. Dreamcatcher street art Carles, stumptown gluten-free Kickstarter artisan Wes Anderson wolf pug. Godard sustainable you probably haven't heard of them.
+                Let's begin to illustrate this using our first algorithm from above, <span class="microlight">iterateArray</span>. This algorithm is an example of <em class="solarized_base1_lightened">linear search</em>. It's growth rate is <em class="solarized_base1_lightened">linear</em>. That is, <em class="solarized_base1_lightened">in the worst case</em>, the number of operations it must perform to return a solution grows at a rate directly proportional to the size of the input data (an array in our case). Take a look at the plotted linear growth rate for such an algorithm (for the moment, ignore the orange "log" plot).
                 </p>
                 <div class="row">
                   <div class="col-xs-10 col-xs-offset-1">
-                    <!-- Using white-space: pre here, so indents are weird.
-                    There must be a better way that preserves visual flow in html ?? -->
-                    <div class="microlight" contenteditable="true">for ( var i = 0; i&lt10; i++ ) {
-        // say hello
-        echo("hello");
+                    <div class="microlight" contenteditable="true">function iterateArray( inputArray, element ) {
+  for ( let i = 0; i < inputArray.length; i++ ) {
+    if ( inputArray[i] === element ) {
+      return true;
+    }
+  }
+  return false;
 }
                     </div>
                   </div>
                 </div>
+                <p>
+                [BEGIN LOREM IPSUM] Ethical Kickstarter PBR asymmetrical lo-fi. Dreamcatcher street art Carles, stumptown gluten-free Kickstarter artisan Wes Anderson wolf pug. Godard sustainable you probably haven't heard of them.
+                </p>
                 <p>
                 Vegan farm-to-table Williamsburg slow-carb readymade disrupt deep v. Meggings seitan Wes Anderson semiotics, cliche American Apparel whatever. Helvetica cray plaid, vegan brunch Banksy leggings +1 direct trade. Wayfarers codeply PBR selfies. Banh mi McSweeney's Shoreditch selfies, forage fingerstache food truck occupy YOLO Pitchfork fixie iPhone fanny pack art party Portland.
                 </p>
@@ -264,7 +273,9 @@
                 <div class="solarized_blue" id="plot-info">
                    Scroll down to view plotted comparisons of algorithm run times.
                    <!-- <br/> -->
-                   Change the input size above with the sliders, or by entering new numbers.
+                   On mobile, click the plot-type button labeled with the corresponding Big O notation.
+                   <!-- <br/> -->
+                   Try changing the input size above with the sliders, or by entering new numbers.
                    <hr class="style_2">
                    When you hover / touch the graph, these icons
                    <img src="../static/images/mpld3-icons.png" alt="graph icons: home, move, magnify">
