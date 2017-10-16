@@ -59,6 +59,7 @@ A learning project that presents descriptions of algorithm growth complexities a
 * Improve structure and readability of app.js [\]
 * Work on understanding debouncing & implement [x]
 * Add debounce() functionality to waypoint scrolling function [x]
+* Adjust waypoint trigger for div#plot-info when scrolling back up toward top
 * Get responsive resizing of graphs working correctly [x]
 * Improve fade transition times of graphs [x]
 * Tune graph size ratio to window size []
@@ -67,9 +68,11 @@ A learning project that presents descriptions of algorithm growth complexities a
 * Change #plot-text for small screens []
 * Add re-plot button to slider input []
 * For small screens and column wrapping: add plot-text user guidance for using plot buttons
+* For small screens and column wrapping: insert plots between <p>'s instead of at bottom
 * Fix MathJax font & button responsiveness [x]
 * Refactor app.js using Object Oriented principles []
 * Improve / re-design styling and layout [\]
+* Implement theme-switching like [Music For Programming](https://musicforprogramming.net/)
 * Fix footnote link offsets []
 * Finish writing content []
 * Learn to use Jinja Templates correctly (& how to  pages from correct directory) []
