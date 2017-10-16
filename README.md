@@ -55,11 +55,12 @@ A learning project that presents descriptions of algorithm growth complexities a
 
 #### TODO
 
-* Improve structure and readability of app.js []
+* FIXME: New issue with plot fade-in prior to plot update on Heroku
+* Improve structure and readability of app.js [\]
 * Work on understanding debouncing & implement [x]
 * Add debounce() functionality to waypoint scrolling function [x]
 * Get responsive resizing of graphs working correctly [x]
-* Improve fade transition times of graphs []
+* Improve fade transition times of graphs [x]
 * Tune graph size ratio to window size []
 * Figure out ScalarFormatter for Matplotlib (ax.ticklabel_format()) []
 * Correct affix behaviour at bottom of scroll (remove at appropriate location relative to #plot-space) []
