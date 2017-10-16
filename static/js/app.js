@@ -236,8 +236,6 @@
         dataType: "html"
       });
       getPlotSlide.done(function( data ) {
-        // insert <br/> for quadraticExponential?
-
         if ( $( "#plot-info" ).css("display") == "block" ) {
           $( "#plot-info" ).fadeTo( 100, 0, function() {
             $( "#plot-space" ).fadeTo( 100, 1, function() {
