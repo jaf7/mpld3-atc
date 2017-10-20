@@ -80,7 +80,7 @@
 
         /* 
         here, immediate argument flag has been passed
-        later() has been called by setTimeout, so timeout === false (line 67)
+        later() has been called by setTimeout, so timeout === false (line 68)
         therefore callNow === true
         so here, myfunction() is called on the leading edge of the wait time
         and later() will never call myfunction() if immediate === true
