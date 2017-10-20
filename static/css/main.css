@@ -123,12 +123,12 @@ p {
   line-height: 1.5;
   margin-bottom: 2rem;
 }
-/*which pseudoclass for clicked?*/
-a:visited, a:hover, a:active {
+/*which pseudoclass for clicked? (in order to remove text-decoration underline after click)*/
+a:hover, a:active {
   text-decoration: none;
   color: #B58900;
 }
-a.musicforprogramming:visited, a.musicforprogramming:hover, a.musicforprogramming:active {
+a.musicforprogramming:hover, a.musicforprogramming:active {
   text-decoration: none;
   color: #9CE22E;
 }
