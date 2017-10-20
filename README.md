@@ -35,7 +35,7 @@ A learning project that presents descriptions of algorithm growth complexities a
 ## Resources Used
 
 * [MIT 6.00.1x Intro to Computer Science and Programming Using Python](https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-9)
-* [Grokking Algorithms](https://www.manning.com/books/grokking-algorithms) Currently reading
+* [Grokking Algorithms](https://www.manning.com/books/grokking-algorithms) - Currently reading
 * [Computer Science Distilled](https://leanpub.com/computer-science-distilled) - Currently reading
 * [Eloquent JavaScript](eloquentjavascript.net) - Chaps 1-6, reviewing
 * [Dash](https://kapeli.com/dash) - API Documentation Browser: Incredibly useful piece of software
@@ -55,7 +55,7 @@ A learning project that presents descriptions of algorithm growth complexities a
 
 #### TODO
 
-- [ ] FIXME: New issue with plot fade-in prior to plot update on Heroku
+- [X] FIXME: New issue with plot fade-in prior to plot update on Heroku
 - [ ] Improve structure and readability of app.js
 - [X] Work on understanding debouncing & implement
 - [X] Add debounce() functionality to waypoint scrolling function
@@ -68,7 +68,7 @@ A learning project that presents descriptions of algorithm growth complexities a
 - [ ] Change #plot-text for small screens
 - [ ] Add re-plot button to slider input
 - [ ] For small screens and column wrapping: add plot-text user guidance for using plot buttons
-- [ ] For small screens and column wrapping: insert plots between <p>'s instead of at bottom
+- [ ] For small screens and column wrapping: insert plots between `<p>`'s instead of at bottom
 - [X] Fix MathJax font & button responsiveness
 - [ ] Refactor app.js using Object Oriented principles
 - [ ] Improve / re-design styling and layout
