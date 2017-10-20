@@ -72,20 +72,18 @@
                 <p>
                 Hello and welcome! This site is my first web development project and it functions as a kind of learning platform. After some uncertainty about how to make a start at actually <em class="solarized_base1_lightened">building</em> something, I decided to just let my interest guide me. For me this meant I wanted to review the fundamentals of algorithm <em class="solarized_base1_lightened">time complexity</em>. Since this subject matter lends itself to visualization (by plotting rates of change on a graph), I decided to attempt to present a few interactive plots, with accompanying brief discussion of what I'm learning about algorithms. As such, the effort to articulate these concepts clearly is an ongoing project in itself. I'm eager to build my understanding so feedback is welcome (contact info is in the footer).
                 </p>
-                <!-- <br/> -->
+
                 <p>
                 You can read a detailed <a href="{{ url_for('static', filename='html/overview.html') }}">overview</a> of my motivation and progress in building this site. I'm also compiling a list of helpful <a href="{{ url_for('static', filename='html/resources.html') }}">resources</a> for beginner / further study. You'll find the GitHub repository <a href="https://github.com/jaf7/mpld3-growth-complexity-demo">here</a> (the README contains additional info and my current TODO / FIXME list). This site's styling is inspired by the strikingly cool <a class="musicforprogramming" href="https://musicforprogramming.net/">Music For Programming</a> site by <a class="musicforprogramming" href="http://johndatadavies.info/">John Davies</a>. This is an ongoing learning experience, and it's perhaps as valuable for uncovering how <em class="solarized_base1_lightened">not</em> to do some things as for learning appropriate practices. I currently think that on balance, as a beginner, it's good to have a project where you can play around and throw things at the wall. It provides numerous opportunities for mistakes, backtracking, changing, and refining as you learn. And it's serious fun!
                 </p>
-                <!-- <br/> -->
 
                 <hr class="style_1">
-                <!-- <br/> -->
 
                 <div class="subhead">// What is an Algorithm?</div>
                 <p>
                 There's an interesting fact about problem solving: we tend not to solve the same problem over and over again. That is, we don't reformulate a solution to a problem every time we're confronted with it. A problem solution by its nature is something we can re-use. Of course we often refine solutions, or alter them to fit a particular case just so. But the structure--the pattern of a formulated solution--tends to remain stable in a significant way. Otherwise I'd offer that it's a different, alternative solution. And indeed, discerning the most appropriate solution to apply, out of the alternatives we can formulate, is a crucial skill in problem solving. With long and intentional practice, we can become amazingly adept at this skill of discerning application.
                 </p>
-                <!-- <br/> -->
+
                 <p>
                 An algorithm is an explicit way of expressing a solution by recasting it into a series of ordered, unambiguous steps that, given an input, produce a result. In a general sense, a <a href="https://iambaker.net/the-perfect-chocolate-cake/">recipe</a> for chocolate cake, or <a href="https://goo.gl/maps/EENUAFtoGqJ2">directions</a> to a museum in the city, or the <a href="http://www.thisoldtractor.com/projects_roy_smith_2013-03-19_inspect_and_prepare_the_crankcase.html">steps</a> to rebuild a motorcycle engine are all algorithms. And so are the steps in code that effect the ordering of a list, and the steps in code that effect a search for an item in that list.
                 </p>
@@ -93,20 +91,16 @@
                 <p>
                 Problems we encounter as developers can be highly complex. When we think of complexity, we intuitively relate this to the difficulty in solving a problem. Baking a cake might be less difficult, less complex, than rebuilding a motorcycle engine (perhaps depending on who's doing the work). In the face of complexity we're obliged to decompose problems into simpler sub-problems. As we do the work of decomposition, we can reach a point where we've articulated discrete units of work, (operations or steps) to be performed. In computation, when these steps lead from an input to a solution output, we've formulated an algorithm. And we are able to generalize this series of steps to apply to many variations of the original problem. But there are almost always multiple approaches to solving a problem. How do we decide what the most effective way is, given our constraints? For the sake of simplicity and to facilitate grasping the fundamental concepts, here we'll consider just one constraint: execution time or <em class="solarized_base1_lightened">running time</em>, which in computer science is referred to as <em class="solarized_base1_lightened">time complexity</em>.
                 </p>
-                <!-- <br/> -->
 
                 <hr class="style_1">
-                <!-- <br/> -->
 
                 <div class="subhead">// What is Time Complexity?</div>
                 <p>
                 Time complexity refers to how the running time of an algorithm grows as its input scales. It's a tool for analyzing how efficiently one class of algorithms will compute a solution, relative to other kinds of algorithms, and independent of their operating environment (how fast the processor is, or how the programming language is implemented, for example). This independence results in part from the fact that when analyzing time complexity, we consider not elapsed clock time, but instead the <em class="solarized_base1_lightened">number of operations performed</em> to reach a solution.<a class="footnote" id="footnote-1-ref" href="#footnote-1" aria-label="See footnote">[1]</a> (We'll examine another kind of "independence" momentarily). When we ask what the time complexity of an algorithm is, we are asking (in part) about the <em class="solarized_base1_lightened">rate of growth</em> of this number, as our input size increases. That is, how quickly does the number of operations performed increase as the size of the input increases? This rate of growth gives us something concrete to compare to other algorithm growth rates. And we do this comparison to understand the relative resource consumption of different kinds of algorithmic solutions. We are asking "what is the computational cost of this solution?" and we're producing a concrete, quantified answer.
                 </p>
                 <p class="footnote-ref" id="footnote-1">[1] In order to best lay a foundational understanding, we hold the time value of an "operation" constant here. That is, we assume that the amount of time it takes to perform any discrete operation is identical. <a href="#footnote-1-ref" aria-label="Return to text">&#8617;</a></p>
-                <!-- <br/> -->
 
                 <hr class="style_1">
-                <!-- <br/> -->
 
                 <div class="subhead">// What is Big O Notation?</div>
                 <p class="waypoint" id="what-is-big-o">
@@ -134,19 +128,7 @@
                 <p>
                 With this approach we can make two useful examinations: first, how an algorithm type's efficiency changes as its input size grows, and second, how the efficiency of one algorithm type compares to the efficiency of another algorithm type. Take our example code above. In the first examination, we might observe what happens as the size of our input array grows arbitrarily large. At what rate will our number of operations grow? In the latter examination, we can compare the relative growth rates of two different types of algorithm (such as the one we've expressed above compared to a second, different pattern). But how do we describe these <em class="solarized_base1_lightened">growth rates</em>? We express them as discrete <em class="solarized_base1_lightened">Orders of Growth</em>: with <em class="solarized_base1_lightened">big</em> "O" notation (literally using a capital "O").
                 </p>
-                <!--
-                Define Running Time: # operations performed
-                Define Growth Rate: How quickly does this *operations performed* value increase as input size increases?
 
-                In this demonstration I'm attempting to visualize and gain some preliminary, intuitive understanding of the relative efficiency of some common types of algorithms, given an identical environment with regard to memory and operations performed per unit of time. Thus the intent of these visualizations is to perceive the relative growth rates that these algorithms yield in terms of number of operations performed.
-
-                (And although it will be crucial to understand the suitability of a given algorithm pattern for processing different data structures, the appropriate first step is to artificially limit my scope to growth rates, and afterwards study their applications)
-
-                The rate of growth of running times:
-                The running times of different algorithms don't grow at the same rate. As the input size increases, what matters is the relative rate of growth in running time. In Big O notation, we abstract away from units of time elapsed in any particular instance.
-                We also limit consideration to how input size is related to number of operations performed.
-                In addition, it makes sense at the start to limit scope to *worst case* scenarios only. This way a parameter is established: a given operation will never run more slowly than it's analyzed Big O run time. This parameter is a base from which to define and understand how to implement "best case" or "average case" operations.
-                 -->
                 <hr class="style_1">
 
                 <p>
@@ -163,7 +145,6 @@
                   </button>
                 </div>
                 <p class="waypoint growthDescription" id="linearLog">
-                <!-- In simple search, the max number of operations = size of input. -->
                 Let's begin to illustrate this using our first algorithm from above, <span class="microlight">iterateArray</span>. This algorithm is an example of <em class="solarized_base1_lightened">linear search</em>. It's growth rate is <em class="solarized_base1_lightened">linear</em>. That is, <em class="solarized_base1_lightened">in the worst case</em>, the number of operations it must perform to return a solution grows at a rate directly proportional to the size of the input data (an array in our case). Take a look at the plotted linear growth rate for such an algorithm (for the moment, ignore the orange "log" plot).
                 </p>
                 <div class="row">
