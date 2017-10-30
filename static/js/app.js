@@ -1,6 +1,9 @@
 (function($, document, window, viewport) {
   $(document).ready(function() {
 
+     // store these nodes prior to overwrite in generatePlot()
+    var plotInfo = document.getElementById("plot-info").outerHTML;
+    var plotVideo = document.getElementById("plot-video").outerHTML;
     /*
       Arguments to pass to plot_growth() in routes.py
       (ajax data)
@@ -55,7 +58,7 @@
       https://davidwalsh.name/javascript-debounce-function.
       I'm rewriting it here to learn from the work-through & think-through.
     */
-    var timeout = null; // declare this outside debounce's scope, so we can do clearTimeout() inside the .waypoint() callback fn
+    var timeout = null; // declare timeout in outer scope, so we can do clearTimeout() inside the .waypoint() callback fn
     var debounce = function(myFunction, wait, immediate) {
       // var timeout;
 
@@ -99,27 +102,28 @@
         generatePlotWithDebounce();
       }
     });
+
+
     /*
-    On Scroll, call the debounced function generatePlotWithDebounce() to generate a plot
-    We are using the Waypoints lib: create waypoints for matched elements: http://imakewebthings.com/waypoints/guides/jquery-zepto/
+    Scrolling non-affixed body overwrites and sets opacity of #plot-space contents
+    Waypoints library: create waypoints for matched elements: http://imakewebthings.com/waypoints/guides/jquery-zepto/
     */ 
-    var plotInfo = document.getElementById("plot-info").outerHTML; // store this node prior to overwrite in generatePlot() at line 
     var scrollWaypoints = $( ".waypoint" ).waypoint(
       function( direction ) {
+        // FIXME: need to add padding-left to #quadratic-exponential plot (until ticklabels are fixed)
         if ( Waypoint.viewportWidth() >= 768 ) {
-          if ( this.element.id != "what-is-big-o" ) {
+
+          if ( this.element.id != "what-is-big-o" && this.element.id != "take-a-moment") { // both directions, trigger at all other waypoints
               plotData.compareType = this.element.id;
               generatePlotWithDebounce();
           }
-          else if ( direction == "up" ) {
+          else if ( direction == "up" ) { // only trigger for #what-is-big-o & #take-a-moment waypoints
             clearTimeout(timeout)
-            if ( $("#plot-space").css("display") == "block" ) {
-              $( "#plot-space" ).fadeTo( 300, 0, function() {
-                document.getElementById("plot-space").innerHTML = plotInfo;
-                $( "#plot-info" ).css( "opacity", "1" );
-                $( "#plot-space" ).fadeTo( 300, 1 );
-              });
-            }
+            $( "#plot-space" ).fadeTo( 300, 0, function() {
+              document.getElementById("plot-space").innerHTML = plotInfo; // FIXME: $("#plot-space").html() doesn't work correctly here
+              $( "#plot-info" ).css( "opacity", "1" );
+              $( "#plot-space" ).fadeTo( 300, 1 );
+            });
           }
         }
       }, { offset: "40%" });
@@ -147,8 +151,6 @@
       },
       format: wNumb({ decimals: 0 })
     });
-
-
     /*
        Bind the slider handle and input field values:
        *values* is always an array of strings. *handle* is 0 or 1 and
@@ -210,8 +212,6 @@
         $( ".btn-addon" ).removeClass( "focused" );
       }
     }, ".btn-plot-choice");
-
-
     /*
       Button click events: generate chosen plot. Filter descendant
       to restrict classList to the object that exists before all MathJax insertions.
@@ -224,6 +224,20 @@
       generatePlotWithDebounce();
     });
 
+
+    /*
+      Insert <video> element
+    */
+    $( "#demo-video" ).on('click', function() {
+      $( "#plot-space" ).fadeTo( 100, 0, function() {
+        document.getElementById( "plot-space" ).innerHTML = plotVideo; // FIXME: use jQuery here for consistency? element is always connected to DOM after re-factor of index.html
+        $( "#plot-video.container-fluid" ).css({
+          "display": "block",
+          "opacity": "1"
+        });
+        $( "#plot-space" ).fadeTo( 100, 1 );
+      });
+    });
 
     /*
       $.ajax() method wrapper: submit updated state to plot_growth() in routes.py
@@ -240,7 +254,7 @@
       getPlotSlide.done(function( data ) {
         if ( $( "#plot-info" ).css("display") == "block" ) {
           $( "#plot-info" ).fadeTo( 100, 0, function() {
-            $( "#plot-space" ).fadeTo( 100, 1, function() {
+            $( "#plot-space" ).fadeTo( 100, 1, function() { //not sure why this hierarchy/order works better than reverse (lines 262-3)
               $( "#plot-space" ).html( data ).fadeTo( 300, 1 );
             });
           });
