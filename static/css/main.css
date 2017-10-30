@@ -161,7 +161,9 @@ hr.style_2 {
   background-image: linear-gradient( to right, #073642, #93A1A1, #073642 );
 }
 .microlight {
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Anonymous Pro', monospace;
+  font-size: 1.7rem;
+  /*font-family: 'Inconsolata', monospace;*/
   /*font-family: monospace;*/
   white-space: pre;
   margin-bottom: 0.5rem;
@@ -184,7 +186,7 @@ hr.style_2 {
   color: #bdcccc;
 }
 
-/* Media queries for affixed content (range slider and plot)
+/* Media queries for affixed content (range slider and plot area)
 -------------------------------------------------- */
 @media only screen and (min-width: 320px) {
 /*  main.content-wrapper {
@@ -196,21 +198,27 @@ hr.style_2 {
   .affix {
     position: relative;
   }
+
+  svg.mpld3-figure {
+    margin: 0 9rem 0 8rem;
+}
 }
 @media only screen and (min-width: 768px) {
-/*  main.content-wrapper {
-    font-size: 1.6rem;
-  }*/
   div.col-sm-6.outer-col {
     padding-right: 60px;
+  }
+  .btn-plot-choice {
+    display: none;
   }
   .affix {
     position: fixed;
     right: .5em;
     top: 71px;
   }
-  .btn-plot-choice {
-    display: none;
+  svg.mpld3-figure {
+  float: right;
+  padding-left: 6rem;
+  margin: auto;
   }
 }
 
@@ -334,22 +342,24 @@ span#basic-addon4.input-group-addon {
 -------------------------------------------------- */
 .btn-plot-choice {
   border: 0;
-  /*padding-top: 28px;*/
   padding-left: 0;
   padding-right: 0;
   background: transparent;
-  color: inherit;
-  font-size: 0.9em;
+  color: #337ab7;
+  font-size: 1.8rem;
 }
 .btn-plot-choice:hover, .btn-plot-choice:focus {
-  color: #859900;
+  color: #B58900;
 }
-span.btn-addon {
-  color: #2AA198;
+/*span.btn-addon {
+  color: #337ab7;
+}
+span.btn-addon:hover, span.btn-addon:focus {
+  color: #B58900;
 }
 span.btn-addon.focused, span.btn-addon: {
   color: #859900;
-}
+}*/
 
 
 /* Plot Space
@@ -359,21 +369,46 @@ span.btn-addon.focused, span.btn-addon: {
   text-align: center;
 }
 #plot-info {
-  /*color: #268BD2;*/
   display: block;
   margin-top: 3rem;
-  border: 1px dashed #bdcccc;
-  padding: 130px 25px;
+  /*border: 1px dashed #bdcccc;*/
+  /*padding: 130px 25px;*/
+  padding: 10rem 3rem;
   font-size: 1.5rem;
   line-height: 3rem;
 }
-svg.mpld3-figure {
-  float: right;
-  padding-left: 6rem;
-  /*the below works to offset exponential growth plot*/
-  /*margin-top: -3rem;*/
-
+#plot-info, #plot-video {
+  /*display: block;*/
+  border: 1px dashed #bdcccc;
 }
+#plot-video.container-fluid {
+  display: none;
+}
+video {
+  /*display: none;*/
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+}
+.container-fluid video {
+  padding: 0 5rem;
+}
+#video-link {
+  text-align: center;
+}
+.btn-video {
+  border: 0;
+  padding-left: 0;
+  padding-right: 0;
+  background: transparent;
+  color: #337ab7;
+  font-size: 2rem;
+}
+.btn-video:hover, .btn-video:active {
+  text-decoration: none;
+  color: #B58900;
+}
+
 /* FOOTER (sticky footer using flexbox)
 -------------------------------------------------- */
 .site {
