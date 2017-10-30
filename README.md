@@ -56,18 +56,21 @@ A learning project that presents descriptions of algorithm growth complexities a
 #### TODO
 
 - [X] FIXME: New issue with plot fade-in prior to plot update on Heroku
-- [ ] Improve structure and readability of app.js
+- [ ] FIXME: Window resize draws plots when #plot-info should remain visible
+- [ ] Improve structure and readability of app.js (re-order)
 - [X] Work on understanding debouncing & implement
 - [X] Add debounce() functionality to waypoint scrolling function
-- [ ] Adjust waypoint trigger for div#plot-info when scrolling back up toward top
+- [X] Adjust waypoint trigger for div#plot-info when scrolling back up toward top
 - [X] Get responsive resizing of graphs working correctly
 - [X] Improve fade transition times of graphs
 - [ ] Tune graph size ratio to window size
-- [ ] Figure out ScalarFormatter for Matplotlib (ax.ticklabel_format())
-- [ ] Correct affix behaviour at bottom of scroll (remove at appropriate location relative to #plot-space)
+- [ ] Figure out ScalarFormatter for Matplotlib (ax.ticklabel_format()).
+(Label precision on #quadratic-exponential plot is too great, labels not completely visible and overlap left column from 768px - 1024px width)
+- [ ] Correct affix behaviour at bottom of scroll
+(remove at appropriate location relative to #plot-space)
 - [ ] Change #plot-text for small screens
 - [ ] Add re-plot button to slider input
-- [ ] For small screens and column wrapping: add plot-text user guidance for using plot buttons
+- [ ] On column wrap add plot-text user guidance for using plot buttons
 - [ ] For small screens and column wrapping: insert plots between `<p>`'s instead of at bottom
 - [X] Fix MathJax font & button responsiveness
 - [ ] Refactor app.js using Object Oriented principles
