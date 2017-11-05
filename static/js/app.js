@@ -228,16 +228,47 @@
     /*
       Insert <video> element
     */
-    $( "#demo-video" ).on('click', function() {
+    $( "#video-button" ).on('click', function() {
       $( "#plot-space" ).fadeTo( 100, 0, function() {
-        document.getElementById( "plot-space" ).innerHTML = plotVideo; // FIXME: use jQuery here for consistency? element is always connected to DOM after re-factor of index.html
+        this.innerHTML = plotVideo;
+
         $( "#plot-video.container-fluid" ).css({
           "display": "block",
           "opacity": "1"
         });
+
+        $( "#video-button-container" ).css({
+          "display": "none"
+        });
+        $( "#close-video-container" ).css({
+          "display": "block",
+          "opacity": "1",
+        });
+
         $( "#plot-space" ).fadeTo( 100, 1 );
       });
     });
+
+    $( "#close-video" ).on('click', function() {
+      $( "#plot-space" ).fadeTo( 100, 0, function() {
+        this.innerHTML = plotInfo;
+
+        $( "#close-video-container" ).css({
+          "display": "none"
+        });
+        $( "#video-button-container" ).css({
+          "display": "block",
+          "opacity": "1"
+        });
+
+        $( this ).fadeTo( 100, 1 );
+      })
+    })
+    /*
+    function toggleVideoButton() {
+
+    }
+    */
 
     /*
       $.ajax() method wrapper: submit updated state to plot_growth() in routes.py

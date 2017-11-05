@@ -242,7 +242,7 @@ console.log( newArray );
 
                 <div class="row">
                   <div class="col-xs-10 col-xs-offset-1">
-                    <div class="microlight" contenteditable="true">binarySearch( generateIntegerArray(100), 66);
+                    <div class="microlight" contenteditable="true">binarySearch( generateIntegerArray(100), 66 );
                     </div>
                   </div>
                 </div>
@@ -307,11 +307,10 @@ console.log( newArray );
             </div>
           </div> <!-- col-sm-6 (left column) -->
 
-          <div class="col-sm-6 outer-col" data-spy="affix">
-              <!-- <br/> -->
-              <!-- <h4>// Input Range</h4> -->
+          <div class="col-sm-6 outer-col" data-spy="affix"> <!-- Trying to create affix behavior without using Bootstrap Affix.js plugin -->
+
               <div class="subhead">// Input Range</div>
-              <!-- <br/> -->
+
               <div class="slider-wrapper">
                 <div class="noUi-extended" id="limit-slider"></div>
                 <!-- input fields -->
@@ -351,18 +350,20 @@ console.log( newArray );
                   the graph.
                 </div>
 
-                <div id="plot-video"  class="container-fluid">
+                <div id="plot-video"  class="container-fluid"> <!-- start as display:none -->
                   <video  controls muted="true" preload="auto" src="../static/video/move_zoom_home.mp4">
                     Sorry, your browser doesn't support embedded videos,
                     but don't worry, you can <a href="../static/video/move_zoom_home.mp4">download it</a>
                     and watch it with your favorite video player!
                   </video>
                 </div>
-              </div> <!-- plot-space, start with empty node -->
+              </div> <!-- plot-space -->
 
-              <div id="video-link">
-                <!-- <a href="" id="demo-video" >Demo video</a> -->
-                <button class="btn btn-video" id="demo-video">Click for Demo Video</button>
+              <div id="video-button-container">
+                <button class="btn btn-video" id="video-button">Click for Demo Video</button>
+              </div>
+              <div id="close-video-container">
+                <button class="btn btn-video" id="close-video">Close Video</button>
               </div>
 
           </div> <!-- col-sm-6 (right column) -->

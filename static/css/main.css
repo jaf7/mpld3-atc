@@ -393,7 +393,11 @@ video {
 .container-fluid video {
   padding: 0 5rem;
 }
-#video-link {
+#video-button-container {
+  text-align: center;
+}
+#close-video-container {
+  display: none;
   text-align: center;
 }
 .btn-video {
